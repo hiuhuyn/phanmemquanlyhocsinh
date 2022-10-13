@@ -89,7 +89,7 @@ public class FrameMonHoc extends JFrame {
 		contentPane.add(tf_tenMon);
 		tf_tenMon.setColumns(10);
 		
-		JButton btnLuu = new JButton("");
+		JButton btnLuu = new JButton("Lưu");
 		btnLuu.setIcon(new ImageIcon(FrameMonHoc.class.getResource("/view/image/success-icon.png")));
 		btnLuu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -100,10 +100,10 @@ public class FrameMonHoc extends JFrame {
 		btnLuu.setBackground(new Color(192, 192, 192));
 		btnLuu.setForeground(new Color(30, 144, 255));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLuu.setBounds(21, 150, 113, 39);
+		btnLuu.setBounds(10, 150, 113, 39);
 		contentPane.add(btnLuu);
 		
-		JButton btnXoa = new JButton("");
+		JButton btnXoa = new JButton("Xóa");
 		btnXoa.setIcon(new ImageIcon(FrameMonHoc.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

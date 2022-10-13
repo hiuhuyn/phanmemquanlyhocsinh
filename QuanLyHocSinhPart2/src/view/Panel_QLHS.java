@@ -29,7 +29,7 @@ import javax.swing.table.DefaultTableModel;
 import CSDL_sqlSv.HocSinhDAO;
 import CSDL_sqlSv.LopDAO;
 
-import controller.Listener_ViewTrangChu;
+
 import model.HocSinh;
 import model.Lop;
 
@@ -209,7 +209,7 @@ public class Panel_QLHS extends JPanel {
 		lblNewLabel_1_2.setBounds(767, 101, 73, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2);
 		
-		JButton btn_Luu = new JButton("");
+		JButton btn_Luu = new JButton("Lưu");
 		btn_Luu.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/success-icon.png")));
 
 		btn_Luu.addActionListener(new ActionListener() {
@@ -226,7 +226,7 @@ public class Panel_QLHS extends JPanel {
 		btn_Luu.setBounds(1167, 26, 100, 40);
 		panel_thongTinHs.add(btn_Luu);
 		
-		JButton btn_xoa = new JButton("");
+		JButton btn_xoa = new JButton("Xóa");
 		btn_xoa.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/Close-2-icon.png")));
 		btn_xoa.addActionListener(new ActionListener() {
 			
@@ -249,7 +249,7 @@ public class Panel_QLHS extends JPanel {
 		tf_diaChi.setBounds(173, 142, 263, 30);
 		panel_thongTinHs.add(tf_diaChi);
 		
-		JButton btn_reset = new JButton("");
+		JButton btn_reset = new JButton("Reset");
 		btn_reset.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/clear-icon.png")));
 		btn_reset.setForeground(new Color(0, 0, 0));
 		btn_reset.addActionListener(new ActionListener() {

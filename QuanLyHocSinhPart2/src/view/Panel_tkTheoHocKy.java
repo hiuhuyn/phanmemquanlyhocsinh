@@ -44,7 +44,7 @@ import CSDL_sqlSv.HocSinhDAO;
 
 import CSDL_sqlSv.LopDAO;
 import CSDL_sqlSv.MonHocDAO;
-import controller.Listener_ViewTrangChu;
+
 import model.DiemMon;
 import model.HocKy;
 import model.HocSinh;
@@ -413,7 +413,7 @@ public class Panel_tkTheoHocKy extends JPanel {
 		
 	}
 
-	private static XSSFCellStyle createStyleForTitle(XSSFWorkbook workbook) {
+	private XSSFCellStyle createStyleForTitle(XSSFWorkbook workbook) {
         XSSFFont font = workbook.createFont();
         font.setBold(true);
         XSSFCellStyle style = workbook.createCellStyle();

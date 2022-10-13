@@ -17,6 +17,31 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 	@Override
 	public int insert(TaiKhoan t) {
 		// TODO Auto-generated method stub
+		
+		try {
+			
+			Connection connection = JDBCUtil.getConnection();
+			String sql = "insert into TaiKhoan( UserName, Pass, Hoten, Sdt, Email, Quyen ) "
+					+ " values( ?, ?, ?, ?, ?, ? )";
+			PreparedStatement psm = connection.prepareStatement(sql);
+			psm.setString(1, t.getUser());
+			psm.setString(2, t.getPass());
+			psm.setNString(3, t.getHoten());
+			psm.setString(4, t.getSdt());
+			psm.setString(5, t.getEmail());
+			psm.setString(6, t.getQuyenTruyCap());
+			
+			int kq = psm.executeUpdate();
+			
+			JDBCUtil.closeConnection(connection);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Loi insert Taikhoan");
+			
+		}
+		
+		
 		return 0;
 	}
 
@@ -26,14 +51,16 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 		Connection connection = null;
 		try {
 			connection =JDBCUtil.getConnection();
-			String sql = "update TaiKhoan set Pass = ?, Hoten = ?, Sdt = ?, Email = ? where UserName = ?";
+			String sql = "update TaiKhoan set Pass = ?, Hoten = ?, Sdt = ?, Email = ?, Quyen = ?  where UserName = ?";
 			
 			PreparedStatement psm = connection.prepareStatement(sql);
 			psm.setString(1, t.getPass());
 			psm.setNString(2, t.getHoten());
 			psm.setString(3, t.getSdt());
 			psm.setString(4, t.getEmail());
-			psm.setString(5, t.getUser());
+			psm.setString(5, t.getQuyenTruyCap());
+			psm.setString(6, t.getUser());
+			
 			
 			int kq = psm.executeUpdate();
 			JDBCUtil.closeConnection(connection);
@@ -41,6 +68,7 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("Lỗi update tai khoan");
 		}
 		
 		
@@ -73,7 +101,38 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 	@Override
 	public ArrayList<TaiKhoan> selectAll() {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<TaiKhoan> taiKhoans = new ArrayList<TaiKhoan>();
+		try {
+			Connection connection = JDBCUtil.getConnection();
+			String sql = "select * from TaiKhoan";
+			
+			PreparedStatement psm = connection.prepareStatement(sql);
+			ResultSet resultSet = psm.executeQuery();
+			
+			while(resultSet.next()) {
+				String user = resultSet.getString("UserName");
+				String pass = resultSet.getString("Pass");
+				String hoten = resultSet.getNString("Hoten");
+				String sdt = resultSet.getString("SDT");
+				String email = resultSet.getString("Email");
+				String quyen = resultSet.getString("Quyen");
+				
+				TaiKhoan taiKhoan = new TaiKhoan(user, pass, hoten, sdt, email, quyen);
+				taiKhoans.add(taiKhoan);
+				
+				
+			}
+			
+			JDBCUtil.closeConnection(connection);
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Loi taikhoanDao phuong thuc selectAll");
+		}
+		
+		
+		return taiKhoans;
 	}
 
 	@Override
@@ -94,10 +153,14 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 				String hoten = rSet.getNString("Hoten");
 				String sdt = rSet.getString("Sdt");
 				String email = rSet.getString("Email");
+				String quyen = rSet.getString("Quyen");
 				
-				taiKhoan = new TaiKhoan(user, pass, hoten, sdt, email);
+				taiKhoan = new TaiKhoan(user, pass, hoten, sdt, email, quyen);
 
 			}
+			
+			JDBCUtil.closeConnection(connection);
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -107,7 +170,43 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 	@Override
 	public ArrayList<TaiKhoan> selectByCondition(String condition) {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<TaiKhoan> taiKhoans = new ArrayList<TaiKhoan>();
+		try {
+			Connection connection = JDBCUtil.getConnection();
+			String sql = "select * from TaiKhoan where " + condition;
+			
+			PreparedStatement psm = connection.prepareStatement(sql);
+			
+			
+			ResultSet resultSet = psm.executeQuery();
+			
+			while(resultSet.next()) {
+				String user = resultSet.getString("UserName");
+				String pass = resultSet.getString("Pass");
+				String hoten = resultSet.getNString("Hoten");
+				String sdt = resultSet.getString("SDT");
+				String email = resultSet.getString("Email");
+				String quyen = resultSet.getString("Quyen");
+				
+				TaiKhoan taiKhoan = new TaiKhoan(user, pass, hoten, sdt, email, quyen);
+				taiKhoans.add(taiKhoan);
+				
+				
+			}
+			
+			JDBCUtil.closeConnection(connection);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Loi taikhoanDao phuong thuc selectBy");
+		}
+		
+		
+		return taiKhoans;
 	}
+	
+	
+	
+	
 
 }

@@ -57,7 +57,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Mã lớp");
-		lblNewLabel_1_2.setBounds(969, 83, 62, 30);
+		lblNewLabel_1_2.setBounds(1042, 92, 62, 30);
 		add(lblNewLabel_1_2);
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
@@ -75,7 +75,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 		});
 		btn_Tim.setForeground(new Color(0, 0, 0));
 		btn_Tim.setBackground(Color.WHITE);
-		btn_Tim.setBounds(1235, 76, 112, 45);
+		btn_Tim.setBounds(1308, 85, 112, 45);
 		add(btn_Tim);
 		
 		btn_Tim.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -86,7 +86,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 		for (Lop lop : lops) {
 			comboBox_tenlop.addItem(lop.getMaLop());
 		}
-		comboBox_tenlop.setBounds(1041, 85, 160, 30);
+		comboBox_tenlop.setBounds(1114, 94, 160, 30);
 		add(comboBox_tenlop);
 		
 		JLabel label = new JLabel("");

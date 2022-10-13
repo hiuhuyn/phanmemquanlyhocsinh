@@ -2,15 +2,18 @@ package view;
 
 
 import java.awt.*;
-
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
+import CSDL_sqlSv.TaiKhoanDAO;
+import model.TaiKhoan;
 
-import controller.Listener_ViewTrangChu;
+
+
 
 
 public class ViewTrangChu extends JFrame {
@@ -30,10 +33,16 @@ public class ViewTrangChu extends JFrame {
 	
 	private JF_TTTaiKhoan ttTaiKhoan;
 	private JF_DoiPass doiPass;
+	private JF_QuanLyUser qLyUser;
+	private JMenu mnAdmin;
 	
 	
 	
 	
+	public JF_QuanLyUser getqLyUser() {
+		return qLyUser = new JF_QuanLyUser();
+	}
+
 	public JF_TTTaiKhoan getTtTaiKhoan() {
 		return ttTaiKhoan = new JF_TTTaiKhoan() ;
 	}
@@ -81,6 +90,7 @@ public class ViewTrangChu extends JFrame {
 	public HuongDan getJframeHuongDan() {
 		return jframeHuongDan = new HuongDan();
 	}
+	
 
 	
 	
@@ -97,8 +107,6 @@ public class ViewTrangChu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		Listener_ViewTrangChu listener_ViewTrangChu = new Listener_ViewTrangChu(this);
-		
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(new Color(255, 255, 255));
@@ -111,12 +119,26 @@ public class ViewTrangChu extends JFrame {
 		
 		JMenuItem item_ttTK = new JMenuItem("Thông tin tài khoản");
 		item_ttTK.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/user-id-icon.png")));
-		item_ttTK.addActionListener(listener_ViewTrangChu);
+		item_ttTK.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				getTtTaiKhoan().setVisible(true);
+			}
+		});
 		mnQLTK.add(item_ttTK);
 		
 		JMenuItem item_doiPass = new JMenuItem("Đổi mật khẩu");
 		item_doiPass.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Security-Password-1-icon (1).png")));
-		item_doiPass.addActionListener(listener_ViewTrangChu);
+		item_doiPass.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				getDoiPass().setVisible(true);
+			}
+		});
 		mnQLTK.add(item_doiPass);
 		
 		JMenu mnQLHS = new JMenu("Quản lý học sinh");
@@ -125,7 +147,17 @@ public class ViewTrangChu extends JFrame {
 		
 		JMenuItem item_hoSoHS = new JMenuItem("Hồ sơ học sinh");
 		item_hoSoHS.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/cv-icon.png")));
-		item_hoSoHS.addActionListener(listener_ViewTrangChu);
+		item_hoSoHS.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_QLHS());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
 		mnQLHS.add(item_hoSoHS);
 		
 		JMenu mnQLL = new JMenu("Quản lý lớp");
@@ -134,12 +166,32 @@ public class ViewTrangChu extends JFrame {
 		
 		JMenuItem item_DSLop = new JMenuItem("Danh sách các lớp");
 		item_DSLop.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Bulleted-List-icon.png")));
-		item_DSLop.addActionListener(listener_ViewTrangChu);
+		item_DSLop.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_QLDSLop());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
 		mnQLL.add(item_DSLop);
 		
 		JMenuItem item_DS_HS_LOP = new JMenuItem("Danh sách học sinh theo lớp");
 		item_DS_HS_LOP.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Apps-preferences-contact-list-icon.png")));
-		item_DS_HS_LOP.addActionListener(listener_ViewTrangChu);
+		item_DS_HS_LOP.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_DSHocSinhTheoLop());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
 		mnQLL.add(item_DS_HS_LOP);
 		
 		JMenu mnQunLim = new JMenu("Quản lý điểm");
@@ -148,7 +200,17 @@ public class ViewTrangChu extends JFrame {
 		
 		JMenuItem item_BangDiemMon = new JMenuItem("Bảng điểm môn");
 		item_BangDiemMon.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Database-Table-icon.png")));
-		item_BangDiemMon.addActionListener(listener_ViewTrangChu);
+		item_BangDiemMon.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_BangDiem());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
 		mnQunLim.add(item_BangDiemMon);
 		
 		JMenu mnBoCo = new JMenu("Thống kê");
@@ -157,21 +219,47 @@ public class ViewTrangChu extends JFrame {
 		
 		JMenuItem item_BCTK = new JMenuItem("Thống kê theo lớp");
 		item_BCTK.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Very-Basic-Filter-icon.png")));
-		item_BCTK.addActionListener(listener_ViewTrangChu);
+		item_BCTK.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_BaoCaoTk());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
 		mnBoCo.add(item_BCTK);
 		
 		JMenu mnQuynh = new JMenu("Quy định");
 		mnQuynh.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		menuBar.add(mnQuynh);
 		
-		JMenuItem item_monHoc = new JMenuItem("Môn học");
+		JMenuItem item_monHoc = new JMenuItem("Quản lý môn học");
 		item_monHoc.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Books-icon.png")));
-		item_monHoc.addActionListener(listener_ViewTrangChu);
+		item_monHoc.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				getFrameMonHoc().setVisible(true);
+			}
+		});
 		mnQuynh.add(item_monHoc);
 		
-		JMenuItem item_hocKy = new JMenuItem("Học kỳ");
+		JMenuItem item_hocKy = new JMenuItem("Quản lý học kỳ");
 		item_hocKy.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/calendar-selection-month-icon.png")));
-		item_hocKy.addActionListener(listener_ViewTrangChu);
+		item_hocKy.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				getFrameHocKy().setVisible(true);
+				
+			}
+		});
 		mnQuynh.add(item_hocKy);
 		
 		JMenu mnhelp = new JMenu("Help");
@@ -181,13 +269,48 @@ public class ViewTrangChu extends JFrame {
 		JMenuItem item_huongDan = new JMenuItem("Hướng dẫn");
 		item_huongDan.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/info_button_16.png")));
 		item_huongDan.setSelected(true);
-		item_huongDan.addActionListener(listener_ViewTrangChu);
+		item_huongDan.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				getJframeHuongDan().setVisible(true);
+			}
+		});
 		mnhelp.add(item_huongDan);
 		
 		JMenuItem item_lienHe = new JMenuItem("Liên hệ");
 		item_lienHe.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/customer-service-icon (1).png")));
-		item_lienHe.addActionListener(listener_ViewTrangChu);
+		item_lienHe.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				LienHe();
+			}
+		});
 		mnhelp.add(item_lienHe);
+		
+		mnAdmin = new JMenu("Admin");
+		mnAdmin.setEnabled(kiemTraDangNhap());
+		mnAdmin.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		menuBar.add(mnAdmin);
+		
+		JMenuItem item_qlTKuser = new JMenuItem("Quản lý tài khoản người dùng");
+		item_qlTKuser.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		mnAdmin.add(item_qlTKuser);
+		
+		
+		item_qlTKuser.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				getqLyUser().setVisible(true);
+				
+			}
+		});
 		
 		
 
@@ -206,6 +329,18 @@ public class ViewTrangChu extends JFrame {
 		
 		
 		
+	}
+	
+	
+	public boolean kiemTraDangNhap() {
+		TaiKhoan taiKhoan = new TaiKhoan(ViewLogin.User, ViewLogin.Pass);
+		TaiKhoan taiKhoan2 = TaiKhoanDAO.getTaiKhoanDAO().selectById(taiKhoan);
+		System.out.println(taiKhoan2.toString());
+		
+		if( taiKhoan2.getQuyenTruyCap().trim().equals("Admin") ) {
+			return true;
+		}
+		return false;
 	}
 	
 	public void setImgae(JLabel label) {

@@ -30,6 +30,7 @@ public class JF_TTTaiKhoan extends JFrame {
 	private JTextField tf_sdt;
 	private JTextField tf_email;
 	private JLabel label_User;
+	private JLabel label_Quyen;
 
 
 	/**
@@ -38,7 +39,7 @@ public class JF_TTTaiKhoan extends JFrame {
 	public JF_TTTaiKhoan() {
 		setTitle("Tài khoản");
 
-		setBounds(100, 100, 468, 381);
+		setBounds(100, 100, 468, 438);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,7 +71,7 @@ public class JF_TTTaiKhoan extends JFrame {
 		});
 		btnUpdate.setBackground(new Color(30, 144, 255));
 		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnUpdate.setBounds(45, 279, 154, 43);
+		btnUpdate.setBounds(46, 345, 154, 43);
 		contentPane.add(btnUpdate);
 		
 		JButton btnXoa = new JButton("Xóa");
@@ -82,7 +83,7 @@ public class JF_TTTaiKhoan extends JFrame {
 		});
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnXoa.setBackground(new Color(30, 144, 255));
-		btnXoa.setBounds(232, 279, 154, 43);
+		btnXoa.setBounds(233, 345, 154, 43);
 		contentPane.add(btnXoa);
 		
 		tf_hoten = new JTextField();
@@ -122,6 +123,18 @@ public class JF_TTTaiKhoan extends JFrame {
 		label_User.setFont(new Font("Tahoma", Font.BOLD, 14));
 		label_User.setBounds(170, 89, 217, 30);
 		contentPane.add(label_User);
+		
+		JLabel lblNewLabel_1_1_1_2_1 = new JLabel("Quyen");
+		lblNewLabel_1_1_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_1_1_1_2_1.setBounds(45, 253, 116, 30);
+		contentPane.add(lblNewLabel_1_1_1_2_1);
+		
+		label_Quyen = new JLabel("");
+		label_Quyen.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_Quyen.setBounds(170, 253, 217, 30);
+		
+		
+		contentPane.add(label_Quyen);
 		
 		setLogo();
 		HienThiTT();
@@ -163,6 +176,7 @@ public class JF_TTTaiKhoan extends JFrame {
 		tf_hoten.setText(taiKhoan.getHoten().trim());
 		tf_sdt.setText(taiKhoan.getSdt().trim());
 		tf_email.setText(taiKhoan.getEmail().trim());
+		label_Quyen.setText(taiKhoan.getQuyenTruyCap());
 		
 	}
 	
@@ -186,12 +200,4 @@ public class JF_TTTaiKhoan extends JFrame {
 			JOptionPane.showMessageDialog(this, "Cập nhật không thành công");
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }

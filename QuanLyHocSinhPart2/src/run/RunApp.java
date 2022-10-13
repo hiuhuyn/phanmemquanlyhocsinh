@@ -1,4 +1,4 @@
-package test;
+package run;
 
 import javax.swing.UIManager;
 
@@ -10,22 +10,14 @@ import view.ViewTrangChu;
  * @author minhq
  *
  */
-public class TestMain {
+public class RunApp {
 	
 	public static void main(String[] args) {
-		try {
-			
-			
+		try {			
 			
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-			
-//			ViewTrangChu viewTrangChu = new ViewTrangChu();
-//			viewTrangChu.setVisible(true);
-
 			ViewLogin.getViewLogin().setVisible(true);
 
-
-			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

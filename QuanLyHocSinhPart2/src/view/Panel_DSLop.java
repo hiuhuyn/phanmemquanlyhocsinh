@@ -52,29 +52,29 @@ public class Panel_DSLop extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("Danh sách lớp học");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblNewLabel.setBounds(610, 37, 292, 69);
+		lblNewLabel.setBounds(629, 30, 292, 69);
 		add(lblNewLabel);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(0, 191, 255));
 		panel_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel_1.setBounds(10, 141, 371, 578);
+		panel_1.setBounds(10, 141, 1410, 115);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tên lớp");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(10, 210, 62, 30);
+		lblNewLabel_1.setBounds(438, 45, 62, 30);
 		panel_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Sĩ số");
 		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(10, 267, 48, 30);
+		lblNewLabel_1_1.setBounds(716, 45, 48, 30);
 		panel_1.add(lblNewLabel_1_1);
 		
-		JButton btn_tao_capNhat = new JButton("");
+		JButton btn_tao_capNhat = new JButton("Lưu");
 		btn_tao_capNhat.setIcon(new ImageIcon(Panel_DSLop.class.getResource("/view/image/success-icon.png")));
 		btn_tao_capNhat.addActionListener(new ActionListener() {
 			
@@ -88,10 +88,10 @@ public class Panel_DSLop extends JPanel {
 		btn_tao_capNhat.setForeground(new Color(0, 0, 0));
 		btn_tao_capNhat.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btn_tao_capNhat.setBackground(new Color(211, 211, 211));
-		btn_tao_capNhat.setBounds(232, 200, 121, 40);
+		btn_tao_capNhat.setBounds(1113, 41, 121, 40);
 		panel_1.add(btn_tao_capNhat);
 		
-		JButton btnXoa_lop = new JButton("");
+		JButton btnXoa_lop = new JButton("Xóa");
 		btnXoa_lop.setIcon(new ImageIcon(Panel_DSLop.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa_lop.addActionListener(new ActionListener() {
 			
@@ -105,38 +105,32 @@ public class Panel_DSLop extends JPanel {
 		btnXoa_lop.setBackground(new Color(211, 211, 211));
 		btnXoa_lop.setForeground(new Color(0, 0, 0));
 		btnXoa_lop.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnXoa_lop.setBounds(232, 257, 121, 40);
+		btnXoa_lop.setBounds(1279, 41, 121, 40);
 		panel_1.add(btnXoa_lop);
 		
 		tf_TenLopTao = new JTextField();
 		tf_TenLopTao.setForeground(new Color(0, 0, 0));
-		tf_TenLopTao.setBounds(68, 210, 140, 30);
+		tf_TenLopTao.setBounds(496, 45, 140, 30);
 		panel_1.add(tf_TenLopTao);
 		tf_TenLopTao.setColumns(10);
 		
 		tf_SiSo = new JTextField();
 		tf_SiSo.setForeground(new Color(0, 0, 0));
 		tf_SiSo.setColumns(10);
-		tf_SiSo.setBounds(68, 267, 140, 30);
+		tf_SiSo.setBounds(774, 45, 140, 30);
 		panel_1.add(tf_SiSo);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Mã lớp");
 		lblNewLabel_1_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2.setBounds(10, 147, 62, 30);
+		lblNewLabel_1_2.setBounds(169, 45, 62, 30);
 		panel_1.add(lblNewLabel_1_2);
 		
 		tf_maLop = new JTextField();
 		tf_maLop.setForeground(new Color(0, 0, 0));
 		tf_maLop.setColumns(10);
-		tf_maLop.setBounds(68, 147, 140, 30);
+		tf_maLop.setBounds(227, 45, 140, 30);
 		panel_1.add(tf_maLop);
-		
-		JLabel lblToLp = new JLabel("Thông tin lớp");
-		lblToLp.setForeground(new Color(255, 255, 255));
-		lblToLp.setFont(new Font("Tahoma", Font.BOLD, 19));
-		lblToLp.setBounds(147, 26, 157, 46);
-		panel_1.add(lblToLp);
 		
 		JButton btn_timLop = new JButton("");
 		btn_timLop.addActionListener(new ActionListener() {
@@ -153,7 +147,7 @@ public class Panel_DSLop extends JPanel {
 		btn_timLop.setForeground(new Color(0, 0, 0));
 		btn_timLop.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btn_timLop.setBackground(new Color(211, 211, 211));
-		btn_timLop.setBounds(232, 137, 121, 40);
+		btn_timLop.setBounds(89, 35, 62, 40);
 		panel_1.add(btn_timLop);
 		JLabel label = new JLabel("");
 		label.setBounds(10, 15, 140, 115);
@@ -200,7 +194,7 @@ public class Panel_DSLop extends JPanel {
 		table_dsLop.setRowHeight(30);
 		
 		JScrollPane src = new JScrollPane();
-		src.setBounds(391, 141, 1029, 578);
+		src.setBounds(10, 285, 1410, 434);
 		src.setViewportView(table_dsLop);
 		
 		scrollPane = src;

@@ -121,7 +121,7 @@ public class FrameHocKy extends JFrame {
 		tf_namKetThuc.setBounds(124, 199, 208, 30);
 		contentPane.add(tf_namKetThuc);
 		
-		JButton btnLuu = new JButton("");
+		JButton btnLuu = new JButton("Lưu");
 		btnLuu.setIcon(new ImageIcon(FrameHocKy.class.getResource("/view/image/success-icon.png")));
 		btnLuu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,10 +131,10 @@ public class FrameHocKy extends JFrame {
 		});
 		btnLuu.setForeground(new Color(0, 0, 0));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLuu.setBounds(109, 286, 105, 35);
+		btnLuu.setBounds(10, 286, 105, 35);
 		contentPane.add(btnLuu);
 		
-		JButton btnXoa = new JButton("");
+		JButton btnXoa = new JButton("Xóa");
 		btnXoa.setIcon(new ImageIcon(FrameHocKy.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
