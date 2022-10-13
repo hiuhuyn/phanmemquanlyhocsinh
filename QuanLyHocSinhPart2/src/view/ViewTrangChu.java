@@ -232,11 +232,13 @@ public class ViewTrangChu extends JFrame {
 		});
 		mnBoCo.add(item_BCTK);
 		
-		JMenu mnQuynh = new JMenu("Quy định");
-		mnQuynh.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		menuBar.add(mnQuynh);
+		mnAdmin = new JMenu("Admin");
+		mnAdmin.setEnabled(kiemTraDangNhap());
+		mnAdmin.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		menuBar.add(mnAdmin);
 		
 		JMenuItem item_monHoc = new JMenuItem("Quản lý môn học");
+		mnAdmin.add(item_monHoc);
 		item_monHoc.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Books-icon.png")));
 		item_monHoc.addActionListener(new ActionListener() {
 			
@@ -246,9 +248,9 @@ public class ViewTrangChu extends JFrame {
 				getFrameMonHoc().setVisible(true);
 			}
 		});
-		mnQuynh.add(item_monHoc);
 		
 		JMenuItem item_hocKy = new JMenuItem("Quản lý học kỳ");
+		mnAdmin.add(item_hocKy);
 		item_hocKy.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/calendar-selection-month-icon.png")));
 		item_hocKy.addActionListener(new ActionListener() {
 			
@@ -260,7 +262,10 @@ public class ViewTrangChu extends JFrame {
 				
 			}
 		});
-		mnQuynh.add(item_hocKy);
+		
+		JMenuItem item_qlTKuser = new JMenuItem("Quản lý tài khoản người dùng");
+		item_qlTKuser.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnAdmin.add(item_qlTKuser);
 		
 		JMenu mnhelp = new JMenu("Help");
 		mnhelp.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -290,15 +295,6 @@ public class ViewTrangChu extends JFrame {
 			}
 		});
 		mnhelp.add(item_lienHe);
-		
-		mnAdmin = new JMenu("Admin");
-		mnAdmin.setEnabled(kiemTraDangNhap());
-		mnAdmin.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		menuBar.add(mnAdmin);
-		
-		JMenuItem item_qlTKuser = new JMenuItem("Quản lý tài khoản người dùng");
-		item_qlTKuser.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		mnAdmin.add(item_qlTKuser);
 		
 		
 		item_qlTKuser.addActionListener(new ActionListener() {
