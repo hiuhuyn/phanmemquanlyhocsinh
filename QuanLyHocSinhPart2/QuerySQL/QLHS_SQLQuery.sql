@@ -17,7 +17,7 @@ create table TaiKhoan(
 );
 go
 insert into TaiKhoan(UserName, Pass, Hoten, Sdt, Email, Quyen)
-values ( 'HiuHiu', '1234' , N'Nguyễn Minh Quân' ,'0928392222', 'minh@gmail.com', 'admin');
+values ( 'HiuHiu', '1234' , N'Nguyễn Minh Quân' ,'0928392222', 'minh@gmail.com', 'Admin');
 
 select * from TaiKhoan;
 

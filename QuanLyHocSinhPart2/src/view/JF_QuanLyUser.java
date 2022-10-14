@@ -47,7 +47,7 @@ public class JF_QuanLyUser extends JFrame {
 	
 	public JF_QuanLyUser() {
 		setForeground(new Color(255, 255, 255));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(JF_QuanLyUser.class.getResource("/view/logoTHCS ChoChu.jpg")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JF_QuanLyUser.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		setTitle("Quản lý tài khoản người dùng");
 		
 		setBounds(100, 100, 1352, 692);
@@ -190,12 +190,7 @@ public class JF_QuanLyUser extends JFrame {
 		
 		
 		contentPane.add(btnTimKiem);
-		
-		
-		
-		
-		
-		
+
 		taoJSC();
 		hienThiAll();
 		
