@@ -32,6 +32,7 @@ import CSDL_sqlSv.LopDAO;
 
 import model.HocSinh;
 import model.Lop;
+import model.XuatFileExcel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -317,6 +318,19 @@ public class Panel_QLHS extends JPanel {
 		comboBox_gioiTinh.setModel(new DefaultComboBoxModel(new String[] {"", "Nam", "Nữ"}));
 		comboBox_gioiTinh.setBounds(861, 101, 230, 30);
 		panel_thongTinHs.add(comboBox_gioiTinh);
+		
+		JButton btnXuatExcel = new JButton("Xuất excel");
+		btnXuatExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XuatFileExcel.exportExcel(table);
+			}
+		});
+		btnXuatExcel.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setForeground(Color.BLACK);
+		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXuatExcel.setBackground(new Color(245, 245, 245));
+		btnXuatExcel.setBounds(1005, 227, 165, 38);
+		panel_thongTinHs.add(btnXuatExcel);
 		
 		JLabel lblDanhSchHc = new JLabel("Danh sách học sinh");
 		lblDanhSchHc.setFont(new Font("Tahoma", Font.BOLD, 18));

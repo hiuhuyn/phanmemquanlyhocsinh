@@ -25,6 +25,7 @@ import CSDL_sqlSv.LopDAO;
 import model.HocSinh;
 
 import model.Lop;
+import model.XuatFileExcel;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -59,7 +60,7 @@ public class Panel_DSLop extends JPanel {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel_1.setBounds(10, 91, 629, 134);
+		panel_1.setBounds(10, 91, 1180, 134);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -89,7 +90,7 @@ public class Panel_DSLop extends JPanel {
 		btn_tao_capNhat.setForeground(new Color(0, 0, 0));
 		btn_tao_capNhat.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btn_tao_capNhat.setBackground(new Color(211, 211, 211));
-		btn_tao_capNhat.setBounds(498, 11, 121, 49);
+		btn_tao_capNhat.setBounds(498, 11, 158, 49);
 		panel_1.add(btn_tao_capNhat);
 		
 		JButton btnXoa_lop = new JButton("Xóa");
@@ -106,7 +107,7 @@ public class Panel_DSLop extends JPanel {
 		btnXoa_lop.setBackground(new Color(211, 211, 211));
 		btnXoa_lop.setForeground(new Color(0, 0, 0));
 		btnXoa_lop.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnXoa_lop.setBounds(498, 74, 121, 49);
+		btnXoa_lop.setBounds(726, 11, 121, 49);
 		panel_1.add(btnXoa_lop);
 		
 		tf_TenLopTao = new JTextField();
@@ -151,6 +152,17 @@ public class Panel_DSLop extends JPanel {
 		btn_timLop.setBounds(358, 11, 121, 112);
 		panel_1.add(btn_timLop);
 		
+		JButton btnXuatExcel = new JButton("Xuất excel");
+		btnXuatExcel.setBounds(916, 10, 254, 49);
+		panel_1.add(btnXuatExcel);
+		btnXuatExcel.setIcon(new ImageIcon(Panel_DSLop.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXuatExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XuatFileExcel.exportExcel(table_dsLop);
+			}
+		});
+		
 		taoJcrollPaneRong();
 		
 		hienThiAllLop();
@@ -190,21 +202,7 @@ public class Panel_DSLop extends JPanel {
 		
 		add(scrollPane);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(649, 91, 541, 134);
-		add(panel);
-		panel.setLayout(null);
 		
-		JButton btnInExcel = new JButton("In");
-		btnInExcel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnInExcel.setBounds(193, 48, 158, 44);
-		panel.add(btnInExcel);
 		
 		
 	}
@@ -359,8 +357,7 @@ public class Panel_DSLop extends JPanel {
 		}
 	}
 	
-	
-	
+
 	
 	
 	

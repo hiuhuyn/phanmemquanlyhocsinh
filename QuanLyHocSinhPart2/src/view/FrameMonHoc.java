@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import CSDL_sqlSv.LopDAO;
 import CSDL_sqlSv.MonHocDAO;
 import model.MonHoc;
+import model.XuatFileExcel;
 
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
@@ -185,6 +186,19 @@ public class FrameMonHoc extends JFrame {
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel_1_1.setBounds(223, 169, 173, 31);
 		contentPane.add(lblNewLabel_1_1);
+		
+		JButton btnXutExcel = new JButton("Xuất Excel");
+		btnXutExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XuatFileExcel.exportExcel(table);
+			}
+		});
+		btnXutExcel.setIcon(new ImageIcon(FrameMonHoc.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXutExcel.setForeground(Color.BLACK);
+		btnXutExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXutExcel.setBackground(Color.LIGHT_GRAY);
+		btnXutExcel.setBounds(472, 61, 151, 39);
+		contentPane.add(btnXutExcel);
 		
 	}
 	

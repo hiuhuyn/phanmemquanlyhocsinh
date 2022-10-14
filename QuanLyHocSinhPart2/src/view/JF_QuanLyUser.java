@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 import CSDL_sqlSv.TaiKhoanDAO;
 import model.TaiKhoan;
+import model.XuatFileExcel;
 
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -169,12 +170,12 @@ public class JF_QuanLyUser extends JFrame {
 		JLabel lblNewLabel_nhapJLabel = new JLabel("Nhập user cần tìm");
 		lblNewLabel_nhapJLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel_nhapJLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_nhapJLabel.setBounds(899, 89, 130, 39);
+		lblNewLabel_nhapJLabel.setBounds(706, 89, 130, 39);
 		contentPane.add(lblNewLabel_nhapJLabel);
 		
 		tf_userTimKiem = new JTextField();
 		tf_userTimKiem.setColumns(10);
-		tf_userTimKiem.setBounds(1039, 91, 186, 39);
+		tf_userTimKiem.setBounds(846, 91, 186, 39);
 		contentPane.add(tf_userTimKiem);
 		
 		JButton btnTimKiem = new JButton("");
@@ -185,7 +186,7 @@ public class JF_QuanLyUser extends JFrame {
 		});
 		btnTimKiem.setIcon(new ImageIcon(JF_QuanLyUser.class.getResource("/view/image/Very-Basic-Search-icon.png")));
 		btnTimKiem.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnTimKiem.setBounds(1235, 89, 91, 39);
+		btnTimKiem.setBounds(1042, 89, 91, 39);
 		
 		
 		contentPane.add(btnTimKiem);
@@ -228,6 +229,17 @@ public class JF_QuanLyUser extends JFrame {
 		
 		scrollPane = scrollPane_1;
 		contentPane.add(scrollPane);
+		
+		JButton btnXuatExcel = new JButton("Xuất excel");
+		btnXuatExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XuatFileExcel.exportExcel(table);
+			}
+		});
+		btnXuatExcel.setIcon(new ImageIcon(JF_QuanLyUser.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXuatExcel.setBounds(1159, 89, 167, 39);
+		contentPane.add(btnXuatExcel);
 		
 		table.addMouseListener(new MouseListener() {
 			

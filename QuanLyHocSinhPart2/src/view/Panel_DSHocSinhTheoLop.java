@@ -29,6 +29,7 @@ import CSDL_sqlSv.LopDAO;
 import model.HocSinh;
 
 import model.Lop;
+import model.XuatFileExcel;
 
 import javax.swing.JComboBox;
 import javax.swing.AbstractAction;
@@ -40,6 +41,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 	private JTable table;
 	private JScrollPane scrollPane_1;
 	private JComboBox comboBox_tenlop;
+	private JButton btnXuatExcel;
 
 	/**
 	 * Create the panel.
@@ -57,7 +59,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Mã lớp");
-		lblNewLabel_1_2.setBounds(812, 97, 62, 30);
+		lblNewLabel_1_2.setBounds(652, 106, 62, 30);
 		add(lblNewLabel_1_2);
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
@@ -75,7 +77,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 		});
 		btn_Tim.setForeground(new Color(0, 0, 0));
 		btn_Tim.setBackground(Color.WHITE);
-		btn_Tim.setBounds(1078, 97, 112, 33);
+		btn_Tim.setBounds(908, 91, 112, 45);
 		add(btn_Tim);
 		
 		btn_Tim.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -86,7 +88,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 		for (Lop lop : lops) {
 			comboBox_tenlop.addItem(lop.getMaLop());
 		}
-		comboBox_tenlop.setBounds(884, 99, 160, 30);
+		comboBox_tenlop.setBounds(724, 104, 160, 30);
 		add(comboBox_tenlop);
 		
 		
@@ -121,9 +123,22 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 		table.setRowHeight(30);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(10, 141, 1180, 548);
+		scrollPane_1.setBounds(10, 154, 1180, 535);
 		scrollPane_1.setViewportView(table);
 		add(scrollPane_1);
+		
+		btnXuatExcel = new JButton("Xuất excel");
+		btnXuatExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XuatFileExcel.exportExcel(table);
+			}
+		});
+		btnXuatExcel.setIcon(new ImageIcon(Panel_DSHocSinhTheoLop.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setForeground(Color.BLACK);
+		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXuatExcel.setBackground(Color.WHITE);
+		btnXuatExcel.setBounds(1044, 91, 146, 45);
+		add(btnXuatExcel);
 		
 		
 		

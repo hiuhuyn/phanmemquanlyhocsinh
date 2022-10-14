@@ -40,6 +40,7 @@ import model.HocKy;
 import model.HocSinh;
 import model.Lop;
 import model.MonHoc;
+import model.XuatFileExcel;
 
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -62,7 +63,6 @@ public class Panel_BangDiem extends JPanel {
 	private JComboBox comboBox_timMon;
 	private JComboBox comboBox_timHS;
 	private JComboBox comboBox_timHK;
-	private JTextField tf_path;
 
 	/**
 	 * Create the panel.
@@ -75,7 +75,7 @@ public class Panel_BangDiem extends JPanel {
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(10, 96, 475, 276);
+		panel.setBounds(10, 96, 718, 245);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -126,14 +126,14 @@ public class Panel_BangDiem extends JPanel {
 		JLabel lblNewLabel_1_2_2_2 = new JLabel("Điểm Thi");
 		lblNewLabel_1_2_2_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_2_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_2_2.setBounds(262, 224, 76, 30);
+		lblNewLabel_1_2_2_2.setBounds(489, 102, 76, 30);
 		panel.add(lblNewLabel_1_2_2_2);
 		
 		tf_Dthi = new JTextField();
 		tf_Dthi.setFont(new Font("Tahoma", Font.BOLD, 13));
 		tf_Dthi.setForeground(new Color(0, 0, 0));
 		tf_Dthi.setColumns(10);
-		tf_Dthi.setBounds(365, 225, 76, 30);
+		tf_Dthi.setBounds(592, 103, 76, 30);
 		panel.add(tf_Dthi);
 		
 		JLabel lblNewLabel_1_2_2_3 = new JLabel("Điểm miệng");
@@ -225,7 +225,7 @@ public class Panel_BangDiem extends JPanel {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBounds(638, 96, 552, 276);
+		panel_1.setBounds(738, 96, 452, 245);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -235,44 +235,44 @@ public class Panel_BangDiem extends JPanel {
 		
 		
 		JLabel lblNewLabel_1_2_4_2 = new JLabel("Mã học kỳ");
-		lblNewLabel_1_2_4_2.setBounds(29, 16, 76, 30);
+		lblNewLabel_1_2_4_2.setBounds(10, 11, 76, 30);
 		panel_1.add(lblNewLabel_1_2_4_2);
 		lblNewLabel_1_2_4_2.setForeground(Color.BLACK);
 		lblNewLabel_1_2_4_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		comboBox_timHK = new JComboBox();
-		comboBox_timHK.setBounds(126, 16, 116, 30);
+		comboBox_timHK.setBounds(107, 11, 116, 30);
 		panel_1.add(comboBox_timHK);
 		comboBox_timHK.setModel(new DefaultComboBoxModel(new String[] {""}));
 		comboBox_timHK.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		JLabel lblNewLabel_1_2_4_1 = new JLabel("Mã học sinh");
-		lblNewLabel_1_2_4_1.setBounds(29, 69, 97, 30);
+		lblNewLabel_1_2_4_1.setBounds(10, 64, 97, 30);
 		panel_1.add(lblNewLabel_1_2_4_1);
 		lblNewLabel_1_2_4_1.setForeground(Color.BLACK);
 		lblNewLabel_1_2_4_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		
 		comboBox_timHS = new JComboBox();
-		comboBox_timHS.setBounds(126, 69, 116, 30);
+		comboBox_timHS.setBounds(107, 64, 116, 30);
 		panel_1.add(comboBox_timHS);
 		comboBox_timHS.setModel(new DefaultComboBoxModel(new String[] {""}));
 		comboBox_timHS.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		JLabel lblNewLabel_1_2_4 = new JLabel("Mã môn");
-		lblNewLabel_1_2_4.setBounds(29, 121, 76, 30);
+		lblNewLabel_1_2_4.setBounds(10, 116, 76, 30);
 		panel_1.add(lblNewLabel_1_2_4);
 		lblNewLabel_1_2_4.setForeground(Color.BLACK);
 		lblNewLabel_1_2_4.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		comboBox_timMon = new JComboBox();
-		comboBox_timMon.setBounds(126, 121, 116, 30);
+		comboBox_timMon.setBounds(107, 116, 116, 30);
 		panel_1.add(comboBox_timMon);
 		comboBox_timMon.setFont(new Font("Tahoma", Font.BOLD, 14));
 		comboBox_timMon.setModel(new DefaultComboBoxModel(new String[] {""}));
 		
 		JButton btn_timkiem = new JButton("");
-		btn_timkiem.setBounds(355, 16, 182, 135);
+		btn_timkiem.setBounds(252, 11, 182, 54);
 		panel_1.add(btn_timkiem);
 		btn_timkiem.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Very-Basic-Search-icon.png")));
 		btn_timkiem.addActionListener(new ActionListener() {
@@ -283,33 +283,21 @@ public class Panel_BangDiem extends JPanel {
 		btn_timkiem.setForeground(new Color(0, 0, 0));
 		btn_timkiem.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
-		JButton btnDuongDan = new JButton("Lấy đường dẫn");
-		btnDuongDan.setBounds(29, 204, 165, 44);
-		panel_1.add(btnDuongDan);
-		btnDuongDan.addActionListener(new ActionListener() {
+		JButton btnXuatExcel = new JButton("Xuất excel");
+		btnXuatExcel.setBounds(258, 190, 176, 44);
+		panel_1.add(btnXuatExcel);
+		btnXuatExcel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				laypath();
+				XuatFileExcel.exportExcel(table);
 			}
 		});
-		btnDuongDan.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Folder-Open-icon.png")));
-		btnDuongDan.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXuatExcel.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
-		tf_path = new JTextField();
-		tf_path.setBounds(204, 204, 241, 44);
-		panel_1.add(tf_path);
-		tf_path.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_path.setColumns(10);
-		
-		JButton btnIn = new JButton("In");
-		btnIn.setBounds(455, 204, 76, 44);
-		panel_1.add(btnIn);
-		btnIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				exportExcel();
-			}
-		});
-		btnIn.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/document-excel-icon.png")));
-		btnIn.setFont(new Font("Tahoma", Font.BOLD, 14));
+		JLabel lblDanhSchBng = new JLabel("Danh sách bảng điểm");
+		lblDanhSchBng.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblDanhSchBng.setBounds(468, 343, 231, 37);
+		add(lblDanhSchBng);
 		
 		
 		ArrayList<HocSinh> hocSinhs = HocSinhDAO.getHocSinhDAO().selectAll();
@@ -352,7 +340,7 @@ public class Panel_BangDiem extends JPanel {
 	public void taoJSc() {
 
 		JScrollPane scroll = new JScrollPane();
-		scroll.setBounds(10, 383, 1180, 306);
+		scroll.setBounds(10, 384, 1180, 305);
 
 		table = new JTable();
 		table.setEnabled(false);
@@ -611,156 +599,7 @@ public class Panel_BangDiem extends JPanel {
 			
 		}
 	}
-	public void laypath() {
-		// mở cửa sổ tạo file
-		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.showOpenDialog(this);
-		//
-		
-		try {
-			File file = fileChooser.getSelectedFile();
-			String path = file.getAbsolutePath();
-			
-			path = path+".xlsx";
-			tf_path.setText(path);
-			
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("Lỗi lấy path");
-		}
 
-		
-		
-	}
-
-	private XSSFCellStyle createStyleForTitle(XSSFWorkbook workbook) {
-        XSSFFont font = workbook.createFont();
-        font.setBold(true);
-        XSSFCellStyle style = workbook.createCellStyle();
-        style.setFont(font);
-        
-        return style;
-    }
-	
-	public void exportExcel() {
-		if(tf_path.getText().equals("")) {
-			JOptionPane.showMessageDialog(this,"Chưa có đường dẫn!!");
-		}else {
-			try {
-				XSSFWorkbook workbook = new XSSFWorkbook();
-				XSSFSheet sheet = workbook.createSheet("Bảng điểm sheet");
-				int rownum = 6;
-				XSSFCell cell;
-				XSSFRow row;
-				
-				XSSFCellStyle style = createStyleForTitle(workbook);
-
-				rownum++;
-				row = sheet.createRow(rownum);
-				row.setHeight((short) 500 );
-				
-				// tên cột
-				cell = row.createCell(0, CellType.STRING);
-				cell.setCellValue("STT");
-				cell.setCellStyle(style);
-				
-				
-				cell = row.createCell(1, CellType.STRING);
-				cell.setCellValue("Mã Môn");
-				cell.setCellStyle(style);
-				
-				cell = row.createCell(2, CellType.STRING);
-				cell.setCellValue("Mã học sinh");
-				cell.setCellStyle(style);
-								
-				cell = row.createCell(3, CellType.STRING);
-				cell.setCellValue("Mã học kỳ");
-				cell.setCellStyle(style);
-				
-				cell = row.createCell(4, CellType.STRING);
-				cell.setCellValue("Điểm miệng");
-				cell.setCellStyle(style);
-				
-				cell = row.createCell(5, CellType.STRING);
-				cell.setCellValue("Điểm 15p");
-				cell.setCellStyle(style);
-				
-				cell = row.createCell(6, CellType.STRING);
-				cell.setCellValue("Điểm 1 tiết");
-				cell.setCellStyle(style);
-				
-				cell = row.createCell(7, CellType.STRING);
-				cell.setCellValue("Điểm thi");
-				cell.setCellStyle(style);
-				
-				cell = row.createCell(8, CellType.STRING);
-				cell.setCellValue("Điểm trung bình môn");
-				cell.setCellStyle(style);
-				// tao du lieu bang
-				
-				DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
-				int i_row = tableModel.getRowCount();
-				
-				for(int i=0; i<i_row; i++) {
-					rownum++;
-					row = sheet.createRow(rownum);
-					
-					cell = row.createCell(0, CellType.STRING);
-					cell.setCellValue(tableModel.getValueAt(i, 0)+"");
-					
-					cell = row.createCell(1, CellType.STRING);
-					cell.setCellValue(tableModel.getValueAt(i, 1)+"");
-					
-					cell = row.createCell(2, CellType.STRING);
-					cell.setCellValue(tableModel.getValueAt(i, 2)+"");
-					
-					cell = row.createCell(3, CellType.STRING);
-					cell.setCellValue(tableModel.getValueAt(i, 3)+"");
-					
-					cell = row.createCell(4, CellType.STRING);
-					cell.setCellValue(tableModel.getValueAt(i, 4)+"");
-					
-					cell = row.createCell(5, CellType.STRING);
-					cell.setCellValue(tableModel.getValueAt(i, 5)+"");
-					
-					cell = row.createCell(6, CellType.STRING);
-					cell.setCellValue(tableModel.getValueAt(i, 6)+"");
-					
-					cell = row.createCell(7, CellType.STRING);
-					cell.setCellValue(tableModel.getValueAt(i, 7)+"");
-					
-					cell = row.createCell(8, CellType.STRING);
-					cell.setCellValue(tableModel.getValueAt(i, 8)+"");
-					
-					
-					
-				}
-				
-				String path = tf_path.getText();
-				
-				File file = new File(path);
-				file.getParentFile().mkdir();
-				
-				FileOutputStream fStream = new FileOutputStream(file);
-				workbook.write(fStream);
-				JOptionPane.showMessageDialog(this, "In thành công");
-				System.out.println("Create file: " + file.getAbsolutePath());
-				
-				
-			} catch (Exception e) {
-				// TODO: handle exception
-				System.out.println("Lỗi in");
-				
-			}
-			
-			
-			
-			
-			
-		}
-	}
-	
 	
 	
 	
