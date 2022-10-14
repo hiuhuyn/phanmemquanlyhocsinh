@@ -22,17 +22,11 @@ public class HuongDan extends JFrame {
 	 * Create the frame.
 	 */
 	
-	public void setLogo() {
-
-		java.net.URL url2 = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img2 = Toolkit.getDefaultToolkit().createImage(url2);
-		
-		this.setIconImage(img2);
-		
-	}
+	
 	
 	public HuongDan() {
-		setLogo();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(HuongDan.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
+		
 		setTitle("Hướng dẫn");
 		
 		setBounds(100, 100, 580, 504);

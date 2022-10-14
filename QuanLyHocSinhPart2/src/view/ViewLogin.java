@@ -38,17 +38,11 @@ public class ViewLogin extends JFrame {
 		return new ViewLogin();
 	}
 	
-	public void setLogo() {
-
-		java.net.URL url2 = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img2 = Toolkit.getDefaultToolkit().createImage(url2);
-		
-		this.setIconImage(img2);
-		
-	}
+	
 	
 	public ViewLogin() {
-		setLogo();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewLogin.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
+		
 		setTitle("Đăng nhập");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

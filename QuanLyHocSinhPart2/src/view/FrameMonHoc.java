@@ -49,18 +49,12 @@ public class FrameMonHoc extends JFrame {
 	 * Create the frame.
 	 */
 	
-	public void setLogo() {
-
-		java.net.URL url2 = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img2 = Toolkit.getDefaultToolkit().createImage(url2);
-		
-		this.setIconImage(img2);
-		
-	}
+	
 	
 	public FrameMonHoc() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(FrameMonHoc.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		
-		setLogo();
+		
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("Môn học");
 

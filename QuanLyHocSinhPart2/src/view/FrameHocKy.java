@@ -42,17 +42,11 @@ public class FrameHocKy extends JFrame {
 	private JScrollPane scrollPane;
 
 	
-	public void setLogo() {
-
-		java.net.URL url2 = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img2 = Toolkit.getDefaultToolkit().createImage(url2);
-		
-		this.setIconImage(img2);
-		
-	}
+	
 	
 	public FrameHocKy() {
-		setLogo();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(FrameHocKy.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
+		
 		setTitle("Học kỳ");
 
 		setBounds(100, 100, 744, 402);

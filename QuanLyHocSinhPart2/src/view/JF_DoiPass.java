@@ -35,6 +35,7 @@ public class JF_DoiPass extends JFrame {
 
 
 	public JF_DoiPass() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JF_DoiPass.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		setTitle("Đổi mật khẩu");
 		
 		setBounds(100, 100, 450, 333);
@@ -110,19 +111,12 @@ public class JF_DoiPass extends JFrame {
 		label_user.setFont(new Font("Tahoma", Font.BOLD, 14));
 		label_user.setBounds(209, 66, 151, 31);
 		contentPane.add(label_user);
-		setLogo();
+		
 		setVisible(false);
 		
 	}
 	
-	public void setLogo() {
-
-		java.net.URL url2 = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img2 = Toolkit.getDefaultToolkit().createImage(url2);
-		
-		this.setIconImage(img2);
-		
-	}
+	
 	
 	public void doiPass() {
 		String user = label_user.getText();

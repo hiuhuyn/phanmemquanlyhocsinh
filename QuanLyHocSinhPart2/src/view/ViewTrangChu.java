@@ -97,7 +97,7 @@ public class ViewTrangChu extends JFrame {
 	
 	
 	public ViewTrangChu() {
-		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewTrangChu.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 
 		setTitle("Phần mềm quản lý học sinh");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

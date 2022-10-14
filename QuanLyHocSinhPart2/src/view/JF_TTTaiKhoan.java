@@ -37,6 +37,7 @@ public class JF_TTTaiKhoan extends JFrame {
 	 * Create the frame.
 	 */
 	public JF_TTTaiKhoan() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JF_TTTaiKhoan.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		setTitle("Tài khoản");
 
 		setBounds(100, 100, 468, 438);
@@ -136,20 +137,13 @@ public class JF_TTTaiKhoan extends JFrame {
 		
 		contentPane.add(label_Quyen);
 		
-		setLogo();
+		
 		HienThiTT();
 		
 		setVisible(false);
 	}
 	
-	public void setLogo() {
-
-		java.net.URL url2 = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img2 = Toolkit.getDefaultToolkit().createImage(url2);
-		
-		this.setIconImage(img2);
-		
-	}
+	
 	
 	public void deleteUser() {
 		String user = label_User.getText();
