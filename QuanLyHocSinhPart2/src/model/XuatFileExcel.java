@@ -8,6 +8,7 @@ import java.util.Iterator;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 import org.apache.poi.ss.usermodel.CellType;
@@ -23,16 +24,16 @@ public class XuatFileExcel {
 
 	
 	public static String laypath() {
-		// mở cửa sổ tạo file
-		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.showOpenDialog( null );
-		//
+
 		String path ="";
 		try {
-			File file = fileChooser.getSelectedFile();
-			path = file.getAbsolutePath();
+			JFileChooser fileChooser = new JFileChooser();
+			int luaChon = fileChooser.showDialog(null, "Save");
 			
-//			path = path+".xlsx";
+			if(luaChon == JFileChooser.APPROVE_OPTION) {
+				File file = fileChooser.getSelectedFile();
+				path = file.getAbsolutePath();
+			}
 
 		} catch (Exception e) {
 			// TODO: handle exception
