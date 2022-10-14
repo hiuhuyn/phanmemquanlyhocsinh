@@ -46,6 +46,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 public class Panel_BangDiem extends JPanel {
 	private JTextField tf_d15p;
@@ -68,90 +70,84 @@ public class Panel_BangDiem extends JPanel {
 	public Panel_BangDiem() {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
-		setSize(1430, 730);
+		setSize(1200, 700);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel.setBackground(new Color(0, 191, 255));
-		panel.setBounds(10, 100, 1410, 164);
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBounds(10, 96, 475, 276);
 		add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Mã học kì");
-		lblNewLabel_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(528, 24, 76, 30);
+		lblNewLabel_1_1.setBounds(10, 184, 76, 30);
 		panel.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Mã môn");
-		lblNewLabel_1_2.setForeground(Color.WHITE);
+		lblNewLabel_1_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2.setBounds(10, 24, 76, 30);
+		lblNewLabel_1_2.setBounds(10, 102, 76, 30);
 		panel.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Mã học sinh");
-		lblNewLabel_1_2_1.setForeground(Color.WHITE);
+		lblNewLabel_1_2_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_1.setBounds(247, 24, 92, 30);
+		lblNewLabel_1_2_1.setBounds(10, 143, 92, 30);
 		panel.add(lblNewLabel_1_2_1);
 		
 		JLabel lblNewLabel_1_2_2 = new JLabel("Điểm 15p");
-		lblNewLabel_1_2_2.setForeground(Color.WHITE);
+		lblNewLabel_1_2_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_2.setBounds(219, 106, 76, 30);
+		lblNewLabel_1_2_2.setBounds(262, 143, 76, 30);
 		panel.add(lblNewLabel_1_2_2);
 		
 		tf_d15p = new JTextField();
 		tf_d15p.setFont(new Font("Tahoma", Font.BOLD, 13));
 		tf_d15p.setForeground(new Color(0, 0, 0));
 		tf_d15p.setColumns(10);
-		tf_d15p.setBounds(322, 106, 76, 30);
+		tf_d15p.setBounds(365, 143, 76, 30);
 		panel.add(tf_d15p);
 		
 		JLabel lblNewLabel_1_2_2_1 = new JLabel("Điểm 1 tiết");
-		lblNewLabel_1_2_2_1.setForeground(Color.WHITE);
+		lblNewLabel_1_2_2_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_2_1.setBounds(441, 106, 84, 30);
+		lblNewLabel_1_2_2_1.setBounds(262, 184, 84, 30);
 		panel.add(lblNewLabel_1_2_2_1);
 		
 		tf_1tiet = new JTextField();
 		tf_1tiet.setFont(new Font("Tahoma", Font.BOLD, 13));
 		tf_1tiet.setForeground(new Color(0, 0, 0));
 		tf_1tiet.setColumns(10);
-		tf_1tiet.setBounds(544, 106, 76, 30);
+		tf_1tiet.setBounds(365, 184, 76, 30);
 		panel.add(tf_1tiet);
 		
-		JLabel lblNewLabel_1_2_2_2 = new JLabel("Thi");
-		lblNewLabel_1_2_2_2.setForeground(Color.WHITE);
+		JLabel lblNewLabel_1_2_2_2 = new JLabel("Điểm Thi");
+		lblNewLabel_1_2_2_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_2_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_2_2.setBounds(660, 106, 42, 30);
+		lblNewLabel_1_2_2_2.setBounds(262, 224, 76, 30);
 		panel.add(lblNewLabel_1_2_2_2);
 		
 		tf_Dthi = new JTextField();
 		tf_Dthi.setFont(new Font("Tahoma", Font.BOLD, 13));
 		tf_Dthi.setForeground(new Color(0, 0, 0));
 		tf_Dthi.setColumns(10);
-		tf_Dthi.setBounds(712, 107, 76, 30);
+		tf_Dthi.setBounds(365, 225, 76, 30);
 		panel.add(tf_Dthi);
 		
 		JLabel lblNewLabel_1_2_2_3 = new JLabel("Điểm miệng");
-		lblNewLabel_1_2_2_3.setForeground(Color.WHITE);
+		lblNewLabel_1_2_2_3.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_2_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_2_3.setBounds(10, 106, 84, 30);
+		lblNewLabel_1_2_2_3.setBounds(262, 102, 84, 30);
 		panel.add(lblNewLabel_1_2_2_3);
 		
 		tf_diemMieng = new JTextField();
 		tf_diemMieng.setFont(new Font("Tahoma", Font.BOLD, 13));
 		tf_diemMieng.setForeground(new Color(0, 0, 0));
 		tf_diemMieng.setColumns(10);
-		tf_diemMieng.setBounds(113, 106, 76, 30);
+		tf_diemMieng.setBounds(365, 102, 76, 30);
 		panel.add(tf_diemMieng);
-		
-		JLabel lblNewLabel_1_2_2_3_1 = new JLabel("Nhập điểm");
-		lblNewLabel_1_2_2_3_1.setForeground(Color.WHITE);
-		lblNewLabel_1_2_2_3_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_2_3_1.setBounds(10, 65, 145, 30);
-		panel.add(lblNewLabel_1_2_2_3_1);
 		
 		JButton btnXoa = new JButton("Xóa");
 		btnXoa.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Close-2-icon.png")));
@@ -162,7 +158,7 @@ public class Panel_BangDiem extends JPanel {
 		});
 		btnXoa.setForeground(new Color(0, 0, 0));
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnXoa.setBounds(1293, 24, 107, 41);
+		btnXoa.setBounds(334, 34, 107, 41);
 		panel.add(btnXoa);
 		
 		JButton btnClear = new JButton("Clear");
@@ -174,34 +170,16 @@ public class Panel_BangDiem extends JPanel {
 		});
 		btnClear.setForeground(new Color(0, 0, 0));
 		btnClear.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnClear.setBounds(1059, 24, 107, 41);
+		btnClear.setBounds(10, 34, 107, 41);
 		panel.add(btnClear);
 		
 		JLabel lblNewLabel = new JLabel("Bảng điểm môn");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblNewLabel.setBounds(335, 24, 286, 37);
+		lblNewLabel.setBounds(449, 28, 286, 37);
 		add(lblNewLabel);
 		
 		taoJSc();
 		hienThiAll();
-		
-		JLabel lblNewLabel_1_2_4 = new JLabel("Mã môn");
-		lblNewLabel_1_2_4.setForeground(Color.BLACK);
-		lblNewLabel_1_2_4.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_4.setBounds(1109, 31, 76, 30);
-		add(lblNewLabel_1_2_4);
-		
-		JButton btn_timkiem = new JButton("");
-		btn_timkiem.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Very-Basic-Search-icon.png")));
-		btn_timkiem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				timKiem();
-			}
-		});
-		btn_timkiem.setForeground(new Color(0, 0, 0));
-		btn_timkiem.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btn_timkiem.setBounds(1330, 27, 90, 42);
-		add(btn_timkiem);
 		
 		JButton btnLuu = new JButton("Lưu");
 		btnLuu.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/success-icon.png")));
@@ -212,24 +190,18 @@ public class Panel_BangDiem extends JPanel {
 		});
 		btnLuu.setForeground(new Color(0, 0, 0));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnLuu.setBounds(1176, 24, 107, 41);
+		btnLuu.setBounds(170, 34, 107, 41);
 		panel.add(btnLuu);
 		
 		comboBox_maMon = new JComboBox();
 		comboBox_maMon.setForeground(new Color(0, 0, 0));
 		comboBox_maMon.setFont(new Font("Tahoma", Font.BOLD, 13));
 		comboBox_maMon.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_maMon.setBounds(113, 24, 96, 30);
+		comboBox_maMon.setBounds(113, 102, 113, 30);
 		
 		
 		
 		panel.add(comboBox_maMon);
-		
-		
-		comboBox_timHS = new JComboBox();
-		comboBox_timHS.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_timHS.setFont(new Font("Tahoma", Font.BOLD, 14));
-		comboBox_timHS.setBounds(967, 33, 116, 30);
 		
 		
 		
@@ -238,48 +210,82 @@ public class Panel_BangDiem extends JPanel {
 		comboBox_MaHS.setForeground(new Color(0, 0, 0));
 		comboBox_MaHS.setFont(new Font("Tahoma", Font.BOLD, 13));
 		comboBox_MaHS.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_MaHS.setBounds(365, 24, 107, 30);
-		ArrayList<HocSinh> hocSinhs = HocSinhDAO.getHocSinhDAO().selectAll();
-		for (HocSinh hocSinh : hocSinhs) {
-			comboBox_MaHS.addItem(hocSinh.getMaHS());
-			comboBox_timHS.addItem(hocSinh.getMaHS());
-			
-		}
+		comboBox_MaHS.setBounds(112, 144, 114, 30);
+		
 		
 		panel.add(comboBox_MaHS);
-		add(comboBox_timHS);
 		 comboBox_MaHK = new JComboBox();
 		 comboBox_MaHK.setForeground(new Color(0, 0, 0));
 		 comboBox_MaHK.setFont(new Font("Tahoma", Font.BOLD, 13));
 		 comboBox_MaHK.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_MaHK.setBounds(636, 25, 114, 30);
-		
-		comboBox_timHK = new JComboBox();
-		comboBox_timHK.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_timHK.setFont(new Font("Tahoma", Font.BOLD, 14));
-		comboBox_timHK.setBounds(724, 33, 116, 30);
-		add(comboBox_timHK);
-		
-		
-		ArrayList<HocKy> hocKys = HocKyDAO.getHocKyDAO().selectAll();
-		for (HocKy hocKy : hocKys) {
-			comboBox_MaHK.addItem(hocKy.getMaHK());
-			comboBox_timHK.addItem(hocKy.getMaHK());
-		}
+		comboBox_MaHK.setBounds(113, 185, 114, 30);
 		panel.add(comboBox_MaHK);
 		
-		JButton btnIn = new JButton("In");
-		btnIn.addActionListener(new ActionListener() {
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel_1.setBackground(new Color(255, 255, 255));
+		panel_1.setBounds(638, 96, 552, 276);
+		add(panel_1);
+		panel_1.setLayout(null);
+		
+
+		
+		
+		
+		
+		JLabel lblNewLabel_1_2_4_2 = new JLabel("Mã học kỳ");
+		lblNewLabel_1_2_4_2.setBounds(29, 16, 76, 30);
+		panel_1.add(lblNewLabel_1_2_4_2);
+		lblNewLabel_1_2_4_2.setForeground(Color.BLACK);
+		lblNewLabel_1_2_4_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		comboBox_timHK = new JComboBox();
+		comboBox_timHK.setBounds(126, 16, 116, 30);
+		panel_1.add(comboBox_timHK);
+		comboBox_timHK.setModel(new DefaultComboBoxModel(new String[] {""}));
+		comboBox_timHK.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		JLabel lblNewLabel_1_2_4_1 = new JLabel("Mã học sinh");
+		lblNewLabel_1_2_4_1.setBounds(29, 69, 97, 30);
+		panel_1.add(lblNewLabel_1_2_4_1);
+		lblNewLabel_1_2_4_1.setForeground(Color.BLACK);
+		lblNewLabel_1_2_4_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		
+		comboBox_timHS = new JComboBox();
+		comboBox_timHS.setBounds(126, 69, 116, 30);
+		panel_1.add(comboBox_timHS);
+		comboBox_timHS.setModel(new DefaultComboBoxModel(new String[] {""}));
+		comboBox_timHS.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		JLabel lblNewLabel_1_2_4 = new JLabel("Mã môn");
+		lblNewLabel_1_2_4.setBounds(29, 121, 76, 30);
+		panel_1.add(lblNewLabel_1_2_4);
+		lblNewLabel_1_2_4.setForeground(Color.BLACK);
+		lblNewLabel_1_2_4.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		comboBox_timMon = new JComboBox();
+		comboBox_timMon.setBounds(126, 121, 116, 30);
+		panel_1.add(comboBox_timMon);
+		comboBox_timMon.setFont(new Font("Tahoma", Font.BOLD, 14));
+		comboBox_timMon.setModel(new DefaultComboBoxModel(new String[] {""}));
+		
+		JButton btn_timkiem = new JButton("");
+		btn_timkiem.setBounds(355, 16, 182, 135);
+		panel_1.add(btn_timkiem);
+		btn_timkiem.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Very-Basic-Search-icon.png")));
+		btn_timkiem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				exportExcel();
+				timKiem();
 			}
 		});
-		btnIn.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/document-excel-icon.png")));
-		btnIn.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnIn.setBounds(1324, 92, 76, 44);
-		panel.add(btnIn);
+		btn_timkiem.setForeground(new Color(0, 0, 0));
+		btn_timkiem.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		JButton btnDuongDan = new JButton("Lấy đường dẫn");
+		btnDuongDan.setBounds(29, 204, 165, 44);
+		panel_1.add(btnDuongDan);
 		btnDuongDan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				laypath();
@@ -287,20 +293,38 @@ public class Panel_BangDiem extends JPanel {
 		});
 		btnDuongDan.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Folder-Open-icon.png")));
 		btnDuongDan.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnDuongDan.setBounds(898, 92, 165, 44);
-		panel.add(btnDuongDan);
 		
 		tf_path = new JTextField();
+		tf_path.setBounds(204, 204, 241, 44);
+		panel_1.add(tf_path);
 		tf_path.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_path.setBounds(1073, 92, 241, 44);
-		panel.add(tf_path);
 		tf_path.setColumns(10);
 		
-		comboBox_timMon = new JComboBox();
-		comboBox_timMon.setFont(new Font("Tahoma", Font.BOLD, 14));
-		comboBox_timMon.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_timMon.setBounds(1185, 31, 116, 30);
-		add(comboBox_timMon);
+		JButton btnIn = new JButton("In");
+		btnIn.setBounds(455, 204, 76, 44);
+		panel_1.add(btnIn);
+		btnIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				exportExcel();
+			}
+		});
+		btnIn.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/document-excel-icon.png")));
+		btnIn.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		
+		ArrayList<HocSinh> hocSinhs = HocSinhDAO.getHocSinhDAO().selectAll();
+		for (HocSinh hocSinh : hocSinhs) {
+			comboBox_MaHS.addItem(hocSinh.getMaHS());
+			comboBox_timHS.addItem(hocSinh.getMaHS());
+			
+		}
+		
+		ArrayList<HocKy> hocKys = HocKyDAO.getHocKyDAO().selectAll();
+		for (HocKy hocKy : hocKys) {
+			comboBox_MaHK.addItem(hocKy.getMaHK());
+			comboBox_timHK.addItem(hocKy.getMaHK());
+		}
+		
 		
 		ArrayList<MonHoc> monHocs = MonHocDAO.getMonHocDAO().selectAll();
 		for (MonHoc monHoc : monHocs) {
@@ -309,44 +333,10 @@ public class Panel_BangDiem extends JPanel {
 			
 		}
 		
-		JLabel label = new JLabel("");
-		label.setBounds(10, 11, 90, 78);
-		setImgae(label);
-		add(label);
-		
-		JLabel lblNewLabel_1_2_4_1 = new JLabel("Mã học sinh");
-		lblNewLabel_1_2_4_1.setForeground(Color.BLACK);
-		lblNewLabel_1_2_4_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_4_1.setBounds(870, 33, 97, 30);
-		add(lblNewLabel_1_2_4_1);
-		
-
-		
-		
-		
-		
-		JLabel lblNewLabel_1_2_4_2 = new JLabel("Mã học kỳ");
-		lblNewLabel_1_2_4_2.setForeground(Color.BLACK);
-		lblNewLabel_1_2_4_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_4_2.setBounds(638, 33, 76, 30);
-		add(lblNewLabel_1_2_4_2);
-		
-		
-		
-		
 
 	}
 	
-	public void setImgae(JLabel label) {
-		
-		java.net.URL url = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img = Toolkit.getDefaultToolkit().createImage(url);
-		
-		Image newImg = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon newIcon = new ImageIcon(newImg);
-		label.setIcon(newIcon);
-	}
-	
+
 	public void buttonReset() {
 		comboBox_maMon.setSelectedIndex(-1);
 		comboBox_MaHS.setSelectedIndex(-1);
@@ -362,7 +352,7 @@ public class Panel_BangDiem extends JPanel {
 	public void taoJSc() {
 
 		JScrollPane scroll = new JScrollPane();
-		scroll.setBounds(10, 296, 1410, 434);
+		scroll.setBounds(10, 383, 1180, 306);
 
 		table = new JTable();
 		table.setEnabled(false);

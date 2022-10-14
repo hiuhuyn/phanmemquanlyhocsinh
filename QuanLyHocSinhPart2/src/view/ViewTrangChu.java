@@ -11,6 +11,8 @@ import javax.swing.border.EtchedBorder;
 
 import CSDL_sqlSv.TaiKhoanDAO;
 import model.TaiKhoan;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.BevelBorder;
 
 
 
@@ -34,7 +36,6 @@ public class ViewTrangChu extends JFrame {
 	private JF_TTTaiKhoan ttTaiKhoan;
 	private JF_DoiPass doiPass;
 	private JF_QuanLyUser qLyUser;
-	private JMenu mnAdmin;
 	
 	
 	
@@ -94,13 +95,14 @@ public class ViewTrangChu extends JFrame {
 
 	
 	
+	
 	public ViewTrangChu() {
 		setResizable(false);
 
 		setTitle("Phần mềm quản lý học sinh");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setBounds(100, 100, 1450, 800);
+		setBounds(100, 100, 1500, 805);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -110,14 +112,15 @@ public class ViewTrangChu extends JFrame {
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(new Color(255, 255, 255));
-		menuBar.setBounds(0, 0, 1434, 30);
+		menuBar.setBounds(0, 0, 1474, 30);
 		contentPane.add(menuBar);
 		
-		JMenu mnQLTK = new JMenu("Quản lý tài khoản");
+		JMenu mnQLTK = new JMenu("Tài khoản cá nhân");
 		mnQLTK.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		menuBar.add(mnQLTK);
 		
 		JMenuItem item_ttTK = new JMenuItem("Thông tin tài khoản");
+		item_ttTK.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		item_ttTK.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/user-id-icon.png")));
 		item_ttTK.addActionListener(new ActionListener() {
 			
@@ -130,6 +133,7 @@ public class ViewTrangChu extends JFrame {
 		mnQLTK.add(item_ttTK);
 		
 		JMenuItem item_doiPass = new JMenuItem("Đổi mật khẩu");
+		item_doiPass.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		item_doiPass.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Security-Password-1-icon (1).png")));
 		item_doiPass.addActionListener(new ActionListener() {
 			
@@ -141,137 +145,27 @@ public class ViewTrangChu extends JFrame {
 		});
 		mnQLTK.add(item_doiPass);
 		
-		JMenu mnQLHS = new JMenu("Quản lý học sinh");
-		mnQLHS.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		menuBar.add(mnQLHS);
-		
-		JMenuItem item_hoSoHS = new JMenuItem("Hồ sơ học sinh");
-		item_hoSoHS.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/cv-icon.png")));
-		item_hoSoHS.addActionListener(new ActionListener() {
+		JMenuItem item_dangxuat = new JMenuItem("Đăng xuất");
+		item_dangxuat.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Login-out-icon.png")));
+		item_dangxuat.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnQLTK.add(item_dangxuat);
+		item_dangxuat.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_QLHS());
-				getPanelMain().revalidate();
-				getPanelMain().repaint();
-			}
-		});
-		mnQLHS.add(item_hoSoHS);
-		
-		JMenu mnQLL = new JMenu("Quản lý lớp");
-		mnQLL.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		menuBar.add(mnQLL);
-		
-		JMenuItem item_DSLop = new JMenuItem("Danh sách các lớp");
-		item_DSLop.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Bulleted-List-icon.png")));
-		item_DSLop.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_QLDSLop());
-				getPanelMain().revalidate();
-				getPanelMain().repaint();
-			}
-		});
-		mnQLL.add(item_DSLop);
-		
-		JMenuItem item_DS_HS_LOP = new JMenuItem("Danh sách học sinh theo lớp");
-		item_DS_HS_LOP.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Apps-preferences-contact-list-icon.png")));
-		item_DS_HS_LOP.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_DSHocSinhTheoLop());
-				getPanelMain().revalidate();
-				getPanelMain().repaint();
-			}
-		});
-		mnQLL.add(item_DS_HS_LOP);
-		
-		JMenu mnQunLim = new JMenu("Quản lý điểm");
-		mnQunLim.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		menuBar.add(mnQunLim);
-		
-		JMenuItem item_BangDiemMon = new JMenuItem("Bảng điểm môn");
-		item_BangDiemMon.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Database-Table-icon.png")));
-		item_BangDiemMon.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_BangDiem());
-				getPanelMain().revalidate();
-				getPanelMain().repaint();
-			}
-		});
-		mnQunLim.add(item_BangDiemMon);
-		
-		JMenu mnBoCo = new JMenu("Thống kê");
-		mnBoCo.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		menuBar.add(mnBoCo);
-		
-		JMenuItem item_BCTK = new JMenuItem("Thống kê theo lớp");
-		item_BCTK.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Very-Basic-Filter-icon.png")));
-		item_BCTK.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_BaoCaoTk());
-				getPanelMain().revalidate();
-				getPanelMain().repaint();
-			}
-		});
-		mnBoCo.add(item_BCTK);
-		
-		mnAdmin = new JMenu("Admin");
-		mnAdmin.setEnabled(kiemTraDangNhap());
-		mnAdmin.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		menuBar.add(mnAdmin);
-		
-		JMenuItem item_monHoc = new JMenuItem("Quản lý môn học");
-		mnAdmin.add(item_monHoc);
-		item_monHoc.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/Books-icon.png")));
-		item_monHoc.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				getFrameMonHoc().setVisible(true);
+				dangXuat();
 			}
 		});
 		
-		JMenuItem item_hocKy = new JMenuItem("Quản lý học kỳ");
-		mnAdmin.add(item_hocKy);
-		item_hocKy.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/calendar-selection-month-icon.png")));
-		item_hocKy.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-				getFrameHocKy().setVisible(true);
-				
-			}
-		});
 		
-		JMenuItem item_qlTKuser = new JMenuItem("Quản lý tài khoản người dùng");
-		item_qlTKuser.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		mnAdmin.add(item_qlTKuser);
 		
 		JMenu mnhelp = new JMenu("Help");
 		mnhelp.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		menuBar.add(mnhelp);
 		
 		JMenuItem item_huongDan = new JMenuItem("Hướng dẫn");
+		item_huongDan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		item_huongDan.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/info_button_16.png")));
 		item_huongDan.setSelected(true);
 		item_huongDan.addActionListener(new ActionListener() {
@@ -285,6 +179,7 @@ public class ViewTrangChu extends JFrame {
 		mnhelp.add(item_huongDan);
 		
 		JMenuItem item_lienHe = new JMenuItem("Liên hệ");
+		item_lienHe.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		item_lienHe.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/customer-service-icon (1).png")));
 		item_lienHe.addActionListener(new ActionListener() {
 			
@@ -297,38 +192,163 @@ public class ViewTrangChu extends JFrame {
 		mnhelp.add(item_lienHe);
 		
 		
-		item_qlTKuser.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-				getqLyUser().setVisible(true);
-				
-			}
-		});
-		
-		
 
 		panelMain = new JPanel();
-		panelMain.setBackground(new Color(255, 255, 255));
-		panelMain.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panelMain.setBounds(0, 30, 1435, 731);
+		panelMain.setBounds(242, 41, 1232, 714);
 		contentPane.add(panelMain);
+		panelMain.setBackground(new Color(255, 255, 255));
 		panelMain.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds( 0, 0, panelMain.getWidth()   ,panelMain.getHeight());
-		setImgae(lblNewLabel);
-		panelMain.add(lblNewLabel);
-
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel.setBounds(10, 41, 222, 336);
+		contentPane.add(panel);
+		panel.setLayout(null);
 		
+		JButton btnQLHS = new JButton("Quản lý học sinh");
+		btnQLHS.setBackground(new Color(255, 255, 255));
+		btnQLHS.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_QLHS());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
+		btnQLHS.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnQLHS.setBounds(10, 66, 175, 40);
+		panel.add(btnQLHS);
+		
+		JLabel lblNewLabel = new JLabel("Chức năng chung");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel.setBounds(10, 11, 133, 23);
+		panel.add(lblNewLabel);
+		
+		JButton btnLop = new JButton("Danh sách lớp học");
+		btnLop.setBackground(new Color(255, 255, 255));
+		btnLop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_QLDSLop());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
+		btnLop.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnLop.setBounds(10, 117, 175, 40);
+		panel.add(btnLop);
+		
+		JButton btnBangDiemMon = new JButton("Bảng điểm môn");
+		btnBangDiemMon.setBackground(new Color(255, 255, 255));
+		btnBangDiemMon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_BangDiem());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
+		btnBangDiemMon.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnBangDiemMon.setBounds(10, 219, 175, 40);
+		panel.add(btnBangDiemMon);
+		
+		JButton btnHocSinh_Lop = new JButton("Học sinh/lớp");
+		btnHocSinh_Lop.setBackground(new Color(255, 255, 255));
+		btnHocSinh_Lop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_DSHocSinhTheoLop());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
+		btnHocSinh_Lop.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnHocSinh_Lop.setBounds(10, 168, 175, 40);
+		panel.add(btnHocSinh_Lop);
+		
+		JButton btnThongKe = new JButton("Thống kê");
+		btnThongKe.setBackground(new Color(255, 255, 255));
+		btnThongKe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getPanelMain().removeAll();
+				getPanelMain().add(getPanel_BaoCaoTk());
+				getPanelMain().revalidate();
+				getPanelMain().repaint();
+			}
+		});
+		btnThongKe.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnThongKe.setBounds(10, 270, 175, 40);
+		panel.add(btnThongKe);
+		
+
+		panelQuyenAdmin();		
+	}
+	
+	
+	public void panelQuyenAdmin() {
+		// hiển thị các chức năng của riêng Admin
+		
+		if(kiemTraDangNhap()==true) {
+			JPanel panel_admin = new JPanel();
+			panel_admin.setBackground(new Color(255, 255, 224));
+			panel_admin.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+			panel_admin.setBounds(10, 388, 222, 367);
+			contentPane.add(panel_admin);
+			panel_admin.setLayout(null);
+			
+			JButton btnQLMH = new JButton("Quản lý môn học");
+			btnQLMH.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					getFrameMonHoc().setVisible(true);
+				}
+			});
+			btnQLMH.setFont(new Font("Tahoma", Font.BOLD, 14));
+			btnQLMH.setBounds(10, 76, 202, 50);
+			panel_admin.add(btnQLMH);
+			
+			JLabel lblNewLabel_1 = new JLabel("Chức năng riêng của admin");
+			lblNewLabel_1.setForeground(new Color(30, 144, 255));
+			lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+			lblNewLabel_1.setBounds(10, 23, 202, 32);
+			panel_admin.add(lblNewLabel_1);
+			
+			JButton btnQLHK = new JButton("Quản lý học kỳ");
+			btnQLHK.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					getFrameHocKy().setVisible(true);
+				}
+			});
+			btnQLHK.setFont(new Font("Tahoma", Font.BOLD, 14));
+			btnQLHK.setBounds(10, 137, 202, 50);
+			panel_admin.add(btnQLHK);
+			
+			JButton btnQLTKUser = new JButton("Tài khoản người dùng");
+			btnQLTKUser.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					getqLyUser().setVisible(true);
+				}
+			});
+			btnQLTKUser.setToolTipText("");
+			btnQLTKUser.setFont(new Font("Tahoma", Font.BOLD, 14));
+			btnQLTKUser.setBounds(10, 198, 202, 50);
+			panel_admin.add(btnQLTKUser);
+			
+		}
+	}
+	
+	public void dangXuat() {
+		
+		this.setVisible(false);
+		ViewLogin.getViewLogin().setVisible(true);
 		
 		
 	}
 	
 	
 	public boolean kiemTraDangNhap() {
+		
+		// kiểm tra xem người đăng nhập là ai
 		TaiKhoan taiKhoan = new TaiKhoan(ViewLogin.User, ViewLogin.Pass);
 		TaiKhoan taiKhoan2 = TaiKhoanDAO.getTaiKhoanDAO().selectById(taiKhoan);
 		System.out.println(taiKhoan2.toString());

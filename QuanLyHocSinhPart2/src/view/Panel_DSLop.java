@@ -31,6 +31,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.LineBorder;
 
 public class Panel_DSLop extends JPanel {
 	private JTable table_dsLop;
@@ -46,32 +47,32 @@ public class Panel_DSLop extends JPanel {
 		setForeground(new Color(255, 255, 255));
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
-		setSize(1430, 730);
+		setSize(1200, 700);
 		
 	
 		
 		JLabel lblNewLabel = new JLabel("Danh sách lớp học");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblNewLabel.setBounds(629, 30, 292, 69);
+		lblNewLabel.setBounds(441, 11, 292, 69);
 		add(lblNewLabel);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(0, 191, 255));
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel_1.setBounds(10, 141, 1410, 115);
+		panel_1.setBounds(10, 91, 629, 134);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tên lớp");
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(438, 45, 62, 30);
+		lblNewLabel_1.setBounds(10, 52, 53, 30);
 		panel_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Sĩ số");
-		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(716, 45, 48, 30);
+		lblNewLabel_1_1.setBounds(10, 93, 53, 30);
 		panel_1.add(lblNewLabel_1_1);
 		
 		JButton btn_tao_capNhat = new JButton("Lưu");
@@ -88,7 +89,7 @@ public class Panel_DSLop extends JPanel {
 		btn_tao_capNhat.setForeground(new Color(0, 0, 0));
 		btn_tao_capNhat.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btn_tao_capNhat.setBackground(new Color(211, 211, 211));
-		btn_tao_capNhat.setBounds(1113, 41, 121, 40);
+		btn_tao_capNhat.setBounds(498, 11, 121, 49);
 		panel_1.add(btn_tao_capNhat);
 		
 		JButton btnXoa_lop = new JButton("Xóa");
@@ -105,31 +106,31 @@ public class Panel_DSLop extends JPanel {
 		btnXoa_lop.setBackground(new Color(211, 211, 211));
 		btnXoa_lop.setForeground(new Color(0, 0, 0));
 		btnXoa_lop.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnXoa_lop.setBounds(1279, 41, 121, 40);
+		btnXoa_lop.setBounds(498, 74, 121, 49);
 		panel_1.add(btnXoa_lop);
 		
 		tf_TenLopTao = new JTextField();
 		tf_TenLopTao.setForeground(new Color(0, 0, 0));
-		tf_TenLopTao.setBounds(496, 45, 140, 30);
+		tf_TenLopTao.setBounds(68, 52, 254, 30);
 		panel_1.add(tf_TenLopTao);
 		tf_TenLopTao.setColumns(10);
 		
 		tf_SiSo = new JTextField();
 		tf_SiSo.setForeground(new Color(0, 0, 0));
 		tf_SiSo.setColumns(10);
-		tf_SiSo.setBounds(774, 45, 140, 30);
+		tf_SiSo.setBounds(68, 93, 254, 30);
 		panel_1.add(tf_SiSo);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Mã lớp");
-		lblNewLabel_1_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2.setBounds(169, 45, 62, 30);
+		lblNewLabel_1_2.setBounds(10, 11, 53, 30);
 		panel_1.add(lblNewLabel_1_2);
 		
 		tf_maLop = new JTextField();
 		tf_maLop.setForeground(new Color(0, 0, 0));
 		tf_maLop.setColumns(10);
-		tf_maLop.setBounds(227, 45, 140, 30);
+		tf_maLop.setBounds(68, 11, 254, 30);
 		panel_1.add(tf_maLop);
 		
 		JButton btn_timLop = new JButton("");
@@ -147,28 +148,15 @@ public class Panel_DSLop extends JPanel {
 		btn_timLop.setForeground(new Color(0, 0, 0));
 		btn_timLop.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btn_timLop.setBackground(new Color(211, 211, 211));
-		btn_timLop.setBounds(89, 35, 62, 40);
+		btn_timLop.setBounds(358, 11, 121, 112);
 		panel_1.add(btn_timLop);
-		JLabel label = new JLabel("");
-		label.setBounds(10, 15, 140, 115);
-		setImgae(label);
-		add(label);
 		
 		taoJcrollPaneRong();
 		
 		hienThiAllLop();
 		
 	}
-	public void setImgae(JLabel label) {
-		
-		java.net.URL url = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img = Toolkit.getDefaultToolkit().createImage(url);
-		
-		Image newImg = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon newIcon = new ImageIcon(newImg);
-		label.setIcon(newIcon);
-	}
-	
+
 	public void taoJcrollPaneRong() {
 		table_dsLop = new JTable();
 		table_dsLop.setEnabled(false);
@@ -194,13 +182,29 @@ public class Panel_DSLop extends JPanel {
 		table_dsLop.setRowHeight(30);
 		
 		JScrollPane src = new JScrollPane();
-		src.setBounds(10, 285, 1410, 434);
+		src.setBounds(10, 259, 1180, 430);
 		src.setViewportView(table_dsLop);
 		
 		scrollPane = src;
 		
 		
 		add(scrollPane);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBounds(649, 91, 541, 134);
+		add(panel);
+		panel.setLayout(null);
+		
+		JButton btnInExcel = new JButton("In");
+		btnInExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnInExcel.setBounds(193, 48, 158, 44);
+		panel.add(btnInExcel);
 		
 		
 	}
@@ -341,31 +345,18 @@ public class Panel_DSLop extends JPanel {
 		tf_maLop.setText(lop.getMaLop().trim());
 		tf_TenLopTao.setText(lop.getTenLop().trim());
 		tf_SiSo.setText( lop.getSiSo() + "".trim());
-
 	}
-	
-	
 	public void buttonTimKiem() {
-		
 		try {
 			String maLop = tf_maLop.getText();
 			Lop lop = new Lop();
 			lop.setMaLop(maLop);
-			
 			Lop lop2 = LopDAO.getLopDAO().selectById(lop);
 			themLopVaoFormNhap(lop2);
-			
-			
 		} catch (Exception e) {
 			// TODO: handle exception
-			
-			JOptionPane.showMessageDialog(this, "Hãy nhập mã lớp");
-			
+			JOptionPane.showMessageDialog(this, "Hãy nhập mã lớp");	
 		}
-		
-		
-		
-
 	}
 	
 	

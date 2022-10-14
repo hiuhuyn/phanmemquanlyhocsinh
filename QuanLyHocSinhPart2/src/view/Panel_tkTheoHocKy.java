@@ -53,6 +53,7 @@ import model.Lop;
 import model.MonHoc;
 
 import javax.swing.JTextField;
+import javax.swing.border.MatteBorder;
 
 public class Panel_tkTheoHocKy extends JPanel {
 	private JTable table;
@@ -66,24 +67,24 @@ public class Panel_tkTheoHocKy extends JPanel {
 	public Panel_tkTheoHocKy() {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
-		setSize(1430, 730);
+		setSize(1200, 700);
 		
 		JLabel lblNewLabel = new JLabel("Tổng kết điểm học sinh");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblNewLabel.setBounds(559, 34, 312, 40);
+		lblNewLabel.setBounds(402, 27, 312, 40);
 		add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 191, 255));
+		panel.setBackground(new Color(255, 255, 255));
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel.setBounds(10, 127, 1410, 94);
+		panel.setBounds(10, 94, 1180, 153);
 		add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Mã học kỳ");
-		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(990, 36, 75, 30);
+		lblNewLabel_1_1.setBounds(771, 26, 75, 30);
 		panel.add(lblNewLabel_1_1);
 		
 
@@ -92,7 +93,7 @@ public class Panel_tkTheoHocKy extends JPanel {
 		comboBox_hocKy.setForeground(new Color(0, 0, 0));
 		comboBox_hocKy.setFont(new Font("Tahoma", Font.BOLD, 13));
 		comboBox_hocKy.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_hocKy.setBounds(1086, 31, 109, 39);
+		comboBox_hocKy.setBounds(856, 23, 109, 39);
 		ArrayList<HocKy> hocKies = HocKyDAO.getHocKyDAO().selectAll();
 		for (HocKy hocKy : hocKies) {
 			comboBox_hocKy.addItem(hocKy.getMaHK());
@@ -106,7 +107,7 @@ public class Panel_tkTheoHocKy extends JPanel {
 		btnLapBaoCao.setForeground(new Color(0, 0, 0));
 		btnLapBaoCao.setBackground(Color.WHITE);
 		btnLapBaoCao.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLapBaoCao.setBounds(1226, 31, 174, 40);
+		btnLapBaoCao.setBounds(996, 23, 174, 40);
 		
 		btnLapBaoCao.addActionListener(new ActionListener() {
 			
@@ -120,16 +121,16 @@ public class Panel_tkTheoHocKy extends JPanel {
 		panel.add(btnLapBaoCao);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Mã lớp");
-		lblNewLabel_1_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1_1.setBounds(813, 38, 52, 30);
+		lblNewLabel_1_1_1.setBounds(590, 26, 52, 30);
 		panel.add(lblNewLabel_1_1_1);
 		
 		comboBox_MaLop = new JComboBox();
 		comboBox_MaLop.setForeground(new Color(0, 0, 0));
 		comboBox_MaLop.setFont(new Font("Tahoma", Font.BOLD, 13));
 		comboBox_MaLop.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_MaLop.setBounds(868, 33, 109, 39);
+		comboBox_MaLop.setBounds(652, 23, 109, 39);
 		ArrayList<Lop> lops = LopDAO.getLopDAO().selectAll();
 		for (Lop lop : lops) {
 			comboBox_MaLop.addItem(lop.getMaLop());
@@ -141,7 +142,7 @@ public class Panel_tkTheoHocKy extends JPanel {
 		
 		JButton btnInBC = new JButton("In báo cáo");
 		btnInBC.setIcon(new ImageIcon(Panel_tkTheoHocKy.class.getResource("/view/image/document-excel-icon.png")));
-		btnInBC.setBounds(510, 32, 174, 40);
+		btnInBC.setBounds(478, 91, 174, 40);
 		panel.add(btnInBC);
 		btnInBC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -164,13 +165,13 @@ public class Panel_tkTheoHocKy extends JPanel {
 		btnLayDuongDan.setForeground(new Color(0, 0, 0));
 		btnLayDuongDan.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnLayDuongDan.setBackground(Color.WHITE);
-		btnLayDuongDan.setBounds(326, 32, 174, 40);
+		btnLayDuongDan.setBounds(294, 91, 174, 40);
 		panel.add(btnLayDuongDan);
 		
 		textField_path = new JTextField();
 		textField_path.setFont(new Font("Tahoma", Font.BOLD, 13));
 		textField_path.setForeground(new Color(0, 0, 0));
-		textField_path.setBounds(81, 32, 235, 40);
+		textField_path.setBounds(49, 91, 235, 40);
 		panel.add(textField_path);
 		textField_path.setColumns(10);
 		
@@ -178,7 +179,7 @@ public class Panel_tkTheoHocKy extends JPanel {
 		lblNewLabel_1_1_1_1.setIcon(new ImageIcon(Panel_tkTheoHocKy.class.getResource("/view/image/User-Interface-Command-Line-icon.png")));
 		lblNewLabel_1_1_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1_1_1.setBounds(42, 30, 36, 40);
+		lblNewLabel_1_1_1_1.setBounds(10, 91, 36, 38);
 		panel.add(lblNewLabel_1_1_1_1);
 		
 		
@@ -187,18 +188,7 @@ public class Panel_tkTheoHocKy extends JPanel {
 
 		
 	}
-	
-	public void setImgae(JLabel label) {
-		
-		java.net.URL url = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img = Toolkit.getDefaultToolkit().createImage(url);
-		
-		Image newImg = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon newIcon = new ImageIcon(newImg);
-		label.setIcon(newIcon);
-	}
-	
-	
+
 	public void taoJSc() {
 		
 		
@@ -214,17 +204,12 @@ public class Panel_tkTheoHocKy extends JPanel {
 		
 		table.setFont(new Font("Tahoma", Font.BOLD, 14));
 		table.setRowHeight(30);
-
-		JScrollPane scroll = new JScrollPane();
-		scroll.setBounds(10, 232, 1410, 487);
-		scroll.setViewportView(table);
-		scrollPane = scroll;
-		add(scrollPane);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(10, 11, 126, 105);
-		add(label);
-		setImgae(label);
+				JScrollPane scroll = new JScrollPane();
+				scroll.setBounds(10, 258, 1180, 431);
+				add(scroll);
+				scroll.setViewportView(table);
+				scrollPane = scroll;
 
 	}
 	

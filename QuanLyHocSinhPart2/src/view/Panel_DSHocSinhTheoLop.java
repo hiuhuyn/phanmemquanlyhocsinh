@@ -47,17 +47,17 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 	public Panel_DSHocSinhTheoLop() {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
-		setSize(1430, 730);
+		setSize(1200, 700);
 
 		JLabel lblDanhSchHc = new JLabel("Danh sách học sinh theo lớp");
 		lblDanhSchHc.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblDanhSchHc.setBounds(527, 27, 432, 65);
+		lblDanhSchHc.setBounds(380, 27, 432, 65);
 		add(lblDanhSchHc);
 		
 
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Mã lớp");
-		lblNewLabel_1_2.setBounds(1042, 92, 62, 30);
+		lblNewLabel_1_2.setBounds(812, 97, 62, 30);
 		add(lblNewLabel_1_2);
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
@@ -75,7 +75,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 		});
 		btn_Tim.setForeground(new Color(0, 0, 0));
 		btn_Tim.setBackground(Color.WHITE);
-		btn_Tim.setBounds(1308, 85, 112, 45);
+		btn_Tim.setBounds(1078, 97, 112, 33);
 		add(btn_Tim);
 		
 		btn_Tim.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -86,13 +86,8 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 		for (Lop lop : lops) {
 			comboBox_tenlop.addItem(lop.getMaLop());
 		}
-		comboBox_tenlop.setBounds(1114, 94, 160, 30);
+		comboBox_tenlop.setBounds(884, 99, 160, 30);
 		add(comboBox_tenlop);
-		
-		JLabel label = new JLabel("");
-		label.setBounds(10, 11, 141, 119);
-		setImgae(label);
-		add(label);
 		
 		
 		taoJScrollPane();
@@ -100,15 +95,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 		hienThiAll();
 		
 	}
-	public void setImgae(JLabel label) {
-		
-		java.net.URL url = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img = Toolkit.getDefaultToolkit().createImage(url);
-		
-		Image newImg = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon newIcon = new ImageIcon(newImg);
-		label.setIcon(newIcon);
-	}
+
 	
 	public void taoJScrollPane() {
 
@@ -134,7 +121,7 @@ public class Panel_DSHocSinhTheoLop extends JPanel {
 		table.setRowHeight(30);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(10, 141, 1410, 578);
+		scrollPane_1.setBounds(10, 141, 1180, 548);
 		scrollPane_1.setViewportView(table);
 		add(scrollPane_1);
 		

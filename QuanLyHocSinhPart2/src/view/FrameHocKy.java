@@ -72,31 +72,31 @@ public class FrameHocKy extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Mã học kỳ");
 		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(10, 77, 105, 30);
+		lblNewLabel_1.setBounds(12, 172, 105, 30);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Tên học kỳ");
 		lblNewLabel_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(10, 119, 105, 30);
+		lblNewLabel_1_1.setBounds(12, 214, 105, 30);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Năm bắt đầu");
 		lblNewLabel_1_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1_1.setBounds(10, 158, 105, 30);
+		lblNewLabel_1_1_1.setBounds(12, 253, 105, 30);
 		contentPane.add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_1_1_2 = new JLabel("Năm kết thúc");
 		lblNewLabel_1_1_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1_2.setBounds(10, 199, 105, 30);
+		lblNewLabel_1_1_2.setBounds(12, 294, 105, 30);
 		contentPane.add(lblNewLabel_1_1_2);
 		
 		tf_maHK = new JTextField();
 		tf_maHK.setForeground(new Color(30, 144, 255));
 		tf_maHK.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tf_maHK.setBounds(124, 77, 208, 30);
+		tf_maHK.setBounds(126, 172, 208, 30);
 		contentPane.add(tf_maHK);
 		tf_maHK.setColumns(10);
 		
@@ -104,21 +104,21 @@ public class FrameHocKy extends JFrame {
 		tf_TenHK.setForeground(new Color(30, 144, 255));
 		tf_TenHK.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_TenHK.setColumns(10);
-		tf_TenHK.setBounds(124, 119, 208, 30);
+		tf_TenHK.setBounds(126, 214, 208, 30);
 		contentPane.add(tf_TenHK);
 		
 		tf_NamBatDau = new JTextField();
 		tf_NamBatDau.setForeground(new Color(30, 144, 255));
 		tf_NamBatDau.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_NamBatDau.setColumns(10);
-		tf_NamBatDau.setBounds(125, 158, 207, 30);
+		tf_NamBatDau.setBounds(127, 253, 207, 30);
 		contentPane.add(tf_NamBatDau);
 		
 		tf_namKetThuc = new JTextField();
 		tf_namKetThuc.setForeground(new Color(30, 144, 255));
 		tf_namKetThuc.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_namKetThuc.setColumns(10);
-		tf_namKetThuc.setBounds(124, 199, 208, 30);
+		tf_namKetThuc.setBounds(126, 294, 208, 30);
 		contentPane.add(tf_namKetThuc);
 		
 		JButton btnLuu = new JButton("Lưu");
@@ -131,7 +131,7 @@ public class FrameHocKy extends JFrame {
 		});
 		btnLuu.setForeground(new Color(0, 0, 0));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLuu.setBounds(10, 286, 105, 35);
+		btnLuu.setBounds(10, 76, 105, 35);
 		contentPane.add(btnLuu);
 		
 		JButton btnXoa = new JButton("Xóa");
@@ -143,7 +143,7 @@ public class FrameHocKy extends JFrame {
 		});
 		btnXoa.setForeground(new Color(0, 0, 0));
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnXoa.setBounds(224, 286, 108, 35);
+		btnXoa.setBounds(226, 76, 108, 35);
 		contentPane.add(btnXoa);
 		
 		taoJSc();

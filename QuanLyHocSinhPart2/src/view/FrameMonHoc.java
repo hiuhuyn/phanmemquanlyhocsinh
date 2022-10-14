@@ -29,6 +29,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
+import javax.swing.border.EtchedBorder;
 
 public class FrameMonHoc extends JFrame {
 
@@ -62,7 +64,7 @@ public class FrameMonHoc extends JFrame {
 		setTitle("Môn học");
 
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 308, 412);
+		setBounds(100, 100, 649, 477);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,24 +72,12 @@ public class FrameMonHoc extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Tên môn học");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_1.setBounds(10, 102, 91, 30);
-		contentPane.add(lblNewLabel_1);
-		
 		
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Thông tin môn học");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblNewLabel_1_1.setBounds(10, 11, 173, 39);
+		lblNewLabel_1_1.setBounds(223, 11, 173, 39);
 		contentPane.add(lblNewLabel_1_1);
-		
-		tf_tenMon = new JTextField();
-		tf_tenMon.setFont(new Font("Tahoma", Font.BOLD, 13));
-		tf_tenMon.setForeground(new Color(30, 144, 255));
-		tf_tenMon.setBounds(110, 103, 171, 30);
-		contentPane.add(tf_tenMon);
-		tf_tenMon.setColumns(10);
 		
 		JButton btnLuu = new JButton("Lưu");
 		btnLuu.setIcon(new ImageIcon(FrameMonHoc.class.getResource("/view/image/success-icon.png")));
@@ -98,9 +88,9 @@ public class FrameMonHoc extends JFrame {
 			}
 		});
 		btnLuu.setBackground(new Color(192, 192, 192));
-		btnLuu.setForeground(new Color(30, 144, 255));
+		btnLuu.setForeground(new Color(0, 0, 0));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLuu.setBounds(10, 150, 113, 39);
+		btnLuu.setBounds(10, 61, 113, 39);
 		contentPane.add(btnLuu);
 		
 		JButton btnXoa = new JButton("Xóa");
@@ -112,22 +102,10 @@ public class FrameMonHoc extends JFrame {
 			}
 		});
 		btnXoa.setBackground(new Color(192, 192, 192));
-		btnXoa.setForeground(new Color(30, 144, 255));
+		btnXoa.setForeground(new Color(0, 0, 0));
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnXoa.setBounds(168, 150, 113, 39);
+		btnXoa.setBounds(149, 61, 113, 39);
 		contentPane.add(btnXoa);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("Mã môn");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_1_2.setBounds(10, 61, 91, 30);
-		contentPane.add(lblNewLabel_1_2);
-		
-		tf_maMon = new JTextField();
-		tf_maMon.setFont(new Font("Tahoma", Font.BOLD, 13));
-		tf_maMon.setForeground(new Color(30, 144, 255));
-		tf_maMon.setColumns(10);
-		tf_maMon.setBounds(110, 62, 171, 30);
-		contentPane.add(tf_maMon);
 		
 		taoJSc();
 		hienThiAll();
@@ -142,7 +120,7 @@ public class FrameMonHoc extends JFrame {
 		
 		
 		JScrollPane jcs = new JScrollPane();
-		jcs.setBounds(10, 200, 271, 162);
+		jcs.setBounds(10, 205, 613, 222);
 		
 		
 		table = new JTable();
@@ -171,6 +149,42 @@ public class FrameMonHoc extends JFrame {
 		scrollPane = jcs;
 		
 		contentPane.add(scrollPane);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel.setBounds(10, 111, 613, 52);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Mã môn");
+		lblNewLabel_1_2.setBounds(10, 11, 91, 30);
+		panel.add(lblNewLabel_1_2);
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		tf_maMon = new JTextField();
+		tf_maMon.setBounds(110, 12, 171, 30);
+		panel.add(tf_maMon);
+		tf_maMon.setFont(new Font("Tahoma", Font.BOLD, 13));
+		tf_maMon.setForeground(new Color(30, 144, 255));
+		tf_maMon.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Tên môn học");
+		lblNewLabel_1.setBounds(332, 11, 91, 30);
+		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		tf_tenMon = new JTextField();
+		tf_tenMon.setBounds(432, 12, 171, 30);
+		panel.add(tf_tenMon);
+		tf_tenMon.setFont(new Font("Tahoma", Font.BOLD, 13));
+		tf_tenMon.setForeground(new Color(30, 144, 255));
+		tf_tenMon.setColumns(10);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Dang sách môn học");
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblNewLabel_1_1.setBounds(223, 169, 173, 31);
+		contentPane.add(lblNewLabel_1_1);
 		
 	}
 	

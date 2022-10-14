@@ -35,6 +35,7 @@ import model.Lop;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.border.EtchedBorder;
 
 
 public class Panel_QLHS extends JPanel {
@@ -63,25 +64,19 @@ public class Panel_QLHS extends JPanel {
 	public Panel_QLHS() {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
-		setSize(1430, 730);
+		setSize(1200, 700);
 		
 		
 
 		JPanel panel_thongTinHs = new JPanel();
-		panel_thongTinHs.setBackground(new Color(0, 191, 255));
+		panel_thongTinHs.setBackground(new Color(255, 255, 255));
 		panel_thongTinHs.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		panel_thongTinHs.setBounds(10, 57, 1410, 276);
+		panel_thongTinHs.setBounds(10, 57, 1180, 276);
 		add(panel_thongTinHs);
 		panel_thongTinHs.setLayout(null);
 		
-		JLabel lblThngTinHc = new JLabel("Thông tin học sinh");
-		lblThngTinHc.setForeground(new Color(255, 255, 255));
-		lblThngTinHc.setBounds(30, 11, 367, 38);
-		lblThngTinHc.setFont(new Font("Tahoma", Font.BOLD, 18));
-		panel_thongTinHs.add(lblThngTinHc);
-		
 		JLabel lblNewLabel_1 = new JLabel("Mã học sinh");
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1.setBounds(30, 60, 94, 30);
 		panel_thongTinHs.add(lblNewLabel_1);
@@ -94,7 +89,7 @@ public class Panel_QLHS extends JPanel {
 		tf_mahs.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Họ và tên");
-		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_1.setBounds(462, 60, 120, 30);
 		panel_thongTinHs.add(lblNewLabel_1_1);
@@ -107,7 +102,7 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(tf_hoten);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Nơi sinh");
-		lblNewLabel_1_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_3.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_3.setBounds(30, 101, 120, 30);
 		panel_thongTinHs.add(lblNewLabel_1_3);
@@ -120,13 +115,13 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(tf_noisinh);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Địa chỉ");
-		lblNewLabel_1_4.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_4.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_4.setBounds(30, 140, 120, 30);
 		panel_thongTinHs.add(lblNewLabel_1_4);
 		
 		JLabel lblNewLabel_1_5 = new JLabel("SDT liên lạc");
-		lblNewLabel_1_5.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_5.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_5.setBounds(462, 140, 94, 30);
 		panel_thongTinHs.add(lblNewLabel_1_5);
@@ -139,7 +134,7 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(tf_sdt_lienlac);
 		
 		JLabel lblNewLabel_1_6 = new JLabel("Họ và tên cha/mẹ");
-		lblNewLabel_1_6.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_6.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_6.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_6.setBounds(30, 181, 133, 30);
 		panel_thongTinHs.add(lblNewLabel_1_6);
@@ -159,13 +154,13 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(tf_TruongTieuHoc);
 		
 		JLabel lblNewLabel_1_4_1 = new JLabel("Đã hoàn thành chương trình tiểu học tại trường:");
-		lblNewLabel_1_4_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_4_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_4_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_4_1.setBounds(30, 222, 341, 30);
 		panel_thongTinHs.add(lblNewLabel_1_4_1);
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Sinh Nhật");
-		lblNewLabel_1_2_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_2_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2_1.setBounds(767, 60, 73, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1);
@@ -178,7 +173,7 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(tf_day);
 		
 		JLabel lblNewLabel_1_2_1_1 = new JLabel("Dân tộc");
-		lblNewLabel_1_2_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_2_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2_1_1.setBounds(462, 101, 56, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1_1);
@@ -191,7 +186,7 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(tf_dantoc);
 		
 		JLabel lblNewLabel_1_6_2 = new JLabel("Nghề nghiệp");
-		lblNewLabel_1_6_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_6_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_6_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_6_2.setBounds(462, 183, 94, 30);
 		panel_thongTinHs.add(lblNewLabel_1_6_2);
@@ -204,7 +199,7 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(tf_ngheNghiep);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Giới tính");
-		lblNewLabel_1_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2.setBounds(767, 101, 73, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2);
@@ -223,7 +218,7 @@ public class Panel_QLHS extends JPanel {
 		btn_Luu.setForeground(new Color(0, 0, 0));
 		btn_Luu.setBackground(new Color(245, 245, 245));
 		btn_Luu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btn_Luu.setBounds(1167, 26, 100, 40);
+		btn_Luu.setBounds(30, 11, 100, 40);
 		panel_thongTinHs.add(btn_Luu);
 		
 		JButton btn_xoa = new JButton("Xóa");
@@ -239,7 +234,7 @@ public class Panel_QLHS extends JPanel {
 		btn_xoa.setForeground(new Color(0, 0, 0));
 		btn_xoa.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btn_xoa.setBackground(new Color(245, 245, 245));
-		btn_xoa.setBounds(1167, 190, 100, 40);
+		btn_xoa.setBounds(280, 11, 100, 40);
 		panel_thongTinHs.add(btn_xoa);
 		
 		tf_diaChi = new JTextField();
@@ -262,7 +257,7 @@ public class Panel_QLHS extends JPanel {
 		});
 		btn_reset.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btn_reset.setBackground(new Color(245, 245, 245));
-		btn_reset.setBounds(1167, 110, 100, 40);
+		btn_reset.setBounds(155, 11, 100, 40);
 		panel_thongTinHs.add(btn_reset);
 		
 		tf_month = new JTextField();
@@ -280,19 +275,19 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(tf_Year);
 		
 		JLabel lblNewLabel_1_2_1_2 = new JLabel("Ngày");
-		lblNewLabel_1_2_1_2.setForeground(Color.WHITE);
+		lblNewLabel_1_2_1_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2_1_2.setBounds(861, 26, 66, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1_2);
 		
 		JLabel lblNewLabel_1_2_1_2_1 = new JLabel("Tháng");
-		lblNewLabel_1_2_1_2_1.setForeground(Color.WHITE);
+		lblNewLabel_1_2_1_2_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2_1_2_1.setBounds(937, 26, 66, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1_2_1);
 		
 		JLabel lblNewLabel_1_2_1_2_1_1 = new JLabel("Năm");
-		lblNewLabel_1_2_1_2_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_2_1_2_1_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_1_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2_1_2_1_1.setBounds(1019, 26, 66, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1_2_1_1);
@@ -307,11 +302,11 @@ public class Panel_QLHS extends JPanel {
 		}
 		
 		
-		comboBox_lops.setBounds(861, 142, 149, 30);
+		comboBox_lops.setBounds(861, 142, 230, 30);
 		panel_thongTinHs.add(comboBox_lops);
 		
 		JLabel lblNewLabel_1_2_2 = new JLabel("Lớp");
-		lblNewLabel_1_2_2.setForeground(Color.WHITE);
+		lblNewLabel_1_2_2.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1_2_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2_2.setBounds(767, 140, 73, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_2);
@@ -320,23 +315,23 @@ public class Panel_QLHS extends JPanel {
 		comboBox_gioiTinh.setForeground(new Color(0, 0, 0));
 		comboBox_gioiTinh.setFont(new Font("Tahoma", Font.BOLD, 13));
 		comboBox_gioiTinh.setModel(new DefaultComboBoxModel(new String[] {"", "Nam", "Nữ"}));
-		comboBox_gioiTinh.setBounds(861, 101, 148, 30);
+		comboBox_gioiTinh.setBounds(861, 101, 230, 30);
 		panel_thongTinHs.add(comboBox_gioiTinh);
 		
 		JLabel lblDanhSchHc = new JLabel("Danh sách học sinh");
 		lblDanhSchHc.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblDanhSchHc.setBounds(722, 332, 183, 38);
+		lblDanhSchHc.setBounds(490, 338, 183, 30);
 		add(lblDanhSchHc);
 		
 		JLabel lblNewLabel_1_8 = new JLabel("Mã học sinh");
-		lblNewLabel_1_8.setBounds(799, 16, 94, 30);
+		lblNewLabel_1_8.setBounds(713, 13, 94, 30);
 		add(lblNewLabel_1_8);
 		lblNewLabel_1_8.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		tf_MaTim = new JTextField();
 		tf_MaTim.setFont(new Font("Tahoma", Font.BOLD, 13));
 		tf_MaTim.setForeground(new Color(0, 0, 0));
-		tf_MaTim.setBounds(903, 16, 263, 30);
+		tf_MaTim.setBounds(817, 13, 263, 30);
 		add(tf_MaTim);
 		tf_MaTim.setColumns(10);
 		
@@ -353,7 +348,7 @@ public class Panel_QLHS extends JPanel {
 		btnTm.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/Very-Basic-Search-icon.png")));
 
 		btnTm.setForeground(new Color(0, 0, 0));
-		btnTm.setBounds(1176, 11, 100, 38);
+		btnTm.setBounds(1090, 8, 100, 38);
 		add(btnTm);
 
 		btnTm.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -363,33 +358,20 @@ public class Panel_QLHS extends JPanel {
 		lblQunLHc.setBounds(10, 8, 183, 38);
 		add(lblQunLHc);
 		lblQunLHc.setFont(new Font("Tahoma", Font.BOLD, 18));
-		JLabel label = new JLabel("");
-		label.setBounds(1374, 11, 46, 35);
-		setImgae(label);
-		add(label);
 		
 		
 		taoJScrollPaneRong();
 		hienThiALLHocSinh();
 	}
 	
-	public void setImgae(JLabel label) {
-		
-		java.net.URL url = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img = Toolkit.getDefaultToolkit().createImage(url);
-		
-		Image newImg = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon newIcon = new ImageIcon(newImg);
-		label.setIcon(newIcon);
-	}
-	
+
 	// tao scrollPane rong
 	public void taoJScrollPaneRong() {
 		
 		this.table = createTableRong();
 		
 		JScrollPane js1 = new JScrollPane();
-		js1.setBounds(10, 372, 1410, 347);
+		js1.setBounds(10, 372, 1180, 317);
 		
 		js1.setViewportView(table);
 		js1.setBackground(new Color(255, 255, 255));
@@ -415,7 +397,7 @@ public class Panel_QLHS extends JPanel {
 			new Object[][] {
 			},
 			new String[] {
-				"STT", "M\u00E3 h\u1ECDc sinh", "H\u1ECD v\u00E0 t\u00EAn", "M\u00E3 l\u1EDBp", "Ng\u00E0y sinh", "Gi\u1EDBi t\u00EDnh", "D\u00E2n t\u1ED9c", "SDT li\u00EAn l\u1EA1c", "N\u01A1i sinh", "\u0110\u1ECBa ch\u1EC9", "H\u1ECD v\u00E0 t\u00EAn cha/m\u1EB9", "Ngh\u1EC1 nghi\u1EC7p cha/m\u1EB9", "Tr\u01B0\u1EDDng ti\u1EC3u h\u1ECDc \u0111\u00E3 theo h\u1ECDc"
+				"STT", "M\u00E3 h\u1ECDc sinh", "H\u1ECD v\u00E0 t\u00EAn", "M\u00E3 l\u1EDBp", "Sinh nh\u1EADt", "Gi\u1EDBi t\u00EDnh", "D\u00E2n t\u1ED9c", "SDT li\u00EAn l\u1EA1c", "N\u01A1i sinh", "\u0110\u1ECBa ch\u1EC9", "H\u1ECD v\u00E0 t\u00EAn cha/m\u1EB9", "Ngh\u1EC1 nghi\u1EC7p cha/m\u1EB9", "Tr\u01B0\u1EDDng ti\u1EC3u h\u1ECDc \u0111\u00E3 theo h\u1ECDc"
 			}
 		) {
 			Class[] columnTypes = new Class[] {
@@ -425,11 +407,12 @@ public class Panel_QLHS extends JPanel {
 				return columnTypes[columnIndex];
 			}
 		});
-		jtable.getColumnModel().getColumn(0).setPreferredWidth(36);
+		jtable.getColumnModel().getColumn(0).setPreferredWidth(22);
 		jtable.getColumnModel().getColumn(1).setPreferredWidth(72);
 		jtable.getColumnModel().getColumn(2).setPreferredWidth(100);
-		jtable.getColumnModel().getColumn(5).setPreferredWidth(60);
-		jtable.getColumnModel().getColumn(6).setPreferredWidth(70);
+		jtable.getColumnModel().getColumn(3).setPreferredWidth(52);
+		jtable.getColumnModel().getColumn(5).setPreferredWidth(50);
+		jtable.getColumnModel().getColumn(6).setPreferredWidth(56);
 		jtable.getColumnModel().getColumn(11).setPreferredWidth(70);
 		jtable.setRowHeight(25);
 
