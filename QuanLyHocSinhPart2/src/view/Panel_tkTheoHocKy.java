@@ -38,13 +38,11 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import CSDL_sqlSv.DiemMonDAO;
-import CSDL_sqlSv.HocKyDAO;
-import CSDL_sqlSv.HocSinhDAO;
-
-import CSDL_sqlSv.LopDAO;
-import CSDL_sqlSv.MonHocDAO;
-
+import DAO.DiemMonDAO;
+import DAO.HocKyDAO;
+import DAO.HocSinhDAO;
+import DAO.LopDAO;
+import DAO.MonHocDAO;
 import model.DiemMon;
 import model.HocKy;
 import model.HocSinh;

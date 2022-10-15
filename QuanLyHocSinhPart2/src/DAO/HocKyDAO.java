@@ -1,4 +1,4 @@
-package CSDL_sqlSv;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.Statement;

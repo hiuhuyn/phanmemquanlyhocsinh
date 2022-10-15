@@ -17,8 +17,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import CSDL_sqlSv.LopDAO;
-import CSDL_sqlSv.MonHocDAO;
+import DAO.LopDAO;
+import DAO.MonHocDAO;
 import model.MonHoc;
 import model.XuatFileExcel;
 

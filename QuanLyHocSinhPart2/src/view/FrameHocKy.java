@@ -10,8 +10,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import CSDL_sqlSv.HocKyDAO;
-import CSDL_sqlSv.MonHocDAO;
+import DAO.HocKyDAO;
+import DAO.MonHocDAO;
 import model.HocKy;
 import model.MonHoc;
 import model.XuatFileExcel;

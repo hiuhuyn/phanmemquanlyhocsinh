@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import CSDL_sqlSv.TaiKhoanDAO;
+import DAO.TaiKhoanDAO;
 import model.TaiKhoan;
 
 import java.awt.Color;
@@ -83,26 +83,7 @@ public class ViewLogin extends JFrame {
 		btnDangNhap.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String u = tf_user.getText();
-				String p = String.valueOf(passwordField.getPassword());
-				
-				TaiKhoan taiKhoan = TaiKhoanDAO.getTaiKhoanDAO().selectById(new TaiKhoan(u, p));
-				
-				if(taiKhoan!=null) {
-					
-					User = u;
-					Pass = p;
-					
-					ViewTrangChu viewTrangChu = new ViewTrangChu();
-					viewTrangChu.setVisible(true);
-					ViewLogin.getViewLogin().setVisible(false);
-					
-					
-				}else {
-					
-					JOptionPane.showMessageDialog(null, "Tài khoản hoặc mật khẩu không chính xác!!");
-					
-				}
+				dangNhap();
 				
 			}
 		});
@@ -131,6 +112,28 @@ public class ViewLogin extends JFrame {
 		
 	}
 	
+	public void dangNhap() {
+		String u = tf_user.getText();
+		String p = String.valueOf(passwordField.getPassword());
+		
+		TaiKhoan taiKhoan = TaiKhoanDAO.getTaiKhoanDAO().selectById(new TaiKhoan(u, p));
+		
+		if(taiKhoan!=null) {
+			
+			User = u;
+			Pass = p;
+			
+			ViewTrangChu viewTrangChu = new ViewTrangChu();
+			viewTrangChu.setVisible(true);
+			this.setVisible(false);
+			
+			
+		}else {
+			
+			JOptionPane.showMessageDialog(null, "Tài khoản hoặc mật khẩu không chính xác!!");
+			
+		}
+	}
 
 	
 	

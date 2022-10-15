@@ -9,9 +9,11 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
-import CSDL_sqlSv.TaiKhoanDAO;
 import model.TaiKhoan;
 import javax.swing.border.TitledBorder;
+
+import DAO.TaiKhoanDAO;
+
 import javax.swing.border.BevelBorder;
 
 
@@ -22,34 +24,18 @@ public class ViewTrangChu extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panelMain;
-	private Panel_QLHS panel_QLHS;
-	private Panel_DSLop panel_QLDSLop;
-	private Panel_BangDiem panel_BangDiem;
-	private FrameMonHoc frameMonHoc;
-
-	private Panel_DSHocSinhTheoLop panel_DSHocSinhTheoLop;
-	private FrameHocKy frameHocKy;
-	private Panel_tkTheoHocKy panel_BaoCaoTk;
-	
-	private HuongDan jframeHuongDan;
-	
-	private JF_TTTaiKhoan ttTaiKhoan;
-	private JF_DoiPass doiPass;
-	private JF_QuanLyUser qLyUser;
-	
-	
 	
 	
 	public JF_QuanLyUser getqLyUser() {
-		return qLyUser = new JF_QuanLyUser();
+		return new JF_QuanLyUser();
 	}
 
 	public JF_TTTaiKhoan getTtTaiKhoan() {
-		return ttTaiKhoan = new JF_TTTaiKhoan() ;
+		return new JF_TTTaiKhoan() ;
 	}
 
 	public JF_DoiPass getDoiPass() {
-		return doiPass = new JF_DoiPass();
+		return new JF_DoiPass();
 	}
 
 	public JPanel getContentPane() {
@@ -61,35 +47,32 @@ public class ViewTrangChu extends JFrame {
 	}
 
 	public Panel_QLHS getPanel_QLHS() {
-		return panel_QLHS = new Panel_QLHS();
+		return new Panel_QLHS();
 	}
 
 	public Panel_DSLop getPanel_QLDSLop() {
-		return panel_QLDSLop = new Panel_DSLop();
+		return  new Panel_DSLop();
 	}
 
 	public Panel_BangDiem getPanel_BangDiem() {
-		return panel_BangDiem = new Panel_BangDiem();
+		return  new Panel_BangDiem();
 	}
 
 	public FrameMonHoc getFrameMonHoc() {
-		return frameMonHoc = new FrameMonHoc();
+		return  new FrameMonHoc();
 	}
 
-	public Panel_DSHocSinhTheoLop getPanel_DSHocSinhTheoLop() {
-		return panel_DSHocSinhTheoLop = new Panel_DSHocSinhTheoLop();
-	}
 
 	public FrameHocKy getFrameHocKy() {
-		return frameHocKy = new FrameHocKy();
+		return  new FrameHocKy();
 	}
 
 	public Panel_tkTheoHocKy getPanel_BaoCaoTk() {
-		return panel_BaoCaoTk = new Panel_tkTheoHocKy();
+		return  new Panel_tkTheoHocKy();
 	}
 
 	public HuongDan getJframeHuongDan() {
-		return jframeHuongDan = new HuongDan();
+		return  new HuongDan();
 	}
 	
 
@@ -115,7 +98,7 @@ public class ViewTrangChu extends JFrame {
 		menuBar.setBounds(0, 0, 1474, 30);
 		contentPane.add(menuBar);
 		
-		JMenu mnQLTK = new JMenu("Tài khoản cá nhân");
+		JMenu mnQLTK = new JMenu("Quản lý tài khoản cá nhân");
 		mnQLTK.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		menuBar.add(mnQLTK);
 		
@@ -217,7 +200,7 @@ public class ViewTrangChu extends JFrame {
 			}
 		});
 		btnQLHS.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnQLHS.setBounds(10, 66, 175, 40);
+		btnQLHS.setBounds(10, 66, 202, 40);
 		panel.add(btnQLHS);
 		
 		JLabel lblNewLabel = new JLabel("Chức năng chung");
@@ -225,7 +208,7 @@ public class ViewTrangChu extends JFrame {
 		lblNewLabel.setBounds(10, 11, 133, 23);
 		panel.add(lblNewLabel);
 		
-		JButton btnLop = new JButton("Danh sách lớp học");
+		JButton btnLop = new JButton("Quản lý lớp học");
 		btnLop.setBackground(new Color(255, 255, 255));
 		btnLop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -236,10 +219,10 @@ public class ViewTrangChu extends JFrame {
 			}
 		});
 		btnLop.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLop.setBounds(10, 117, 175, 40);
+		btnLop.setBounds(10, 117, 202, 40);
 		panel.add(btnLop);
 		
-		JButton btnBangDiemMon = new JButton("Bảng điểm môn");
+		JButton btnBangDiemMon = new JButton("Quản lý điểm môn");
 		btnBangDiemMon.setBackground(new Color(255, 255, 255));
 		btnBangDiemMon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -250,22 +233,8 @@ public class ViewTrangChu extends JFrame {
 			}
 		});
 		btnBangDiemMon.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnBangDiemMon.setBounds(10, 219, 175, 40);
+		btnBangDiemMon.setBounds(10, 168, 202, 40);
 		panel.add(btnBangDiemMon);
-		
-		JButton btnHocSinh_Lop = new JButton("Học sinh/lớp");
-		btnHocSinh_Lop.setBackground(new Color(255, 255, 255));
-		btnHocSinh_Lop.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_DSHocSinhTheoLop());
-				getPanelMain().revalidate();
-				getPanelMain().repaint();
-			}
-		});
-		btnHocSinh_Lop.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnHocSinh_Lop.setBounds(10, 168, 175, 40);
-		panel.add(btnHocSinh_Lop);
 		
 		JButton btnThongKe = new JButton("Thống kê");
 		btnThongKe.setBackground(new Color(255, 255, 255));
@@ -278,7 +247,7 @@ public class ViewTrangChu extends JFrame {
 			}
 		});
 		btnThongKe.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnThongKe.setBounds(10, 270, 175, 40);
+		btnThongKe.setBounds(10, 219, 202, 40);
 		panel.add(btnThongKe);
 		
 
@@ -289,7 +258,7 @@ public class ViewTrangChu extends JFrame {
 	public void panelQuyenAdmin() {
 		// hiển thị các chức năng của riêng Admin
 		
-		if(kiemTraDangNhap()==true) {
+		if(kiemTraDangNhap()) {
 			JPanel panel_admin = new JPanel();
 			panel_admin.setBackground(new Color(255, 255, 224));
 			panel_admin.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -323,7 +292,7 @@ public class ViewTrangChu extends JFrame {
 			btnQLHK.setBounds(10, 137, 202, 50);
 			panel_admin.add(btnQLHK);
 			
-			JButton btnQLTKUser = new JButton("Tài khoản người dùng");
+			JButton btnQLTKUser = new JButton("Quản lý người dùng");
 			btnQLTKUser.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					getqLyUser().setVisible(true);
@@ -341,8 +310,6 @@ public class ViewTrangChu extends JFrame {
 		
 		this.setVisible(false);
 		ViewLogin.getViewLogin().setVisible(true);
-		
-		
 	}
 	
 	

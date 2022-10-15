@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import CSDL_sqlSv.TaiKhoanDAO;
+import DAO.TaiKhoanDAO;
 import model.TaiKhoan;
 
 import java.awt.Color;

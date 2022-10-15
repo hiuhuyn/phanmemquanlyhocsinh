@@ -18,10 +18,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import CSDL_sqlSv.HocSinhDAO;
-
-import CSDL_sqlSv.LopDAO;
-
+import DAO.HocSinhDAO;
+import DAO.LopDAO;
 import model.HocSinh;
 
 import model.Lop;

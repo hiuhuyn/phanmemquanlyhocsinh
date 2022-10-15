@@ -2,7 +2,7 @@ package run;
 
 import javax.swing.UIManager;
 
-import CSDL_sqlSv.JDBCUtil;
+import DAO.JDBCUtil;
 import view.ViewLogin;
 import view.ViewTrangChu;
 
