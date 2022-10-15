@@ -326,22 +326,7 @@ public class ViewTrangChu extends JFrame {
 		return false;
 	}
 	
-	public void setImgae(JLabel label) {
-		
-		java.net.URL url = ViewTrangChu.class.getResource("bia2.jpg");
-		Image img = Toolkit.getDefaultToolkit().createImage(url);
-		
-		Image newImg = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon newIcon = new ImageIcon(newImg);
-		label.setIcon(newIcon);
-		
-
-		java.net.URL url2 = ViewTrangChu.class.getResource("logoTHCS ChoChu.jpg");
-		Image img2 = Toolkit.getDefaultToolkit().createImage(url2);
-		
-		this.setIconImage(img2);
-		
-	}
+	
 	
 	
 	public void LienHe() {
