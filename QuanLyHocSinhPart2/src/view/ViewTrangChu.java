@@ -98,7 +98,7 @@ public class ViewTrangChu extends JFrame {
 		menuBar.setBounds(0, 0, 1474, 30);
 		contentPane.add(menuBar);
 		
-		JMenu mnQLTK = new JMenu("Quản lý tài khoản cá nhân");
+		JMenu mnQLTK = new JMenu("Quản lý tài khoản");
 		mnQLTK.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		menuBar.add(mnQLTK);
 		
