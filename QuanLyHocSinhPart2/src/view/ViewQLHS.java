@@ -37,7 +37,7 @@ import java.awt.event.ActionListener;
 import javax.swing.border.EtchedBorder;
 
 
-public class Panel_QLHS extends JPanel {
+public class ViewQLHS extends JPanel {
 	private JTextField tf_mahs;
 	private JTextField tf_hoten;
 	private JTextField tf_noisinh;
@@ -61,7 +61,7 @@ public class Panel_QLHS extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Panel_QLHS() {
+	public ViewQLHS() {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		setSize(1200, 700);
@@ -205,7 +205,7 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(lblNewLabel_1_2);
 		
 		JButton btn_Luu = new JButton("Lưu");
-		btn_Luu.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/success-icon.png")));
+		btn_Luu.setIcon(new ImageIcon(ViewQLHS.class.getResource("/view/image/success-icon.png")));
 
 		btn_Luu.addActionListener(new ActionListener() {
 			
@@ -222,7 +222,7 @@ public class Panel_QLHS extends JPanel {
 		panel_thongTinHs.add(btn_Luu);
 		
 		JButton btn_xoa = new JButton("Xóa");
-		btn_xoa.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/Close-2-icon.png")));
+		btn_xoa.setIcon(new ImageIcon(ViewQLHS.class.getResource("/view/image/Close-2-icon.png")));
 		btn_xoa.addActionListener(new ActionListener() {
 			
 			@Override
@@ -306,7 +306,7 @@ public class Panel_QLHS extends JPanel {
 				XuatFileExcel.exportExcel(table);
 			}
 		});
-		btnXuatExcel.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setIcon(new ImageIcon(ViewQLHS.class.getResource("/view/image/Folder-Open-icon.png")));
 		btnXuatExcel.setForeground(Color.BLACK);
 		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnXuatExcel.setBackground(new Color(245, 245, 245));
@@ -340,7 +340,7 @@ public class Panel_QLHS extends JPanel {
 			}
 		});
 
-		btnTm.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/Very-Basic-Search-icon.png")));
+		btnTm.setIcon(new ImageIcon(ViewQLHS.class.getResource("/view/image/Very-Basic-Search-icon.png")));
 
 		btnTm.setForeground(new Color(0, 0, 0));
 		btnTm.setBounds(1090, 8, 100, 38);
@@ -380,7 +380,7 @@ public class Panel_QLHS extends JPanel {
 				locTheoLop();
 			}
 		});
-		btnLoc.setIcon(new ImageIcon(Panel_QLHS.class.getResource("/view/image/Very-Basic-Filter-icon.png")));
+		btnLoc.setIcon(new ImageIcon(ViewQLHS.class.getResource("/view/image/Very-Basic-Filter-icon.png")));
 		btnLoc.setForeground(Color.BLACK);
 		btnLoc.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnLoc.setBackground(new Color(245, 245, 245));
@@ -507,7 +507,7 @@ public class Panel_QLHS extends JPanel {
 				hs.getNoiSinh().trim()+"",
 				hs.getDiaChi().trim()+"",
 				hs.getHoten_PhuHuynh().trim()+"",
-				hs.getNgheNnghiep().trim()+"",
+				hs.getNgheNghiepPhuHuynh().trim()+"",
 				hs.getChuongTrinhTieuHoc().trim()+""
 		});
 	} 
@@ -599,7 +599,7 @@ public class Panel_QLHS extends JPanel {
 		this.tf_noisinh.setText(hocSinh.getNoiSinh().trim());
 		this.tf_diaChi.setText(hocSinh.getDiaChi().trim());
 		this.tf_phuHuynh.setText(hocSinh.getHoten_PhuHuynh().trim());
-		this.tf_ngheNghiep.setText(hocSinh.getNgheNnghiep().trim());
+		this.tf_ngheNghiep.setText(hocSinh.getNgheNghiepPhuHuynh().trim());
 		this.tf_TruongTieuHoc.setText(hocSinh.getChuongTrinhTieuHoc().trim());
 		
 		

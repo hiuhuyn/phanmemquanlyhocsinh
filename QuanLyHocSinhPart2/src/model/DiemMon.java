@@ -1,9 +1,9 @@
 package model;
 
 public class DiemMon {
-	private String monHoc= "";
-	private String hocSinh= "";
-	private String hocKy = "";
+	private String maMH= "";
+	private String maHS= "";
+	private String maHK = "";
 	private float diemMieng = 0, diem15p= 0, diem1Tiet= 0, diemThi= 0;
 	private float diemTBmon= 0;
 	
@@ -26,9 +26,9 @@ public class DiemMon {
 	public DiemMon(String monHoc, String hocSinh, String hocKy, float diemMieng, float diem15p, float diem1Tiet,
 			float diemThi) {
 		
-		this.monHoc = monHoc;
-		this.hocSinh = hocSinh;
-		this.hocKy = hocKy;
+		this.maMH = monHoc;
+		this.maHS = hocSinh;
+		this.maHK = hocKy;
 		this.diemMieng = diemMieng;
 		this.diem15p = diem15p;
 		this.diem1Tiet = diem1Tiet;
@@ -45,9 +45,9 @@ public class DiemMon {
 	 */
 	public DiemMon(String monHoc, String hocSinh, String hocKy) {
 		super();
-		this.monHoc = monHoc;
-		this.hocSinh = hocSinh;
-		this.hocKy = hocKy;
+		this.maMH = monHoc;
+		this.maHS = hocSinh;
+		this.maHK = hocKy;
 	}
 	
 	/**
@@ -57,22 +57,22 @@ public class DiemMon {
 		super();
 	}
 	public String getMonHoc() {
-		return monHoc;
+		return maMH;
 	}
 	public void setMonHoc(String monHoc) {
-		this.monHoc = monHoc;
+		this.maMH = monHoc;
 	}
 	public String getHocSinh() {
-		return hocSinh;
+		return maHS;
 	}
 	public void setHocSinh(String hocSinh) {
-		this.hocSinh = hocSinh;
+		this.maHS = hocSinh;
 	}
 	public String getHocKy() {
-		return hocKy;
+		return maHK;
 	}
 	public void setHocKy(String hocKy) {
-		this.hocKy = hocKy;
+		this.maHK = hocKy;
 	}
 	public float getDiemMieng() {
 		return diemMieng;
@@ -106,7 +106,7 @@ public class DiemMon {
 	}
 	@Override
 	public String toString() {
-		return "DiemMon [monHoc=" + monHoc + ", hocSinh=" + hocSinh + ", hocKy=" + hocKy + ", diemMieng=" + diemMieng
+		return "DiemMon [monHoc=" + maMH + ", hocSinh=" + maHS + ", hocKy=" + maHK + ", diemMieng=" + diemMieng
 				+ ", diem15p=" + diem15p + ", diem1Tiet=" + diem1Tiet + ", diemThi=" + diemThi + ", diemTBmon="
 				+ this.getDiemTBmon() + "]";
 	}

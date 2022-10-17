@@ -33,7 +33,7 @@ import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import javax.swing.border.EtchedBorder;
 
-public class FrameMonHoc extends JFrame {
+public class ViewMonHoc extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -51,8 +51,8 @@ public class FrameMonHoc extends JFrame {
 	
 	
 	
-	public FrameMonHoc() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(FrameMonHoc.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
+	public ViewMonHoc() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewMonHoc.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		
 		
 		setFont(new Font("Dialog", Font.BOLD, 15));
@@ -75,7 +75,7 @@ public class FrameMonHoc extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		JButton btnLuu = new JButton("Lưu");
-		btnLuu.setIcon(new ImageIcon(FrameMonHoc.class.getResource("/view/image/success-icon.png")));
+		btnLuu.setIcon(new ImageIcon(ViewMonHoc.class.getResource("/view/image/success-icon.png")));
 		btnLuu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buttonLuu();
@@ -89,7 +89,7 @@ public class FrameMonHoc extends JFrame {
 		contentPane.add(btnLuu);
 		
 		JButton btnXoa = new JButton("Xóa");
-		btnXoa.setIcon(new ImageIcon(FrameMonHoc.class.getResource("/view/image/Close-2-icon.png")));
+		btnXoa.setIcon(new ImageIcon(ViewMonHoc.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buttonXoa();
@@ -187,7 +187,7 @@ public class FrameMonHoc extends JFrame {
 				XuatFileExcel.exportExcel(table);
 			}
 		});
-		btnXutExcel.setIcon(new ImageIcon(FrameMonHoc.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXutExcel.setIcon(new ImageIcon(ViewMonHoc.class.getResource("/view/image/Folder-Open-icon.png")));
 		btnXutExcel.setForeground(Color.BLACK);
 		btnXutExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnXutExcel.setBackground(Color.LIGHT_GRAY);

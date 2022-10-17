@@ -32,7 +32,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
-public class Panel_DSLop extends JPanel {
+public class ViewQLLopHoc extends JPanel {
 	private JTable table_dsLop;
 	private JTextField tf_TenLopTao;
 	private JTextField tf_SiSo;
@@ -42,7 +42,7 @@ public class Panel_DSLop extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Panel_DSLop() {
+	public ViewQLLopHoc() {
 		setForeground(new Color(255, 255, 255));
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
@@ -75,7 +75,7 @@ public class Panel_DSLop extends JPanel {
 		panel_1.add(lblNewLabel_1_1);
 		
 		JButton btn_tao_capNhat = new JButton("Lưu");
-		btn_tao_capNhat.setIcon(new ImageIcon(Panel_DSLop.class.getResource("/view/image/success-icon.png")));
+		btn_tao_capNhat.setIcon(new ImageIcon(ViewQLLopHoc.class.getResource("/view/image/success-icon.png")));
 		btn_tao_capNhat.addActionListener(new ActionListener() {
 			
 			@Override
@@ -92,7 +92,7 @@ public class Panel_DSLop extends JPanel {
 		panel_1.add(btn_tao_capNhat);
 		
 		JButton btnXoa_lop = new JButton("Xóa");
-		btnXoa_lop.setIcon(new ImageIcon(Panel_DSLop.class.getResource("/view/image/Close-2-icon.png")));
+		btnXoa_lop.setIcon(new ImageIcon(ViewQLLopHoc.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa_lop.addActionListener(new ActionListener() {
 			
 			@Override
@@ -142,7 +142,7 @@ public class Panel_DSLop extends JPanel {
 			}
 		});
 
-		btn_timLop.setIcon(new ImageIcon(Panel_DSLop.class.getResource("/view/image/Very-Basic-Search-icon.png")));
+		btn_timLop.setIcon(new ImageIcon(ViewQLLopHoc.class.getResource("/view/image/Very-Basic-Search-icon.png")));
 		
 		btn_timLop.setForeground(new Color(0, 0, 0));
 		btn_timLop.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -153,7 +153,7 @@ public class Panel_DSLop extends JPanel {
 		JButton btnXuatExcel = new JButton("Xuất excel");
 		btnXuatExcel.setBounds(916, 10, 254, 49);
 		panel_1.add(btnXuatExcel);
-		btnXuatExcel.setIcon(new ImageIcon(Panel_DSLop.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setIcon(new ImageIcon(ViewQLLopHoc.class.getResource("/view/image/Folder-Open-icon.png")));
 		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnXuatExcel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

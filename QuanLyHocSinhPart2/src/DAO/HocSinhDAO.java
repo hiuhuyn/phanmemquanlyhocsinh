@@ -38,7 +38,7 @@ public class HocSinhDAO implements DAOInterface<HocSinh>{
 			psm.setNString(8, t.getNoiSinh());
 			psm.setNString(9, t.getDiaChi());
 			psm.setNString(10, t.getHoten_PhuHuynh() );
-			psm.setNString(11, t.getNgheNnghiep());
+			psm.setNString(11, t.getNgheNghiepPhuHuynh());
 			psm.setNString(12, t.getChuongTrinhTieuHoc());
 			
 			
@@ -78,7 +78,7 @@ public class HocSinhDAO implements DAOInterface<HocSinh>{
 			psm.setNString(7, t.getNoiSinh());
 			psm.setNString(8, t.getDiaChi());
 			psm.setNString(9, t.getHoten_PhuHuynh() );
-			psm.setNString(10, t.getNgheNnghiep());
+			psm.setNString(10, t.getNgheNghiepPhuHuynh());
 			psm.setNString(11, t.getChuongTrinhTieuHoc());
 			psm.setString(12, t.getMaHS());
 			

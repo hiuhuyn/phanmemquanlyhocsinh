@@ -31,7 +31,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 
-public class JF_QuanLyUser extends JFrame {
+public class ViewQuanLyUser extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -45,9 +45,9 @@ public class JF_QuanLyUser extends JFrame {
 	private JComboBox comboBox_quyen;
 
 	
-	public JF_QuanLyUser() {
+	public ViewQuanLyUser() {
 		setForeground(new Color(255, 255, 255));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(JF_QuanLyUser.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewQuanLyUser.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		setTitle("Quản lý tài khoản người dùng");
 		
 		setBounds(100, 100, 1352, 692);
@@ -142,13 +142,13 @@ public class JF_QuanLyUser extends JFrame {
 				buttonLuu();
 			}
 		});
-		btnLuu.setIcon(new ImageIcon(JF_QuanLyUser.class.getResource("/view/image/success-icon.png")));
+		btnLuu.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/success-icon.png")));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnLuu.setBounds(10, 537, 113, 39);
 		panel.add(btnLuu);
 		
 		JButton btnXoa = new JButton("Xóa");
-		btnXoa.setIcon(new ImageIcon(JF_QuanLyUser.class.getResource("/view/image/Close-2-icon.png")));
+		btnXoa.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnXoa.setBounds(171, 537, 113, 39);
 		btnXoa.addActionListener(new ActionListener() {
@@ -184,7 +184,7 @@ public class JF_QuanLyUser extends JFrame {
 				buttonTim();
 			}
 		});
-		btnTimKiem.setIcon(new ImageIcon(JF_QuanLyUser.class.getResource("/view/image/Very-Basic-Search-icon.png")));
+		btnTimKiem.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/Very-Basic-Search-icon.png")));
 		btnTimKiem.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnTimKiem.setBounds(1042, 89, 91, 39);
 		
@@ -231,7 +231,7 @@ public class JF_QuanLyUser extends JFrame {
 				XuatFileExcel.exportExcel(table);
 			}
 		});
-		btnXuatExcel.setIcon(new ImageIcon(JF_QuanLyUser.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/Folder-Open-icon.png")));
 		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnXuatExcel.setBounds(1159, 89, 167, 39);
 		contentPane.add(btnXuatExcel);

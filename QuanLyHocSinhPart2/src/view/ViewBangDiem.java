@@ -50,7 +50,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 
-public class Panel_BangDiem extends JPanel {
+public class ViewBangDiem extends JPanel {
 	private JTextField tf_d15p;
 	private JTextField tf_1tiet;
 	private JTextField tf_Dthi;
@@ -67,7 +67,7 @@ public class Panel_BangDiem extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Panel_BangDiem() {
+	public ViewBangDiem() {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		setSize(1200, 700);
@@ -150,7 +150,7 @@ public class Panel_BangDiem extends JPanel {
 		panel.add(tf_diemMieng);
 		
 		JButton btnXoa = new JButton("Xóa");
-		btnXoa.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Close-2-icon.png")));
+		btnXoa.setIcon(new ImageIcon(ViewBangDiem.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buttonXoa();
@@ -162,7 +162,7 @@ public class Panel_BangDiem extends JPanel {
 		panel.add(btnXoa);
 		
 		JButton btnClear = new JButton("Clear");
-		btnClear.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/clear-icon.png")));
+		btnClear.setIcon(new ImageIcon(ViewBangDiem.class.getResource("/view/image/clear-icon.png")));
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buttonReset();
@@ -182,7 +182,7 @@ public class Panel_BangDiem extends JPanel {
 		hienThiAll();
 		
 		JButton btnLuu = new JButton("Lưu");
-		btnLuu.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/success-icon.png")));
+		btnLuu.setIcon(new ImageIcon(ViewBangDiem.class.getResource("/view/image/success-icon.png")));
 		btnLuu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buttonLuu();
@@ -274,7 +274,7 @@ public class Panel_BangDiem extends JPanel {
 		JButton btn_timkiem = new JButton("");
 		btn_timkiem.setBounds(252, 11, 182, 54);
 		panel_1.add(btn_timkiem);
-		btn_timkiem.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Very-Basic-Search-icon.png")));
+		btn_timkiem.setIcon(new ImageIcon(ViewBangDiem.class.getResource("/view/image/Very-Basic-Search-icon.png")));
 		btn_timkiem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				timKiem();
@@ -291,7 +291,7 @@ public class Panel_BangDiem extends JPanel {
 				XuatFileExcel.exportExcel(table);
 			}
 		});
-		btnXuatExcel.setIcon(new ImageIcon(Panel_BangDiem.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setIcon(new ImageIcon(ViewBangDiem.class.getResource("/view/image/Folder-Open-icon.png")));
 		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		JLabel lblDanhSchBng = new JLabel("Danh sách bảng điểm");

@@ -54,7 +54,7 @@ import model.XuatFileExcel;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
 
-public class Panel_tkTheoHocKy extends JPanel {
+public class ViewThongKe extends JPanel {
 	private JTable table;
 	private JScrollPane scrollPane;
 	private JComboBox comboBox_hocKy;
@@ -62,7 +62,7 @@ public class Panel_tkTheoHocKy extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Panel_tkTheoHocKy() {
+	public ViewThongKe() {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		setSize(1200, 700);
@@ -101,7 +101,7 @@ public class Panel_tkTheoHocKy extends JPanel {
 		panel.add(comboBox_hocKy);
 		
 		JButton btnLapBaoCao = new JButton("Lập báo cáo");
-		btnLapBaoCao.setIcon(new ImageIcon(Panel_tkTheoHocKy.class.getResource("/view/image/Very-Basic-Filter-icon.png")));
+		btnLapBaoCao.setIcon(new ImageIcon(ViewThongKe.class.getResource("/view/image/Very-Basic-Filter-icon.png")));
 		btnLapBaoCao.setForeground(new Color(0, 0, 0));
 		btnLapBaoCao.setBackground(Color.WHITE);
 		btnLapBaoCao.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -139,7 +139,7 @@ public class Panel_tkTheoHocKy extends JPanel {
 		
 		
 		JButton btnXuatExcel = new JButton("Xuất excel");
-		btnXuatExcel.setIcon(new ImageIcon(Panel_tkTheoHocKy.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setIcon(new ImageIcon(ViewThongKe.class.getResource("/view/image/Folder-Open-icon.png")));
 		btnXuatExcel.setBounds(996, 14, 174, 40);
 		panel.add(btnXuatExcel);
 		btnXuatExcel.addActionListener(new ActionListener() {

@@ -31,7 +31,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.border.EtchedBorder;
 
-public class FrameHocKy extends JFrame {
+public class ViewHocKy extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -44,8 +44,8 @@ public class FrameHocKy extends JFrame {
 	
 	
 	
-	public FrameHocKy() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(FrameHocKy.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
+	public ViewHocKy() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewHocKy.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		
 		setTitle("Học kỳ");
 
@@ -66,7 +66,7 @@ public class FrameHocKy extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnLuu = new JButton("Lưu");
-		btnLuu.setIcon(new ImageIcon(FrameHocKy.class.getResource("/view/image/success-icon.png")));
+		btnLuu.setIcon(new ImageIcon(ViewHocKy.class.getResource("/view/image/success-icon.png")));
 		btnLuu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buttonLuu();
@@ -79,7 +79,7 @@ public class FrameHocKy extends JFrame {
 		contentPane.add(btnLuu);
 		
 		JButton btnXoa = new JButton("Xóa");
-		btnXoa.setIcon(new ImageIcon(FrameHocKy.class.getResource("/view/image/Close-2-icon.png")));
+		btnXoa.setIcon(new ImageIcon(ViewHocKy.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buttonXoa();
@@ -194,7 +194,7 @@ public class FrameHocKy extends JFrame {
 				XuatFileExcel.exportExcel(table);
 			}
 		});
-		btnXutExcel.setIcon(new ImageIcon(FrameHocKy.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXutExcel.setIcon(new ImageIcon(ViewHocKy.class.getResource("/view/image/Folder-Open-icon.png")));
 		btnXutExcel.setForeground(Color.BLACK);
 		btnXutExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnXutExcel.setBounds(569, 28, 149, 35);

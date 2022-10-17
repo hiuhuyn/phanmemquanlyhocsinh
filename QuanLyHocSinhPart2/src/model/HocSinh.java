@@ -10,7 +10,7 @@ public class HocSinh {
 	private String maHS, hoTen, maLop;
 	private Date ngaySinh;
 	private String gioiTinh,sdt_LienLac, danToc, noiSinh, diaChi, 
-	 hoten_PhuHuynh, ngheNnghiep, chuongTrinhTieuHoc;
+	 hoTen_PhuHuynh, ngheNghiepPhuHuynh, truongTieuHoc;
 	
 
 	
@@ -35,9 +35,9 @@ public class HocSinh {
 	 * @param danToc
 	 * @param noiSinh
 	 * @param diaChi
-	 * @param hoten_PhuHuynh
-	 * @param ngheNnghiep
-	 * @param chuongTrinhTieuHoc
+	 * @param hoTen_PhuHuynh
+	 * @param ngheNghiepPhuHuynh
+	 * @param truongTieuHoc
 
 
 	/**
@@ -76,9 +76,9 @@ public class HocSinh {
 		this.danToc = danToc;
 		this.noiSinh = noiSinh;
 		this.diaChi = diaChi;
-		this.hoten_PhuHuynh = hoten_PhuHuynh;
-		this.ngheNnghiep = ngheNnghiep;
-		this.chuongTrinhTieuHoc = chuongTrinhTieuHoc;
+		this.hoTen_PhuHuynh = hoten_PhuHuynh;
+		this.ngheNghiepPhuHuynh = ngheNnghiep;
+		this.truongTieuHoc = chuongTrinhTieuHoc;
 	}
 
 
@@ -142,27 +142,27 @@ public class HocSinh {
 	}
 
 	public String getHoten_PhuHuynh() {
-		return hoten_PhuHuynh;
+		return hoTen_PhuHuynh;
 	}
 
 	public void setHoten_PhuHuynh(String hoten_PhuHuynh) {
-		this.hoten_PhuHuynh = hoten_PhuHuynh;
+		this.hoTen_PhuHuynh = hoten_PhuHuynh;
 	}
 
-	public String getNgheNnghiep() {
-		return ngheNnghiep;
+	public String getNgheNghiepPhuHuynh() {
+		return ngheNghiepPhuHuynh;
 	}
 
-	public void setNgheNnghiep(String ngheNnghiep) {
-		this.ngheNnghiep = ngheNnghiep;
+	public void setNgheNghiepPhuHuynh(String ngheNnghiep) {
+		this.ngheNghiepPhuHuynh = ngheNnghiep;
 	}
 
 	public String getChuongTrinhTieuHoc() {
-		return chuongTrinhTieuHoc;
+		return truongTieuHoc;
 	}
 
 	public void setChuongTrinhTieuHoc(String chuongTrinhTieuHoc) {
-		this.chuongTrinhTieuHoc = chuongTrinhTieuHoc;
+		this.truongTieuHoc = chuongTrinhTieuHoc;
 	}
 
 	public Date getNgaySinh() {
@@ -191,8 +191,8 @@ public class HocSinh {
 	public String toString() {
 		return "HocSinh [maHS=" + maHS + ", hoTen=" + hoTen + ", maLop=" + maLop + ", ngaySinh=" + ngaySinh
 				+ ", gioiTinh=" + gioiTinh + ", sdt_LienLac=" + sdt_LienLac + ", danToc=" + danToc + ", noiSinh="
-				+ noiSinh + ", diaChi=" + diaChi + ", hoten_PhuHuynh=" + hoten_PhuHuynh + ", ngheNnghiep=" + ngheNnghiep
-				+ ", chuongTrinhTieuHoc=" + chuongTrinhTieuHoc + "]";
+				+ noiSinh + ", diaChi=" + diaChi + ", hoten_PhuHuynh=" + hoTen_PhuHuynh + ", ngheNnghiep=" + ngheNghiepPhuHuynh
+				+ ", chuongTrinhTieuHoc=" + truongTieuHoc + "]";
 	}
 
 

@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class JF_TTTaiKhoan extends JFrame {
+public class ViewTTTaiKhoan extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tf_hoten;
@@ -36,8 +36,8 @@ public class JF_TTTaiKhoan extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JF_TTTaiKhoan() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(JF_TTTaiKhoan.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
+	public ViewTTTaiKhoan() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewTTTaiKhoan.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		setTitle("Tài khoản");
 
 		setBounds(100, 100, 468, 438);
@@ -64,7 +64,7 @@ public class JF_TTTaiKhoan extends JFrame {
 		contentPane.add(lblNewLabel_1_1_1);
 		
 		JButton btnUpdate = new JButton("Cập nhật");
-		btnUpdate.setIcon(new ImageIcon(JF_TTTaiKhoan.class.getResource("/view/image/success-icon.png")));
+		btnUpdate.setIcon(new ImageIcon(ViewTTTaiKhoan.class.getResource("/view/image/success-icon.png")));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				updateTK();
@@ -76,7 +76,7 @@ public class JF_TTTaiKhoan extends JFrame {
 		contentPane.add(btnUpdate);
 		
 		JButton btnXoa = new JButton("Xóa");
-		btnXoa.setIcon(new ImageIcon(JF_TTTaiKhoan.class.getResource("/view/image/Close-2-icon.png")));
+		btnXoa.setIcon(new ImageIcon(ViewTTTaiKhoan.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				deleteUser();
@@ -151,12 +151,12 @@ public class JF_TTTaiKhoan extends JFrame {
 		TaiKhoan taiKhoan = TaiKhoanDAO.getTaiKhoanDAO().selectById(new TaiKhoan(user, pasStr));
 		if(taiKhoan!=null) {
 			TaiKhoanDAO.getTaiKhoanDAO().delete(taiKhoan);
-			JOptionPane.showMessageDialog(this, "Bạn đã xóa tài khoản, phần mềm sẽ tự tắt!!");
+			JOptionPane.showMessageDialog(this, "Bạn đã xóa tài khoản!!");
 			System.exit(0);
+			
 		}else {
 			JOptionPane.showMessageDialog(this, "Mật khẩu không hợp lệ!!");
-			
-			
+
 		}
 	}
 	

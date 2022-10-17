@@ -25,7 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
-public class JF_DoiPass extends JFrame {
+public class ViewDoiPass extends JFrame {
 
 	private JPanel contentPane;
 	private final JLabel lblNewLabel_1 = new JLabel("Tên đăng nhập");
@@ -34,8 +34,8 @@ public class JF_DoiPass extends JFrame {
 	private JLabel label_user;
 
 
-	public JF_DoiPass() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(JF_DoiPass.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
+	public ViewDoiPass() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewDoiPass.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		setTitle("Đổi mật khẩu");
 		
 		setBounds(100, 100, 450, 333);
@@ -67,7 +67,7 @@ public class JF_DoiPass extends JFrame {
 		contentPane.add(tf_beforePass);
 		
 		JButton btnDoiPass = new JButton("Đổi mật khẩu");
-		btnDoiPass.setIcon(new ImageIcon(JF_DoiPass.class.getResource("/view/image/success-icon.png")));
+		btnDoiPass.setIcon(new ImageIcon(ViewDoiPass.class.getResource("/view/image/success-icon.png")));
 		btnDoiPass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				doiPass();
@@ -79,7 +79,7 @@ public class JF_DoiPass extends JFrame {
 		contentPane.add(btnDoiPass);
 		
 		JButton btnThoat = new JButton("Thoát");
-		btnThoat.setIcon(new ImageIcon(JF_DoiPass.class.getResource("/view/image/Login-out-icon.png")));
+		btnThoat.setIcon(new ImageIcon(ViewDoiPass.class.getResource("/view/image/Login-out-icon.png")));
 		btnThoat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				thoat();

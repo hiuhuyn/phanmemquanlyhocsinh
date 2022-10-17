@@ -123,8 +123,8 @@ public class ViewLogin extends JFrame {
 			User = u;
 			Pass = p;
 			
-			ViewTrangChu viewTrangChu = new ViewTrangChu();
-			viewTrangChu.setVisible(true);
+			ViewTrangChu.getTrangChu().setVisible(true);
+			
 			this.setVisible(false);
 			
 			

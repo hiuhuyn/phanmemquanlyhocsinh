@@ -13,7 +13,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-public class HuongDan extends JFrame {
+public class ViewHuongDan extends JFrame {
 
 	private JPanel contentPane;
 	private final JScrollPane scrollPane = new JScrollPane();
@@ -24,8 +24,8 @@ public class HuongDan extends JFrame {
 	
 	
 	
-	public HuongDan() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(HuongDan.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
+	public ViewHuongDan() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewHuongDan.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		
 		setTitle("Hướng dẫn");
 		

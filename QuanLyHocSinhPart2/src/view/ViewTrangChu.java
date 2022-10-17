@@ -25,17 +25,20 @@ public class ViewTrangChu extends JFrame {
 	private JPanel contentPane;
 	private JPanel panelMain;
 	
+	public static ViewTrangChu getTrangChu() {
+		return new ViewTrangChu();
+	}
 	
-	public JF_QuanLyUser getqLyUser() {
-		return new JF_QuanLyUser();
+	public ViewQuanLyUser getViewQuanLyUser() {
+		return new ViewQuanLyUser();
 	}
 
-	public JF_TTTaiKhoan getTtTaiKhoan() {
-		return new JF_TTTaiKhoan() ;
+	public ViewTTTaiKhoan getViewTTTaiKhoan() {
+		return new ViewTTTaiKhoan() ;
 	}
 
-	public JF_DoiPass getDoiPass() {
-		return new JF_DoiPass();
+	public ViewDoiPass getViewDoiPass() {
+		return new ViewDoiPass();
 	}
 
 	public JPanel getContentPane() {
@@ -46,33 +49,33 @@ public class ViewTrangChu extends JFrame {
 		return panelMain;
 	}
 
-	public Panel_QLHS getPanel_QLHS() {
-		return new Panel_QLHS();
+	public ViewQLHS getViewQLHS() {
+		return new ViewQLHS();
 	}
 
-	public Panel_DSLop getPanel_QLDSLop() {
-		return  new Panel_DSLop();
+	public ViewQLLopHoc getViewQLLopHoc() {
+		return  new ViewQLLopHoc();
 	}
 
-	public Panel_BangDiem getPanel_BangDiem() {
-		return  new Panel_BangDiem();
+	public ViewBangDiem getViewBangDiem() {
+		return  new ViewBangDiem();
 	}
 
-	public FrameMonHoc getFrameMonHoc() {
-		return  new FrameMonHoc();
+	public ViewMonHoc getViewMonHoc() {
+		return  new ViewMonHoc();
 	}
 
 
-	public FrameHocKy getFrameHocKy() {
-		return  new FrameHocKy();
+	public ViewHocKy getViewHocKy() {
+		return  new ViewHocKy();
 	}
 
-	public Panel_tkTheoHocKy getPanel_BaoCaoTk() {
-		return  new Panel_tkTheoHocKy();
+	public ViewThongKe getViewThongKe() {
+		return  new ViewThongKe();
 	}
 
-	public HuongDan getJframeHuongDan() {
-		return  new HuongDan();
+	public ViewHuongDan getViewHuongDan() {
+		return  new ViewHuongDan();
 	}
 	
 
@@ -110,7 +113,7 @@ public class ViewTrangChu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				getTtTaiKhoan().setVisible(true);
+				getViewTTTaiKhoan().setVisible(true);
 			}
 		});
 		mnQLTK.add(item_ttTK);
@@ -123,7 +126,7 @@ public class ViewTrangChu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				getDoiPass().setVisible(true);
+				getViewDoiPass().setVisible(true);
 			}
 		});
 		mnQLTK.add(item_doiPass);
@@ -156,7 +159,7 @@ public class ViewTrangChu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				getJframeHuongDan().setVisible(true);
+				getViewHuongDan().setVisible(true);
 			}
 		});
 		mnhelp.add(item_huongDan);
@@ -169,7 +172,7 @@ public class ViewTrangChu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				LienHe();
+				thongTinLienHe();
 			}
 		});
 		mnhelp.add(item_lienHe);
@@ -194,7 +197,7 @@ public class ViewTrangChu extends JFrame {
 		btnQLHS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_QLHS());
+				getPanelMain().add(getViewQLHS());
 				getPanelMain().revalidate();
 				getPanelMain().repaint();
 			}
@@ -213,7 +216,7 @@ public class ViewTrangChu extends JFrame {
 		btnLop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_QLDSLop());
+				getPanelMain().add(getViewQLLopHoc());
 				getPanelMain().revalidate();
 				getPanelMain().repaint();
 			}
@@ -227,7 +230,7 @@ public class ViewTrangChu extends JFrame {
 		btnBangDiemMon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_BangDiem());
+				getPanelMain().add(getViewBangDiem());
 				getPanelMain().revalidate();
 				getPanelMain().repaint();
 			}
@@ -241,7 +244,7 @@ public class ViewTrangChu extends JFrame {
 		btnThongKe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getPanelMain().removeAll();
-				getPanelMain().add(getPanel_BaoCaoTk());
+				getPanelMain().add(getViewThongKe());
 				getPanelMain().revalidate();
 				getPanelMain().repaint();
 			}
@@ -251,11 +254,11 @@ public class ViewTrangChu extends JFrame {
 		panel.add(btnThongKe);
 		
 
-		panelQuyenAdmin();		
+		hienThiQuyenAdmin();		
 	}
 	
 	
-	public void panelQuyenAdmin() {
+	public void hienThiQuyenAdmin() {
 		// hiển thị các chức năng của riêng Admin
 		
 		if(kiemTraDangNhap()) {
@@ -269,7 +272,7 @@ public class ViewTrangChu extends JFrame {
 			JButton btnQLMH = new JButton("Quản lý môn học");
 			btnQLMH.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					getFrameMonHoc().setVisible(true);
+					getViewMonHoc().setVisible(true);
 				}
 			});
 			btnQLMH.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -285,7 +288,7 @@ public class ViewTrangChu extends JFrame {
 			JButton btnQLHK = new JButton("Quản lý học kỳ");
 			btnQLHK.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					getFrameHocKy().setVisible(true);
+					getViewHocKy().setVisible(true);
 				}
 			});
 			btnQLHK.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -295,7 +298,7 @@ public class ViewTrangChu extends JFrame {
 			JButton btnQLTKUser = new JButton("Quản lý người dùng");
 			btnQLTKUser.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					getqLyUser().setVisible(true);
+					getViewQuanLyUser().setVisible(true);
 				}
 			});
 			btnQLTKUser.setToolTipText("");
@@ -329,7 +332,7 @@ public class ViewTrangChu extends JFrame {
 	
 	
 	
-	public void LienHe() {
+	public void thongTinLienHe() {
 		
 		String sdt = "0378298920";
 		String email = "minhquansn2011@gmail.com";
