@@ -158,20 +158,8 @@ public class ViewBangDiem extends JPanel {
 		});
 		btnXoa.setForeground(new Color(0, 0, 0));
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnXoa.setBounds(334, 34, 107, 41);
+		btnXoa.setBounds(561, 34, 107, 41);
 		panel.add(btnXoa);
-		
-		JButton btnClear = new JButton("Clear");
-		btnClear.setIcon(new ImageIcon(ViewBangDiem.class.getResource("/view/image/clear-icon.png")));
-		btnClear.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				buttonReset();
-			}
-		});
-		btnClear.setForeground(new Color(0, 0, 0));
-		btnClear.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnClear.setBounds(10, 34, 107, 41);
-		panel.add(btnClear);
 		
 		JLabel lblNewLabel = new JLabel("Bảng điểm môn");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
@@ -190,7 +178,7 @@ public class ViewBangDiem extends JPanel {
 		});
 		btnLuu.setForeground(new Color(0, 0, 0));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnLuu.setBounds(170, 34, 107, 41);
+		btnLuu.setBounds(365, 34, 107, 41);
 		panel.add(btnLuu);
 		
 		comboBox_maMon = new JComboBox();
@@ -220,6 +208,12 @@ public class ViewBangDiem extends JPanel {
 		 comboBox_MaHK.setModel(new DefaultComboBoxModel(new String[] {""}));
 		comboBox_MaHK.setBounds(113, 185, 114, 30);
 		panel.add(comboBox_MaHK);
+		
+		JLabel lblNewLabel_1_2_3 = new JLabel("Nhập điểm");
+		lblNewLabel_1_2_3.setForeground(Color.BLACK);
+		lblNewLabel_1_2_3.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_1_2_3.setBounds(10, 38, 136, 30);
+		panel.add(lblNewLabel_1_2_3);
 		
 		
 		JPanel panel_1 = new JPanel();
@@ -322,17 +316,6 @@ public class ViewBangDiem extends JPanel {
 		}
 		
 
-	}
-	
-
-	public void buttonReset() {
-		comboBox_maMon.setSelectedIndex(-1);
-		comboBox_MaHS.setSelectedIndex(-1);
-		comboBox_maMon.setSelectedIndex(-1);
-		tf_diemMieng.setText("");
-		tf_d15p.setText("");
-		tf_1tiet.setText("");
-		tf_Dthi.setText("");
 	}
 	
 	
@@ -599,9 +582,4 @@ public class ViewBangDiem extends JPanel {
 			
 		}
 	}
-
-	
-	
-	
-	
 }
