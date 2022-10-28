@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import DAO.LopDAO;
 import DAO.MonHocDAO;
 import model.MonHoc;
+import model.TaiKhoan;
 import model.XuatFileExcel;
 
 import javax.swing.border.SoftBevelBorder;
@@ -27,11 +28,14 @@ import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.SwingConstants;
 
 public class ViewMonHoc extends JFrame {
 
@@ -41,14 +45,6 @@ public class ViewMonHoc extends JFrame {
 	private JTextField tf_maMon;
 	private JScrollPane scrollPane;
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
-	
 	
 	
 	public ViewMonHoc() {
@@ -57,9 +53,7 @@ public class ViewMonHoc extends JFrame {
 		
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("Môn học");
-
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 649, 477);
+		setBounds(100, 100, 649, 509);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,8 +64,9 @@ public class ViewMonHoc extends JFrame {
 		
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Thông tin môn học");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblNewLabel_1_1.setBounds(223, 11, 173, 39);
+		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblNewLabel_1_1.setBounds(162, 21, 338, 39);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JButton btnLuu = new JButton("Lưu");
@@ -85,7 +80,7 @@ public class ViewMonHoc extends JFrame {
 		btnLuu.setBackground(new Color(192, 192, 192));
 		btnLuu.setForeground(new Color(0, 0, 0));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLuu.setBounds(10, 61, 113, 39);
+		btnLuu.setBounds(11, 82, 150, 50);
 		contentPane.add(btnLuu);
 		
 		JButton btnXoa = new JButton("Xóa");
@@ -99,28 +94,74 @@ public class ViewMonHoc extends JFrame {
 		btnXoa.setBackground(new Color(192, 192, 192));
 		btnXoa.setForeground(new Color(0, 0, 0));
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnXoa.setBounds(149, 61, 113, 39);
+		btnXoa.setBounds(171, 82, 150, 50);
 		contentPane.add(btnXoa);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(30, 144, 255));
+		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel.setBounds(10, 143, 613, 52);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Mã môn");
+		lblNewLabel_1_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_2.setBounds(10, 11, 91, 30);
+		panel.add(lblNewLabel_1_2);
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		tf_maMon = new JTextField();
+		tf_maMon.setBounds(110, 12, 171, 30);
+		panel.add(tf_maMon);
+		tf_maMon.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_maMon.setForeground(new Color(30, 144, 255));
+		tf_maMon.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Tên môn học");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBounds(332, 11, 91, 30);
+		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		tf_tenMon = new JTextField();
+		tf_tenMon.setBounds(432, 12, 171, 30);
+		panel.add(tf_tenMon);
+		tf_tenMon.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_tenMon.setForeground(new Color(30, 144, 255));
+		tf_tenMon.setColumns(10);
+		
+		JLabel lblNewLabel_1_3 = new JLabel("Dang sách môn học");
+		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblNewLabel_1_3.setBounds(223, 201, 173, 31);
+		contentPane.add(lblNewLabel_1_3);
+		
+		JButton btnXutExcel = new JButton("Xuất Excel");
+		btnXutExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XuatFileExcel.exportExcel(table);
+			}
+		});
+		btnXutExcel.setIcon(new ImageIcon(ViewMonHoc.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXutExcel.setForeground(Color.BLACK);
+		btnXutExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXutExcel.setBackground(Color.LIGHT_GRAY);
+		btnXutExcel.setBounds(473, 82, 150, 50);
+		contentPane.add(btnXutExcel);
+		
 		
 		taoJSc();
 		hienThiAll();
-		
-		
-		setVisible(false);
 	}
 
 	
 	public void taoJSc() {
-		
-		
-		
 		JScrollPane jcs = new JScrollPane();
-		jcs.setBounds(10, 205, 613, 222);
+		jcs.setBounds(10, 237, 613, 222);
 		
 		
 		table = new JTable();
 		table.setFillsViewportHeight(true);
-		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		table.setForeground(new Color(30, 144, 255));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -144,55 +185,39 @@ public class ViewMonHoc extends JFrame {
 		scrollPane = jcs;
 		
 		contentPane.add(scrollPane);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel.setBounds(10, 111, 613, 52);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("Mã môn");
-		lblNewLabel_1_2.setBounds(10, 11, 91, 30);
-		panel.add(lblNewLabel_1_2);
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		tf_maMon = new JTextField();
-		tf_maMon.setBounds(110, 12, 171, 30);
-		panel.add(tf_maMon);
-		tf_maMon.setFont(new Font("Tahoma", Font.BOLD, 13));
-		tf_maMon.setForeground(new Color(30, 144, 255));
-		tf_maMon.setColumns(10);
-		
-		JLabel lblNewLabel_1 = new JLabel("Tên môn học");
-		lblNewLabel_1.setBounds(332, 11, 91, 30);
-		panel.add(lblNewLabel_1);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		tf_tenMon = new JTextField();
-		tf_tenMon.setBounds(432, 12, 171, 30);
-		panel.add(tf_tenMon);
-		tf_tenMon.setFont(new Font("Tahoma", Font.BOLD, 13));
-		tf_tenMon.setForeground(new Color(30, 144, 255));
-		tf_tenMon.setColumns(10);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Dang sách môn học");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblNewLabel_1_1.setBounds(223, 169, 173, 31);
-		contentPane.add(lblNewLabel_1_1);
-		
-		JButton btnXutExcel = new JButton("Xuất Excel");
-		btnXutExcel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				XuatFileExcel.exportExcel(table);
+		table.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				hienThiDaChon();
 			}
 		});
-		btnXutExcel.setIcon(new ImageIcon(ViewMonHoc.class.getResource("/view/image/Folder-Open-icon.png")));
-		btnXutExcel.setForeground(Color.BLACK);
-		btnXutExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnXutExcel.setBackground(Color.LIGHT_GRAY);
-		btnXutExcel.setBounds(472, 61, 151, 39);
-		contentPane.add(btnXutExcel);
+		
 		
 	}
 	
@@ -266,10 +291,6 @@ public class ViewMonHoc extends JFrame {
 			
 			MonHoc ktHoc = MonHocDAO.getMonHocDAO().selectById(monHoc);
 			
-			
-
-//			boolean kiemTra = maMon.equals("");
-			
 			boolean kiemTra = (ktHoc == null);
 			
 			
@@ -290,7 +311,25 @@ public class ViewMonHoc extends JFrame {
 
 	}
 	
+	public MonHoc getDangChon() {
+		
+		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+		int irow = table.getSelectedRow();
+		
+		String maMon = tableModel.getValueAt(irow, 1).toString();
+		String tenMon = tableModel.getValueAt(irow, 2).toString();
+		
+
+		return new MonHoc(maMon, tenMon) ;
+	}
 	
+	
+	public void hienThiDaChon() {
+		MonHoc monHoc = this.getDangChon();
+		tf_maMon.setText(monHoc.getMaMon());
+		tf_tenMon.setText(monHoc.getTenMon());
+		
+	}
 	
 	
 	

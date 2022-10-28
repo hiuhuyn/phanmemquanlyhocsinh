@@ -107,31 +107,43 @@ public class ViewQuanLyUser extends JFrame {
 		panel.add(lblNewLabel_1_1_1_4);
 		
 		tf_user = new JTextField();
+		tf_user.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_user.setForeground(new Color(30, 144, 255));
 		tf_user.setBounds(98, 151, 186, 39);
 		panel.add(tf_user);
 		tf_user.setColumns(10);
 		
 		tf_pass = new JTextField();
+		tf_pass.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_pass.setForeground(new Color(30, 144, 255));
 		tf_pass.setColumns(10);
 		tf_pass.setBounds(98, 201, 186, 39);
 		panel.add(tf_pass);
 		
 		tf_hoten = new JTextField();
+		tf_hoten.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_hoten.setForeground(new Color(30, 144, 255));
 		tf_hoten.setColumns(10);
 		tf_hoten.setBounds(98, 251, 186, 39);
 		panel.add(tf_hoten);
 		
 		tf_sdt = new JTextField();
+		tf_sdt.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_sdt.setForeground(new Color(30, 144, 255));
 		tf_sdt.setColumns(10);
 		tf_sdt.setBounds(98, 301, 186, 39);
 		panel.add(tf_sdt);
 		
 		tf_email = new JTextField();
+		tf_email.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_email.setForeground(new Color(30, 144, 255));
 		tf_email.setColumns(10);
 		tf_email.setBounds(98, 351, 186, 39);
 		panel.add(tf_email);
 		
 		comboBox_quyen = new JComboBox();
+		comboBox_quyen.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		comboBox_quyen.setForeground(new Color(30, 144, 255));
 		comboBox_quyen.setModel(new DefaultComboBoxModel(new String[] {"", "Admin", "Member"}));
 		comboBox_quyen.setBounds(98, 403, 186, 39);
 		panel.add(comboBox_quyen);
@@ -144,13 +156,13 @@ public class ViewQuanLyUser extends JFrame {
 		});
 		btnLuu.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/success-icon.png")));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLuu.setBounds(10, 537, 113, 39);
+		btnLuu.setBounds(98, 479, 186, 50);
 		panel.add(btnLuu);
 		
 		JButton btnXoa = new JButton("Xóa");
 		btnXoa.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/Close-2-icon.png")));
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnXoa.setBounds(171, 537, 113, 39);
+		btnXoa.setBounds(98, 560, 186, 50);
 		btnXoa.addActionListener(new ActionListener() {
 			
 			@Override
@@ -164,7 +176,7 @@ public class ViewQuanLyUser extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Danh sách các tài khoản");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblNewLabel.setBounds(543, 11, 309, 48);
+		lblNewLabel.setBounds(691, 21, 309, 48);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_nhapJLabel = new JLabel("Nhập user cần tìm");
@@ -174,6 +186,8 @@ public class ViewQuanLyUser extends JFrame {
 		contentPane.add(lblNewLabel_nhapJLabel);
 		
 		tf_userTimKiem = new JTextField();
+		tf_userTimKiem.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_userTimKiem.setForeground(new Color(30, 144, 255));
 		tf_userTimKiem.setColumns(10);
 		tf_userTimKiem.setBounds(846, 91, 186, 39);
 		contentPane.add(tf_userTimKiem);
@@ -186,7 +200,18 @@ public class ViewQuanLyUser extends JFrame {
 		});
 		btnTimKiem.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/Very-Basic-Search-icon.png")));
 		btnTimKiem.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnTimKiem.setBounds(1042, 89, 91, 39);
+		btnTimKiem.setBounds(1053, 83, 70, 50);
+		
+		JButton btnXuatExcel = new JButton("Xuất excel");
+		btnXuatExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XuatFileExcel.exportExcel(table);
+			}
+		});
+		btnXuatExcel.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXuatExcel.setBounds(1176, 83, 150, 50);
+		contentPane.add(btnXuatExcel);
 		
 		
 		contentPane.add(btnTimKiem);
@@ -225,16 +250,7 @@ public class ViewQuanLyUser extends JFrame {
 		scrollPane = scrollPane_1;
 		contentPane.add(scrollPane);
 		
-		JButton btnXuatExcel = new JButton("Xuất excel");
-		btnXuatExcel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				XuatFileExcel.exportExcel(table);
-			}
-		});
-		btnXuatExcel.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/Folder-Open-icon.png")));
-		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnXuatExcel.setBounds(1159, 89, 167, 39);
-		contentPane.add(btnXuatExcel);
+		
 		
 		table.addMouseListener(new MouseListener() {
 			
@@ -265,7 +281,7 @@ public class ViewQuanLyUser extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				hienThiTaiKhoanDaChon();
+				hienThiDaChon();
 			}
 		});
 		
@@ -363,7 +379,7 @@ public class ViewQuanLyUser extends JFrame {
 		}
 	}
 	
-	public TaiKhoan getTaiKhoanDangChon() {
+	public TaiKhoan getDangChon() {
 		
 		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
 		int irow = table.getSelectedRow();
@@ -379,8 +395,8 @@ public class ViewQuanLyUser extends JFrame {
 	}
 	
 	
-	public void hienThiTaiKhoanDaChon() {
-		TaiKhoan taiKhoan = this.getTaiKhoanDangChon();
+	public void hienThiDaChon() {
+		TaiKhoan taiKhoan = this.getDangChon();
 		tf_user.setText(taiKhoan.getUser());
 		tf_hoten.setText(taiKhoan.getHoten());
 		tf_pass.setText(taiKhoan.getPass());

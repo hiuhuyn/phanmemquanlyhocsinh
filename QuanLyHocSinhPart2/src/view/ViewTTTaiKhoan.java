@@ -40,7 +40,7 @@ public class ViewTTTaiKhoan extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewTTTaiKhoan.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		setTitle("Tài khoản");
 
-		setBounds(100, 100, 468, 438);
+		setBounds(100, 100, 451, 438);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -50,7 +50,7 @@ public class ViewTTTaiKhoan extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Thông tin tài khoản");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(128, 11, 201, 29);
+		lblNewLabel.setBounds(128, 27, 201, 29);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("User");
@@ -70,9 +70,9 @@ public class ViewTTTaiKhoan extends JFrame {
 				updateTK();
 			}
 		});
-		btnUpdate.setBackground(new Color(30, 144, 255));
+		btnUpdate.setBackground(new Color(255, 255, 255));
 		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnUpdate.setBounds(46, 345, 154, 43);
+		btnUpdate.setBounds(45, 311, 150, 50);
 		contentPane.add(btnUpdate);
 		
 		JButton btnXoa = new JButton("Xóa");
@@ -83,8 +83,8 @@ public class ViewTTTaiKhoan extends JFrame {
 			}
 		});
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnXoa.setBackground(new Color(30, 144, 255));
-		btnXoa.setBounds(233, 345, 154, 43);
+		btnXoa.setBackground(new Color(255, 255, 255));
+		btnXoa.setBounds(232, 311, 150, 50);
 		contentPane.add(btnXoa);
 		
 		tf_hoten = new JTextField();
@@ -131,6 +131,7 @@ public class ViewTTTaiKhoan extends JFrame {
 		contentPane.add(lblNewLabel_1_1_1_2_1);
 		
 		label_Quyen = new JLabel("");
+		label_Quyen.setForeground(new Color(30, 144, 255));
 		label_Quyen.setFont(new Font("Tahoma", Font.BOLD, 14));
 		label_Quyen.setBounds(170, 253, 217, 30);
 		

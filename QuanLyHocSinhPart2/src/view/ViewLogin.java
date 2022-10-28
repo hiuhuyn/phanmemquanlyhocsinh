@@ -41,11 +41,12 @@ public class ViewLogin extends JFrame {
 	
 	
 	public ViewLogin() {
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewLogin.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		
 		setTitle("Đăng nhập");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 430, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -87,8 +88,8 @@ public class ViewLogin extends JFrame {
 				
 			}
 		});
-		btnDangNhap.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnDangNhap.setBounds(37, 198, 155, 38);
+		btnDangNhap.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnDangNhap.setBounds(37, 198, 150, 50);
 		contentPane.add(btnDangNhap);
 		
 		JButton btnThoat = new JButton("Thoát");
@@ -98,8 +99,8 @@ public class ViewLogin extends JFrame {
 				System.exit(0);
 			}
 		});
-		btnThoat.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnThoat.setBounds(248, 198, 121, 38);
+		btnThoat.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnThoat.setBounds(220, 198, 150, 50);
 		contentPane.add(btnThoat);
 		
 		passwordField = new JPasswordField();

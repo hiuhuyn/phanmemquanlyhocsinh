@@ -30,10 +30,14 @@ import DAO.HocSinhDAO;
 import DAO.LopDAO;
 import model.HocSinh;
 import model.Lop;
+import model.TaiKhoan;
 import model.XuatFileExcel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.border.EtchedBorder;
 
 
@@ -69,139 +73,140 @@ public class ViewQLHS extends JPanel {
 		
 
 		JPanel panel_thongTinHs = new JPanel();
-		panel_thongTinHs.setBackground(new Color(255, 255, 255));
+		panel_thongTinHs.setForeground(new Color(255, 255, 255));
+		panel_thongTinHs.setBackground(new Color(30, 144, 255));
 		panel_thongTinHs.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panel_thongTinHs.setBounds(10, 57, 1180, 276);
 		add(panel_thongTinHs);
 		panel_thongTinHs.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Mã học sinh");
-		lblNewLabel_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(35, 11, 94, 30);
+		lblNewLabel_1.setBounds(35, 11, 138, 30);
 		panel_thongTinHs.add(lblNewLabel_1);
 		
 		tf_mahs = new JTextField();
-		tf_mahs.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_mahs.setForeground(new Color(0, 0, 0));
-		tf_mahs.setBounds(178, 11, 263, 30);
+		tf_mahs.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_mahs.setForeground(new Color(30, 144, 255));
+		tf_mahs.setBounds(178, 11, 200, 30);
 		panel_thongTinHs.add(tf_mahs);
 		tf_mahs.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Họ và tên");
-		lblNewLabel_1_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(467, 11, 120, 30);
+		lblNewLabel_1_1.setBounds(455, 11, 100, 30);
 		panel_thongTinHs.add(lblNewLabel_1_1);
 		
 		tf_hoten = new JTextField();
-		tf_hoten.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_hoten.setForeground(new Color(0, 0, 0));
+		tf_hoten.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_hoten.setForeground(new Color(30, 144, 255));
 		tf_hoten.setColumns(10);
-		tf_hoten.setBounds(574, 11, 188, 30);
+		tf_hoten.setBounds(562, 11, 200, 30);
 		panel_thongTinHs.add(tf_hoten);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Nơi sinh");
-		lblNewLabel_1_3.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_3.setBounds(35, 52, 120, 30);
+		lblNewLabel_1_3.setBounds(35, 52, 138, 30);
 		panel_thongTinHs.add(lblNewLabel_1_3);
 		
 		tf_noisinh = new JTextField();
-		tf_noisinh.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_noisinh.setForeground(new Color(0, 0, 0));
+		tf_noisinh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_noisinh.setForeground(new Color(30, 144, 255));
 		tf_noisinh.setColumns(10);
-		tf_noisinh.setBounds(178, 52, 263, 30);
+		tf_noisinh.setBounds(178, 52, 200, 30);
 		panel_thongTinHs.add(tf_noisinh);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Địa chỉ");
-		lblNewLabel_1_4.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_4.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_4.setBounds(35, 91, 120, 30);
+		lblNewLabel_1_4.setBounds(35, 91, 138, 30);
 		panel_thongTinHs.add(lblNewLabel_1_4);
 		
 		JLabel lblNewLabel_1_5 = new JLabel("SDT liên lạc");
-		lblNewLabel_1_5.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_5.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_5.setBounds(467, 91, 94, 30);
+		lblNewLabel_1_5.setBounds(455, 91, 100, 30);
 		panel_thongTinHs.add(lblNewLabel_1_5);
 		
 		tf_sdt_lienlac = new JTextField();
-		tf_sdt_lienlac.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_sdt_lienlac.setForeground(new Color(0, 0, 0));
+		tf_sdt_lienlac.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_sdt_lienlac.setForeground(new Color(30, 144, 255));
 		tf_sdt_lienlac.setColumns(10);
-		tf_sdt_lienlac.setBounds(574, 93, 188, 30);
+		tf_sdt_lienlac.setBounds(562, 93, 200, 30);
 		panel_thongTinHs.add(tf_sdt_lienlac);
 		
 		JLabel lblNewLabel_1_6 = new JLabel("Họ và tên cha/mẹ");
-		lblNewLabel_1_6.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_6.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_6.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_6.setBounds(35, 132, 133, 30);
+		lblNewLabel_1_6.setBounds(35, 132, 138, 30);
 		panel_thongTinHs.add(lblNewLabel_1_6);
 		
 		tf_phuHuynh = new JTextField();
-		tf_phuHuynh.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_phuHuynh.setForeground(new Color(0, 0, 0));
+		tf_phuHuynh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_phuHuynh.setForeground(new Color(30, 144, 255));
 		tf_phuHuynh.setColumns(10);
-		tf_phuHuynh.setBounds(178, 134, 263, 30);
+		tf_phuHuynh.setBounds(178, 134, 200, 30);
 		panel_thongTinHs.add(tf_phuHuynh);
 		
 		tf_TruongTieuHoc = new JTextField();
-		tf_TruongTieuHoc.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_TruongTieuHoc.setForeground(new Color(0, 0, 0));
+		tf_TruongTieuHoc.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_TruongTieuHoc.setForeground(new Color(30, 144, 255));
 		tf_TruongTieuHoc.setColumns(10);
 		tf_TruongTieuHoc.setBounds(400, 173, 362, 30);
 		panel_thongTinHs.add(tf_TruongTieuHoc);
 		
 		JLabel lblNewLabel_1_4_1 = new JLabel("Đã hoàn thành chương trình tiểu học tại trường:");
-		lblNewLabel_1_4_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_4_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_4_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_4_1.setBounds(35, 173, 341, 30);
 		panel_thongTinHs.add(lblNewLabel_1_4_1);
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Sinh Nhật");
-		lblNewLabel_1_2_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_2_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_1.setBounds(798, 45, 73, 30);
+		lblNewLabel_1_2_1.setBounds(849, 45, 73, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1);
 		
 		tf_day = new JTextField();
-		tf_day.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_day.setForeground(new Color(0, 0, 0));
+		tf_day.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_day.setForeground(new Color(30, 144, 255));
 		tf_day.setColumns(10);
-		tf_day.setBounds(892, 45, 66, 30);
+		tf_day.setBounds(943, 45, 50, 30);
 		panel_thongTinHs.add(tf_day);
 		
 		JLabel lblNewLabel_1_2_1_1 = new JLabel("Dân tộc");
-		lblNewLabel_1_2_1_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_2_1_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_1_1.setBounds(467, 52, 56, 30);
+		lblNewLabel_1_2_1_1.setBounds(455, 52, 100, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1_1);
 		
 		tf_dantoc = new JTextField();
-		tf_dantoc.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_dantoc.setForeground(new Color(0, 0, 0));
+		tf_dantoc.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_dantoc.setForeground(new Color(30, 144, 255));
 		tf_dantoc.setColumns(10);
-		tf_dantoc.setBounds(574, 52, 188, 30);
+		tf_dantoc.setBounds(562, 52, 200, 30);
 		panel_thongTinHs.add(tf_dantoc);
 		
 		JLabel lblNewLabel_1_6_2 = new JLabel("Nghề nghiệp");
-		lblNewLabel_1_6_2.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_6_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_6_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_6_2.setBounds(467, 134, 94, 30);
+		lblNewLabel_1_6_2.setBounds(455, 134, 100, 30);
 		panel_thongTinHs.add(lblNewLabel_1_6_2);
 		
 		tf_ngheNghiep = new JTextField();
-		tf_ngheNghiep.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_ngheNghiep.setForeground(new Color(0, 0, 0));
+		tf_ngheNghiep.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_ngheNghiep.setForeground(new Color(30, 144, 255));
 		tf_ngheNghiep.setColumns(10);
-		tf_ngheNghiep.setBounds(574, 132, 188, 30);
+		tf_ngheNghiep.setBounds(562, 132, 200, 30);
 		panel_thongTinHs.add(tf_ngheNghiep);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Giới tính");
-		lblNewLabel_1_2.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2.setBounds(798, 86, 73, 30);
+		lblNewLabel_1_2.setBounds(849, 86, 73, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2);
 		
 		JButton btn_Luu = new JButton("Lưu");
@@ -218,7 +223,7 @@ public class ViewQLHS extends JPanel {
 		btn_Luu.setForeground(new Color(0, 0, 0));
 		btn_Luu.setBackground(new Color(245, 245, 245));
 		btn_Luu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btn_Luu.setBounds(736, 227, 100, 40);
+		btn_Luu.setBounds(658, 215, 150, 50);
 		panel_thongTinHs.add(btn_Luu);
 		
 		JButton btn_xoa = new JButton("Xóa");
@@ -234,70 +239,70 @@ public class ViewQLHS extends JPanel {
 		btn_xoa.setForeground(new Color(0, 0, 0));
 		btn_xoa.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btn_xoa.setBackground(new Color(245, 245, 245));
-		btn_xoa.setBounds(858, 227, 100, 40);
+		btn_xoa.setBounds(831, 215, 150, 50);
 		panel_thongTinHs.add(btn_xoa);
 		
 		tf_diaChi = new JTextField();
-		tf_diaChi.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_diaChi.setForeground(new Color(0, 0, 0));
+		tf_diaChi.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_diaChi.setForeground(new Color(30, 144, 255));
 		tf_diaChi.setColumns(10);
-		tf_diaChi.setBounds(178, 93, 263, 30);
+		tf_diaChi.setBounds(178, 93, 200, 30);
 		panel_thongTinHs.add(tf_diaChi);
 		
 		
 		tf_month = new JTextField();
-		tf_month.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_month.setForeground(new Color(0, 0, 0));
+		tf_month.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_month.setForeground(new Color(30, 144, 255));
 		tf_month.setColumns(10);
-		tf_month.setBounds(968, 45, 72, 30);
+		tf_month.setBounds(1003, 45, 50, 30);
 		panel_thongTinHs.add(tf_month);
 		
 		tf_Year = new JTextField();
-		tf_Year.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		tf_Year.setForeground(new Color(0, 0, 0));
+		tf_Year.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_Year.setForeground(new Color(30, 144, 255));
 		tf_Year.setColumns(10);
-		tf_Year.setBounds(1050, 45, 72, 30);
+		tf_Year.setBounds(1063, 45, 66, 30);
 		panel_thongTinHs.add(tf_Year);
 		
 		JLabel lblNewLabel_1_2_1_2 = new JLabel("Ngày");
-		lblNewLabel_1_2_1_2.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_2_1_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_2_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_1_2.setBounds(892, 11, 66, 30);
+		lblNewLabel_1_2_1_2.setBounds(943, 11, 50, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1_2);
 		
 		JLabel lblNewLabel_1_2_1_2_1 = new JLabel("Tháng");
-		lblNewLabel_1_2_1_2_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_2_1_2_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_2_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_1_2_1.setBounds(968, 11, 66, 30);
+		lblNewLabel_1_2_1_2_1.setBounds(1003, 11, 50, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1_2_1);
 		
 		JLabel lblNewLabel_1_2_1_2_1_1 = new JLabel("Năm");
-		lblNewLabel_1_2_1_2_1_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_2_1_2_1_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_2_1_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_1_2_1_1.setBounds(1050, 11, 66, 30);
+		lblNewLabel_1_2_1_2_1_1.setBounds(1063, 11, 66, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_1_2_1_1);
 		
 		comboBox_lops = new JComboBox();
-		comboBox_lops.setForeground(new Color(0, 0, 0));
-		comboBox_lops.setFont(new Font("Tahoma", Font.BOLD, 13));
+		comboBox_lops.setForeground(new Color(30, 144, 255));
+		comboBox_lops.setFont(new Font("Tahoma", Font.BOLD, 14));
 		comboBox_lops.setModel(new DefaultComboBoxModel(new String[] {""}));
 		
 		
 		
-		comboBox_lops.setBounds(892, 127, 230, 30);
+		comboBox_lops.setBounds(943, 127, 188, 30);
 		panel_thongTinHs.add(comboBox_lops);
 		
 		JLabel lblNewLabel_1_2_2 = new JLabel("Lớp");
-		lblNewLabel_1_2_2.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_2_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_2_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_2.setBounds(798, 125, 73, 30);
+		lblNewLabel_1_2_2.setBounds(849, 125, 73, 30);
 		panel_thongTinHs.add(lblNewLabel_1_2_2);
 		
 		comboBox_gioiTinh = new JComboBox();
-		comboBox_gioiTinh.setForeground(new Color(0, 0, 0));
-		comboBox_gioiTinh.setFont(new Font("Tahoma", Font.BOLD, 13));
+		comboBox_gioiTinh.setForeground(new Color(30, 144, 255));
+		comboBox_gioiTinh.setFont(new Font("Tahoma", Font.BOLD, 14));
 		comboBox_gioiTinh.setModel(new DefaultComboBoxModel(new String[] {"", "Nam", "Nữ"}));
-		comboBox_gioiTinh.setBounds(892, 86, 230, 30);
+		comboBox_gioiTinh.setBounds(943, 86, 188, 30);
 		panel_thongTinHs.add(comboBox_gioiTinh);
 		
 		JButton btnXuatExcel = new JButton("Xuất excel");
@@ -310,23 +315,23 @@ public class ViewQLHS extends JPanel {
 		btnXuatExcel.setForeground(Color.BLACK);
 		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnXuatExcel.setBackground(new Color(245, 245, 245));
-		btnXuatExcel.setBounds(1005, 227, 165, 38);
+		btnXuatExcel.setBounds(1005, 215, 150, 50);
 		panel_thongTinHs.add(btnXuatExcel);
 		
 		JLabel lblDanhSchHc = new JLabel("Danh sách học sinh");
 		lblDanhSchHc.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblDanhSchHc.setBounds(490, 338, 183, 30);
+		lblDanhSchHc.setBounds(492, 342, 183, 30);
 		add(lblDanhSchHc);
 		
 		JLabel lblNewLabel_1_8 = new JLabel("Mã học sinh");
-		lblNewLabel_1_8.setBounds(713, 13, 94, 30);
+		lblNewLabel_1_8.setBounds(741, 8, 94, 30);
 		add(lblNewLabel_1_8);
 		lblNewLabel_1_8.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		tf_MaTim = new JTextField();
-		tf_MaTim.setFont(new Font("Tahoma", Font.BOLD, 13));
-		tf_MaTim.setForeground(new Color(0, 0, 0));
-		tf_MaTim.setBounds(817, 13, 263, 30);
+		tf_MaTim.setFont(new Font("Tahoma", Font.BOLD, 14));
+		tf_MaTim.setForeground(new Color(30, 144, 255));
+		tf_MaTim.setBounds(845, 8, 263, 30);
 		add(tf_MaTim);
 		tf_MaTim.setColumns(10);
 		
@@ -343,22 +348,22 @@ public class ViewQLHS extends JPanel {
 		btnTm.setIcon(new ImageIcon(ViewQLHS.class.getResource("/view/image/Very-Basic-Search-icon.png")));
 
 		btnTm.setForeground(new Color(0, 0, 0));
-		btnTm.setBounds(1090, 8, 100, 38);
+		btnTm.setBounds(1117, 8, 73, 30);
 		add(btnTm);
 
 		btnTm.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnTm.setBackground(new Color(245, 245, 245));
 		
 		JLabel lblQunLHc = new JLabel("Hồ sơ học sinh");
-		lblQunLHc.setBounds(10, 8, 183, 38);
+		lblQunLHc.setBounds(10, 8, 249, 38);
 		add(lblQunLHc);
-		lblQunLHc.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblQunLHc.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
 		comboBox_lops_2 = new JComboBox();
 		comboBox_lops_2.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_lops_2.setForeground(Color.BLACK);
-		comboBox_lops_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		comboBox_lops_2.setBounds(905, 344, 175, 30);
+		comboBox_lops_2.setForeground(new Color(30, 144, 255));
+		comboBox_lops_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		comboBox_lops_2.setBounds(905, 344, 188, 30);
 		add(comboBox_lops_2);
 		
 		ArrayList<Lop> lopcomBoBox = LopDAO.getLopDAO().selectAll();
@@ -384,7 +389,7 @@ public class ViewQLHS extends JPanel {
 		btnLoc.setForeground(Color.BLACK);
 		btnLoc.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnLoc.setBackground(new Color(245, 245, 245));
-		btnLoc.setBounds(1117, 344, 73, 32);
+		btnLoc.setBounds(1117, 344, 73, 30);
 		add(btnLoc);
 		
 		taoJSC();
@@ -400,7 +405,7 @@ public class ViewQLHS extends JPanel {
 		table = new JTable();
 		table.setFillsViewportHeight(true);
 		table.setForeground(new Color(30, 144, 255));
-		table.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
@@ -415,12 +420,14 @@ public class ViewQLHS extends JPanel {
 				return columnTypes[columnIndex];
 			}
 		});
-		table.getColumnModel().getColumn(0).setPreferredWidth(22);
-		table.getColumnModel().getColumn(1).setPreferredWidth(72);
-		table.getColumnModel().getColumn(2).setPreferredWidth(100);
+		table.getColumnModel().getColumn(0).setPreferredWidth(15);
+		table.getColumnModel().getColumn(1).setPreferredWidth(54);
 		table.getColumnModel().getColumn(3).setPreferredWidth(52);
-		table.getColumnModel().getColumn(5).setPreferredWidth(50);
-		table.getColumnModel().getColumn(6).setPreferredWidth(56);
+		table.getColumnModel().getColumn(5).setPreferredWidth(43);
+		table.getColumnModel().getColumn(6).setPreferredWidth(44);
+		table.getColumnModel().getColumn(7).setPreferredWidth(60);
+		table.getColumnModel().getColumn(8).setPreferredWidth(57);
+		table.getColumnModel().getColumn(9).setPreferredWidth(62);
 		table.getColumnModel().getColumn(11).setPreferredWidth(70);
 		table.setRowHeight(25);
 
@@ -434,6 +441,39 @@ public class ViewQLHS extends JPanel {
 		
 		scrollPane = js1;
 		add(scrollPane);
+		table.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				hienThiDaChon();
+			}
+		});
+		
 		
 	}
 	
@@ -587,9 +627,11 @@ public class ViewQLHS extends JPanel {
 		//
 		java.sql.Date date = hocSinh.getNgaySinh();
 		
-		this.tf_day.setText(hocSinh.getNgaySinh().getDay() + "" );
-		this.tf_month.setText(hocSinh.getNgaySinh().getMonth() + "" );
-		this.tf_Year.setText(hocSinh.getNgaySinh().getYear() + "" );
+		System.out.println(date);
+		
+		this.tf_day.setText(date.getDate() + "" );
+		this.tf_month.setText((date.getMonth()+1) + "" );
+		this.tf_Year.setText((date.getYear()+1900) + "" );
 		
 		//
 		
@@ -656,4 +698,25 @@ public class ViewQLHS extends JPanel {
 		resetForm();
 		
 	}
+	
+	public HocSinh getDangChon() {
+		
+		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+		int irow = table.getSelectedRow();
+		
+		String maHs = tableModel.getValueAt(irow, 1).toString();
+		HocSinh hocSinh = HocSinhDAO.getHocSinhDAO().selectById(new HocSinh(maHs));
+		
+		
+		return hocSinh;
+	}
+	
+	
+	public void hienThiDaChon() {
+		HocSinh hocSinh = this.getDangChon();
+		themHSVao_FormTT(hocSinh);
+		
+	}
+	
+	
 }

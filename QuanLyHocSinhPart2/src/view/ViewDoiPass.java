@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class ViewDoiPass extends JFrame {
 
@@ -47,7 +48,8 @@ public class ViewDoiPass extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Đổi mật khẩu");
-		lblNewLabel.setBounds(150, 10, 134, 25);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(143, 24, 151, 31);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		contentPane.add(lblNewLabel);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -75,7 +77,7 @@ public class ViewDoiPass extends JFrame {
 		});
 		btnDoiPass.setBackground(new Color(211, 211, 211));
 		btnDoiPass.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnDoiPass.setBounds(41, 224, 161, 42);
+		btnDoiPass.setBounds(10, 224, 200, 42);
 		contentPane.add(btnDoiPass);
 		
 		JButton btnThoat = new JButton("Thoát");
@@ -88,7 +90,7 @@ public class ViewDoiPass extends JFrame {
 		});
 		btnThoat.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnThoat.setBackground(new Color(211, 211, 211));
-		btnThoat.setBounds(235, 224, 151, 42);
+		btnThoat.setBounds(220, 224, 200, 42);
 		contentPane.add(btnThoat);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Mật khẩu mới");

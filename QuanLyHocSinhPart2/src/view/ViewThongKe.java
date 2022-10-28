@@ -73,25 +73,25 @@ public class ViewThongKe extends JPanel {
 		add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(new Color(30, 144, 255));
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel.setBounds(10, 94, 1180, 70);
+		panel.setBounds(10, 94, 1180, 71);
 		add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Mã học kỳ");
-		lblNewLabel_1_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(191, 14, 75, 30);
+		lblNewLabel_1_1.setBounds(255, 20, 80, 30);
 		panel.add(lblNewLabel_1_1);
 		
 
 		
 		comboBox_hocKy = new JComboBox();
-		comboBox_hocKy.setForeground(new Color(0, 0, 0));
-		comboBox_hocKy.setFont(new Font("Tahoma", Font.BOLD, 13));
+		comboBox_hocKy.setForeground(new Color(30, 144, 255));
+		comboBox_hocKy.setFont(new Font("Tahoma", Font.BOLD, 14));
 		comboBox_hocKy.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_hocKy.setBounds(276, 11, 109, 39);
+		comboBox_hocKy.setBounds(345, 20, 150, 30);
 		ArrayList<HocKy> hocKies = HocKyDAO.getHocKyDAO().selectAll();
 		for (HocKy hocKy : hocKies) {
 			comboBox_hocKy.addItem(hocKy.getMaHK());
@@ -105,7 +105,7 @@ public class ViewThongKe extends JPanel {
 		btnLapBaoCao.setForeground(new Color(0, 0, 0));
 		btnLapBaoCao.setBackground(Color.WHITE);
 		btnLapBaoCao.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLapBaoCao.setBounds(416, 11, 174, 40);
+		btnLapBaoCao.setBounds(822, 10, 150, 50);
 		
 		btnLapBaoCao.addActionListener(new ActionListener() {
 			
@@ -119,16 +119,16 @@ public class ViewThongKe extends JPanel {
 		panel.add(btnLapBaoCao);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Mã lớp");
-		lblNewLabel_1_1_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1_1_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1_1.setBounds(10, 14, 52, 30);
+		lblNewLabel_1_1_1.setBounds(10, 20, 80, 30);
 		panel.add(lblNewLabel_1_1_1);
 		
 		comboBox_MaLop = new JComboBox();
-		comboBox_MaLop.setForeground(new Color(0, 0, 0));
-		comboBox_MaLop.setFont(new Font("Tahoma", Font.BOLD, 13));
+		comboBox_MaLop.setForeground(new Color(30, 144, 255));
+		comboBox_MaLop.setFont(new Font("Tahoma", Font.BOLD, 14));
 		comboBox_MaLop.setModel(new DefaultComboBoxModel(new String[] {""}));
-		comboBox_MaLop.setBounds(72, 11, 109, 39);
+		comboBox_MaLop.setBounds(95, 21, 150, 30);
 		ArrayList<Lop> lops = LopDAO.getLopDAO().selectAll();
 		for (Lop lop : lops) {
 			comboBox_MaLop.addItem(lop.getMaLop());
@@ -140,7 +140,7 @@ public class ViewThongKe extends JPanel {
 		
 		JButton btnXuatExcel = new JButton("Xuất excel");
 		btnXuatExcel.setIcon(new ImageIcon(ViewThongKe.class.getResource("/view/image/Folder-Open-icon.png")));
-		btnXuatExcel.setBounds(996, 14, 174, 40);
+		btnXuatExcel.setBounds(1020, 10, 150, 50);
 		panel.add(btnXuatExcel);
 		btnXuatExcel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -166,7 +166,6 @@ public class ViewThongKe extends JPanel {
 		
 		String tenCot[] = new String[] { "STT","Mã lớp","Mã học sinh","Học sinh", "Học kì","Số môn học", "Điểm TB học kỳ"};
 		table = new JTable();
-		table.setEnabled(false);
 		table.setFillsViewportHeight(true);
 		table.setForeground(new Color(30, 144, 255));		
 		table.setModel(new DefaultTableModel(new Object[][] {},tenCot ));

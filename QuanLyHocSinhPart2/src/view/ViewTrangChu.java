@@ -185,6 +185,12 @@ public class ViewTrangChu extends JFrame {
 		panelMain.setBackground(new Color(255, 255, 255));
 		panelMain.setLayout(null);
 		
+		JLabel lblNewLabel_2 = new JLabel("Phần mềm quản lý học sinh");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 90));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(29, 225, 1178, 193);
+		panelMain.add(lblNewLabel_2);
+		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -208,7 +214,7 @@ public class ViewTrangChu extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Chức năng chung");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(10, 11, 133, 23);
+		lblNewLabel.setBounds(10, 11, 202, 37);
 		panel.add(lblNewLabel);
 		
 		JButton btnLop = new JButton("Quản lý lớp học");
@@ -319,11 +325,9 @@ public class ViewTrangChu extends JFrame {
 	public boolean kiemTraDangNhap() {
 		
 		// kiểm tra xem người đăng nhập là ai
-		TaiKhoan taiKhoan = new TaiKhoan(ViewLogin.User, ViewLogin.Pass);
-		TaiKhoan taiKhoan2 = TaiKhoanDAO.getTaiKhoanDAO().selectById(taiKhoan);
-		System.out.println(taiKhoan2.toString());
+		TaiKhoan taiKhoan = TaiKhoanDAO.getTaiKhoanDAO().selectById(new TaiKhoan(ViewLogin.User, ViewLogin.Pass));
 		
-		if( taiKhoan2.getQuyenTruyCap().trim().equals("Admin") ) {
+		if( taiKhoan.getQuyenTruyCap().trim().equals("Admin") || taiKhoan.getQuyenTruyCap().trim().equals("admin")) {
 			return true;
 		}
 		return false;

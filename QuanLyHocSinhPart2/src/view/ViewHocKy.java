@@ -14,6 +14,7 @@ import DAO.HocKyDAO;
 import DAO.MonHocDAO;
 import model.HocKy;
 import model.MonHoc;
+import model.TaiKhoan;
 import model.XuatFileExcel;
 
 import javax.swing.JLabel;
@@ -27,6 +28,8 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.border.EtchedBorder;
@@ -75,7 +78,7 @@ public class ViewHocKy extends JFrame {
 		});
 		btnLuu.setForeground(new Color(0, 0, 0));
 		btnLuu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLuu.setBounds(10, 76, 105, 35);
+		btnLuu.setBounds(10, 78, 150, 50);
 		contentPane.add(btnLuu);
 		
 		JButton btnXoa = new JButton("Xóa");
@@ -87,23 +90,98 @@ public class ViewHocKy extends JFrame {
 		});
 		btnXoa.setForeground(new Color(0, 0, 0));
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnXoa.setBounds(172, 76, 108, 35);
+		btnXoa.setBounds(184, 78, 150, 50);
 		contentPane.add(btnXoa);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel.setBackground(new Color(30, 144, 255));
+		panel.setBounds(10, 139, 329, 213);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Mã học kỳ");
+		lblNewLabel_1.setBounds(10, 29, 105, 30);
+		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		tf_maHK = new JTextField();
+		tf_maHK.setBounds(124, 29, 195, 30);
+		panel.add(tf_maHK);
+		tf_maHK.setForeground(new Color(30, 144, 255));
+		tf_maHK.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_maHK.setColumns(10);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Tên học kỳ");
+		lblNewLabel_1_1.setBounds(10, 71, 105, 30);
+		panel.add(lblNewLabel_1_1);
+		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		tf_TenHK = new JTextField();
+		tf_TenHK.setBounds(124, 71, 195, 30);
+		panel.add(tf_TenHK);
+		tf_TenHK.setForeground(new Color(30, 144, 255));
+		tf_TenHK.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_TenHK.setColumns(10);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("Năm bắt đầu");
+		lblNewLabel_1_1_1.setBounds(10, 110, 105, 30);
+		panel.add(lblNewLabel_1_1_1);
+		lblNewLabel_1_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		tf_NamBatDau = new JTextField();
+		tf_NamBatDau.setBounds(125, 110, 194, 30);
+		panel.add(tf_NamBatDau);
+		tf_NamBatDau.setForeground(new Color(30, 144, 255));
+		tf_NamBatDau.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_NamBatDau.setColumns(10);
+		
+		JLabel lblNewLabel_1_1_2 = new JLabel("Năm kết thúc");
+		lblNewLabel_1_1_2.setBounds(10, 151, 105, 30);
+		panel.add(lblNewLabel_1_1_2);
+		lblNewLabel_1_1_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		tf_namKetThuc = new JTextField();
+		tf_namKetThuc.setBounds(124, 151, 195, 30);
+		panel.add(tf_namKetThuc);
+		tf_namKetThuc.setForeground(new Color(30, 144, 255));
+		tf_namKetThuc.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tf_namKetThuc.setColumns(10);
+		
+		JButton btnXutExcel = new JButton("Xuất excel");
+		btnXutExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XuatFileExcel.exportExcel(table);
+			}
+		});
+		btnXutExcel.setIcon(new ImageIcon(ViewHocKy.class.getResource("/view/image/Folder-Open-icon.png")));
+		btnXutExcel.setForeground(Color.BLACK);
+		btnXutExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnXutExcel.setBounds(568, 12, 150, 50);
+		contentPane.add(btnXutExcel);
+		
+		
+		
+		
 		
 		taoJSc();
 		hienThiAll();
 		
 		
 		
-		setVisible(false);
 	}
 	
 	public void taoJSc() {
 		JScrollPane scroll = new JScrollPane();
-		scroll.setBounds(344, 76, 374, 280);
+		scroll.setBounds(344, 78, 374, 278);
 		
 		
 		table = new JTable();
+		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		table.setFillsViewportHeight(true);
 		table.setForeground(new Color(30, 144, 255));
 		table.setModel(new DefaultTableModel(
@@ -129,76 +207,40 @@ public class ViewHocKy extends JFrame {
 		
 		contentPane.add(scrollPane);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(10, 126, 329, 226);
-		contentPane.add(panel);
-		panel.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Mã học kỳ");
-		lblNewLabel_1.setBounds(10, 38, 105, 30);
-		panel.add(lblNewLabel_1);
-		lblNewLabel_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		
-		tf_maHK = new JTextField();
-		tf_maHK.setBounds(124, 38, 195, 30);
-		panel.add(tf_maHK);
-		tf_maHK.setForeground(new Color(30, 144, 255));
-		tf_maHK.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tf_maHK.setColumns(10);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Tên học kỳ");
-		lblNewLabel_1_1.setBounds(10, 80, 105, 30);
-		panel.add(lblNewLabel_1_1);
-		lblNewLabel_1_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		
-		tf_TenHK = new JTextField();
-		tf_TenHK.setBounds(124, 80, 195, 30);
-		panel.add(tf_TenHK);
-		tf_TenHK.setForeground(new Color(30, 144, 255));
-		tf_TenHK.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tf_TenHK.setColumns(10);
-		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Năm bắt đầu");
-		lblNewLabel_1_1_1.setBounds(10, 119, 105, 30);
-		panel.add(lblNewLabel_1_1_1);
-		lblNewLabel_1_1_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		
-		tf_NamBatDau = new JTextField();
-		tf_NamBatDau.setBounds(125, 119, 194, 30);
-		panel.add(tf_NamBatDau);
-		tf_NamBatDau.setForeground(new Color(30, 144, 255));
-		tf_NamBatDau.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tf_NamBatDau.setColumns(10);
-		
-		JLabel lblNewLabel_1_1_2 = new JLabel("Năm kết thúc");
-		lblNewLabel_1_1_2.setBounds(10, 160, 105, 30);
-		panel.add(lblNewLabel_1_1_2);
-		lblNewLabel_1_1_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		
-		tf_namKetThuc = new JTextField();
-		tf_namKetThuc.setBounds(124, 160, 195, 30);
-		panel.add(tf_namKetThuc);
-		tf_namKetThuc.setForeground(new Color(30, 144, 255));
-		tf_namKetThuc.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tf_namKetThuc.setColumns(10);
-		
-		JButton btnXutExcel = new JButton("Xuất excel");
-		btnXutExcel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				XuatFileExcel.exportExcel(table);
+		table.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				hienThiDaChon();
 			}
 		});
-		btnXutExcel.setIcon(new ImageIcon(ViewHocKy.class.getResource("/view/image/Folder-Open-icon.png")));
-		btnXutExcel.setForeground(Color.BLACK);
-		btnXutExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnXutExcel.setBounds(569, 28, 149, 35);
-		contentPane.add(btnXutExcel);
+		
 		
 	}
 	
@@ -300,6 +342,31 @@ public class ViewHocKy extends JFrame {
 
 
 	}
+	
+	public HocKy getDangChon() {
+		
+		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+		int irow = table.getSelectedRow();
+		
+		String maHK = tableModel.getValueAt(irow, 1).toString();
+		String tenHK = tableModel.getValueAt(irow, 2).toString();
+		int namBatDau = Integer.valueOf(tableModel.getValueAt(irow, 3).toString()) ;
+		int namKetThuc = Integer.valueOf(tableModel.getValueAt(irow, 4).toString()) ;
+
+
+		return new HocKy(maHK, tenHK, namBatDau, namKetThuc);
+	}
+	
+	
+	public void hienThiDaChon() {
+		HocKy hk = getDangChon();
+		tf_maHK.setText(hk.getMaHK());
+		tf_TenHK.setText(hk.getTenHK());
+		tf_NamBatDau.setText(hk.getNamBatDau()+"");
+		tf_namKetThuc.setText(hk.getNamKetThuc()+"");
+		
+	}
+	
 	
 	
 	
