@@ -186,9 +186,10 @@ public class ViewTrangChu extends JFrame {
 		panelMain.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("Phần mềm quản lý học sinh");
+		lblNewLabel_2.setIcon(new ImageIcon(ViewTrangChu.class.getResource("/view/image/logoTHCS ChoChu.jpg")));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 90));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(29, 225, 1178, 193);
+		lblNewLabel_2.setBounds(10, 11, 1212, 692);
 		panelMain.add(lblNewLabel_2);
 		
 		JPanel panel = new JPanel();
