@@ -1,15 +1,12 @@
 package view;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.Window;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,14 +14,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import DAO.LopDAO;
-import DAO.MonHocDAO;
-import model.MonHoc;
-import model.TaiKhoan;
-import model.XuatFileExcel;
+import DAO.DiemMonDAO;
 
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
+import DAO.MonHocDAO;
+import model.DiemMon;
+import model.MonHoc;
+
+import model.XuatFileExcel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -33,7 +29,6 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
-import javax.swing.border.LineBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.SwingConstants;
 
@@ -73,7 +68,10 @@ public class ViewMonHoc extends JFrame {
 		btnLuu.setIcon(new ImageIcon(ViewMonHoc.class.getResource("/view/image/success-icon.png")));
 		btnLuu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonLuu();
+				if(kiemTraGioiHan()) {
+					buttonLuu();
+				}
+				
 				
 			}
 		});
@@ -111,7 +109,7 @@ public class ViewMonHoc extends JFrame {
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 13));
 		
 		tf_maMon = new JTextField();
-		tf_maMon.setBounds(110, 12, 171, 30);
+		tf_maMon.setBounds(110, 12, 150, 30);
 		panel.add(tf_maMon);
 		tf_maMon.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_maMon.setForeground(new Color(30, 144, 255));
@@ -119,16 +117,30 @@ public class ViewMonHoc extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Tên môn học");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(332, 11, 91, 30);
+		lblNewLabel_1.setBounds(315, 11, 91, 30);
 		panel.add(lblNewLabel_1);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		
 		tf_tenMon = new JTextField();
-		tf_tenMon.setBounds(432, 12, 171, 30);
+		tf_tenMon.setBounds(415, 12, 150, 30);
 		panel.add(tf_tenMon);
 		tf_tenMon.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_tenMon.setForeground(new Color(30, 144, 255));
 		tf_tenMon.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("(10)");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(270, 12, 35, 30);
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("(10)");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(575, 11, 35, 30);
+		panel.add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Dang sách môn học");
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 17));
@@ -152,7 +164,39 @@ public class ViewMonHoc extends JFrame {
 		taoJSc();
 		hienThiAll();
 	}
-
+	
+	public boolean kiemTraGioiHan() {
+		try {
+			
+			int sizeMaMon = tf_maMon.getText().length();
+			int sizeTenMon = tf_tenMon.getText().length();
+			
+			if(sizeMaMon<=10 && sizeTenMon <=10 ) {
+				if(sizeMaMon == 0 || sizeTenMon == 0) {
+					sizeMaMon =1/0; // tạo exception
+				}
+				
+				return true;
+			}else {
+				if(sizeMaMon > 10) {
+					JOptionPane.showMessageDialog(this, "Mã môn không được vượt quá 10 ký tự!" );
+				}
+				if(sizeTenMon > 10) {
+					JOptionPane.showMessageDialog(this, "Tên môn không được vượt quá 10 ký tự!" );
+				}
+					
+				return false;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ!!");
+			return false;
+		}
+		
+		
+		
+		
+	}
 	
 	public void taoJSc() {
 		JScrollPane jcs = new JScrollPane();
@@ -235,6 +279,8 @@ public class ViewMonHoc extends JFrame {
 
 	}
 	
+	
+	
 	public void hienThiAll() {
 		contentPane.remove(scrollPane);
 		taoJSc();
@@ -256,7 +302,7 @@ public class ViewMonHoc extends JFrame {
 			MonHoc kt = MonHocDAO.getMonHocDAO().selectById(monHoc);
 			
 			boolean kiemTra = (kt==null);
-			System.out.println(kiemTra);
+			
 			
 			if(!kiemTra) {
 				
@@ -268,9 +314,13 @@ public class ViewMonHoc extends JFrame {
 				}
 				
 			}else {
-				JOptionPane.showMessageDialog(this, "Đã lưu!!");
-				MonHocDAO.getMonHocDAO().insert(monHoc);
-				hienThiAll();
+				int luaChon = JOptionPane.showConfirmDialog(this, "Xác nhận lưu?");
+				if(luaChon == JOptionPane.YES_NO_OPTION) {
+					MonHocDAO.getMonHocDAO().insert(monHoc);
+					JOptionPane.showMessageDialog(this, "Đã lưu!!");
+					hienThiAll();
+				}
+				
 			}
 
 			
@@ -295,12 +345,16 @@ public class ViewMonHoc extends JFrame {
 			
 			
 			if(!kiemTra) {
-				int luaChon = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa môn học này?");
+				int luaChon = JOptionPane.showConfirmDialog(this, "Xác nhận xóa?");
 				if(luaChon == JOptionPane.YES_NO_OPTION) {
 					
-					// doạn này để xóa all diem mon nay.
+					ArrayList<DiemMon> diemMons = DiemMonDAO.getDiemMonDAO().selectByCondition("MaMon = '" + maMon + "'");
+					for (DiemMon diemMon : diemMons) {
+						DiemMonDAO.getDiemMonDAO().delete(diemMon);
+					}
 					
 					MonHocDAO.getMonHocDAO().delete(monHoc);
+					JOptionPane.showMessageDialog(this, "Xóa thành công!!");
 					hienThiAll();
 				}
 

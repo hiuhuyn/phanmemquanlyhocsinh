@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import java.awt.Image;
+
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
@@ -22,6 +22,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class ViewTTTaiKhoan extends JFrame {
 
@@ -67,7 +68,10 @@ public class ViewTTTaiKhoan extends JFrame {
 		btnUpdate.setIcon(new ImageIcon(ViewTTTaiKhoan.class.getResource("/view/image/success-icon.png")));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				updateTK();
+				if(kiemTraGioiHan()) {
+					updateTK();
+				}
+				
 			}
 		});
 		btnUpdate.setBackground(new Color(255, 255, 255));
@@ -91,7 +95,7 @@ public class ViewTTTaiKhoan extends JFrame {
 		tf_hoten.setForeground(new Color(30, 144, 255));
 		tf_hoten.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_hoten.setColumns(10);
-		tf_hoten.setBounds(170, 130, 217, 30);
+		tf_hoten.setBounds(170, 130, 200, 30);
 		contentPane.add(tf_hoten);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("SDT");
@@ -103,7 +107,7 @@ public class ViewTTTaiKhoan extends JFrame {
 		tf_sdt.setForeground(new Color(30, 144, 255));
 		tf_sdt.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_sdt.setColumns(10);
-		tf_sdt.setBounds(170, 171, 217, 30);
+		tf_sdt.setBounds(170, 171, 200, 30);
 		contentPane.add(tf_sdt);
 		
 		JLabel lblNewLabel_1_1_1_2 = new JLabel("Email");
@@ -116,13 +120,13 @@ public class ViewTTTaiKhoan extends JFrame {
 		tf_email.setForeground(new Color(30, 144, 255));
 		tf_email.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_email.setColumns(10);
-		tf_email.setBounds(170, 212, 217, 30);
+		tf_email.setBounds(170, 212, 200, 30);
 		contentPane.add(tf_email);
 		
 		label_User = new JLabel("");
 		label_User.setForeground(new Color(30, 144, 255));
 		label_User.setFont(new Font("Tahoma", Font.BOLD, 14));
-		label_User.setBounds(170, 89, 217, 30);
+		label_User.setBounds(170, 89, 200, 30);
 		contentPane.add(label_User);
 		
 		JLabel lblNewLabel_1_1_1_2_1 = new JLabel("Quyen");
@@ -138,6 +142,27 @@ public class ViewTTTaiKhoan extends JFrame {
 		
 		contentPane.add(label_Quyen);
 		
+		JLabel lblNewLabel_2 = new JLabel("(20)");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setForeground(Color.BLACK);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(380, 130, 35, 30);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("(11)");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setForeground(Color.BLACK);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(380, 171, 35, 30);
+		contentPane.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("(30)");
+		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_2.setForeground(Color.BLACK);
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_2.setBounds(380, 212, 35, 30);
+		contentPane.add(lblNewLabel_2_2);
+		
 		
 		HienThiTT();
 		
@@ -145,6 +170,35 @@ public class ViewTTTaiKhoan extends JFrame {
 	}
 	
 	
+	public boolean kiemTraGioiHan() {
+		try {
+			int szHoten = tf_hoten.getText().length();
+			int szSDT = tf_sdt.getText().length();
+			int szEmail = tf_email.getText().length();
+			
+			if(szHoten<20 && szSDT<=11 && szEmail<=30) {
+				return true;
+			}else {
+				if(szHoten > 20) {
+					JOptionPane.showMessageDialog(this, "Họ tên không được vượt quá 20 ký tự");
+				}
+				if(szSDT > 11) {
+					JOptionPane.showMessageDialog(this, "SDT không được vượt quá 11 ký tự");
+				}
+				if(szEmail > 30) {
+					JOptionPane.showMessageDialog(this, "Email không được vượt quá 30 ký tự");
+				}
+				
+				return false;
+			}
+				
+			
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(this, "Sai định dạng!");
+			return false;
+		}
+	}
 	
 	public void deleteUser() {
 		String user = label_User.getText();

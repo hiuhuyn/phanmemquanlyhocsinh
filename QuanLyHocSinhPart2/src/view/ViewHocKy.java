@@ -10,8 +10,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import DAO.DiemMonDAO;
 import DAO.HocKyDAO;
 import DAO.MonHocDAO;
+import model.DiemMon;
 import model.HocKy;
 import model.MonHoc;
 import model.TaiKhoan;
@@ -33,6 +35,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.border.EtchedBorder;
+import javax.swing.SwingConstants;
 
 public class ViewHocKy extends JFrame {
 
@@ -72,7 +75,10 @@ public class ViewHocKy extends JFrame {
 		btnLuu.setIcon(new ImageIcon(ViewHocKy.class.getResource("/view/image/success-icon.png")));
 		btnLuu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonLuu();
+				if(kiemTraGioiHan()) {
+					buttonLuu();
+				}
+				
 				
 			}
 		});
@@ -107,7 +113,7 @@ public class ViewHocKy extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		tf_maHK = new JTextField();
-		tf_maHK.setBounds(124, 29, 195, 30);
+		tf_maHK.setBounds(124, 29, 150, 30);
 		panel.add(tf_maHK);
 		tf_maHK.setForeground(new Color(30, 144, 255));
 		tf_maHK.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -120,7 +126,7 @@ public class ViewHocKy extends JFrame {
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		tf_TenHK = new JTextField();
-		tf_TenHK.setBounds(124, 71, 195, 30);
+		tf_TenHK.setBounds(124, 71, 150, 30);
 		panel.add(tf_TenHK);
 		tf_TenHK.setForeground(new Color(30, 144, 255));
 		tf_TenHK.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -133,7 +139,7 @@ public class ViewHocKy extends JFrame {
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		tf_NamBatDau = new JTextField();
-		tf_NamBatDau.setBounds(125, 110, 194, 30);
+		tf_NamBatDau.setBounds(124, 111, 150, 30);
 		panel.add(tf_NamBatDau);
 		tf_NamBatDau.setForeground(new Color(30, 144, 255));
 		tf_NamBatDau.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -146,11 +152,39 @@ public class ViewHocKy extends JFrame {
 		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		tf_namKetThuc = new JTextField();
-		tf_namKetThuc.setBounds(124, 151, 195, 30);
+		tf_namKetThuc.setBounds(124, 151, 150, 30);
 		panel.add(tf_namKetThuc);
 		tf_namKetThuc.setForeground(new Color(30, 144, 255));
 		tf_namKetThuc.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_namKetThuc.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("(10)");
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(284, 29, 35, 30);
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("(10)");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(284, 70, 35, 30);
+		panel.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("(int)");
+		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_2.setForeground(Color.WHITE);
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_2.setBounds(284, 110, 35, 30);
+		panel.add(lblNewLabel_2_2);
+		
+		JLabel lblNewLabel_2_3 = new JLabel("(int)");
+		lblNewLabel_2_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_3.setForeground(Color.WHITE);
+		lblNewLabel_2_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_3.setBounds(284, 151, 35, 30);
+		panel.add(lblNewLabel_2_3);
 		
 		JButton btnXutExcel = new JButton("Xuất excel");
 		btnXutExcel.addActionListener(new ActionListener() {
@@ -174,6 +208,40 @@ public class ViewHocKy extends JFrame {
 		
 		
 	}
+	
+	
+	public boolean kiemTraGioiHan() {
+		try {
+			int szHK = tf_maHK.getText().length();
+			int szTenHK = tf_TenHK.getText().length();
+			int nbd = Integer.valueOf(tf_NamBatDau.getText()) ;
+			int nkt = Integer.valueOf(tf_namKetThuc.getText()) ;
+			
+			if(szHK<=10 && szTenHK<=10) {
+				if(szHK == 0 || szTenHK == 0) {
+					szHK = 1/0;
+				}
+				
+				return true;
+			}else {
+				if(szHK > 10) {
+					JOptionPane.showMessageDialog(contentPane, "Mã học kỳ không được vượt quá 10 ký tự");
+				}
+				if(szTenHK > 10) {
+					JOptionPane.showMessageDialog(contentPane, "Tên học kỳ không được vượt quá 10 ký tự");
+				}
+				
+				return false;
+			}
+				
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(contentPane, "Thông tin không hợp lệ!");
+			return false;
+		}
+	}
+	
 	
 	public void taoJSc() {
 		JScrollPane scroll = new JScrollPane();
@@ -297,9 +365,14 @@ public class ViewHocKy extends JFrame {
 				}
 				
 			}else {
-				JOptionPane.showMessageDialog(this, "Đã lưu!!");
-				HocKyDAO.getHocKyDAO().insert(hocKy);
-				hienThiAll();
+				int luaChon = JOptionPane.showConfirmDialog(this, "Xác nhận lưu?");
+				if(luaChon == JOptionPane.YES_NO_OPTION) {
+					JOptionPane.showMessageDialog(this, "Đã lưu!!");
+					HocKyDAO.getHocKyDAO().insert(hocKy);
+					hienThiAll();
+				}
+				
+				
 			}
 
 			
@@ -319,28 +392,26 @@ public class ViewHocKy extends JFrame {
 			hocKy.setMaHK(maHK);
 			
 			HocKy kt = HocKyDAO.getHocKyDAO().selectById(hocKy);
-		
-
-//			boolean kiemTra = maMon.equals("");
 			
 			boolean kiemTra = (kt== null);
-			
-			
+						
 			if(!kiemTra) {
-				int luaChon = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa học kỳ này?");
+				int luaChon = JOptionPane.showConfirmDialog(this, "Xác nhận xóa?");
 				if(luaChon == JOptionPane.YES_NO_OPTION) {
 					
-					// doạn này để xóa all diem hoc ky nay.
+					ArrayList<DiemMon> diemMons = DiemMonDAO.getDiemMonDAO().selectByCondition("MaHK = '" + maHK + "'");
+					for (DiemMon diemMon : diemMons) {
+						DiemMonDAO.getDiemMonDAO().delete(diemMon);
+					}
 					
 					HocKyDAO.getHocKyDAO().delete(hocKy);
+					JOptionPane.showMessageDialog(this, "Xóa thành công!!");
 					hienThiAll();
 				}
 
 			}else {
 				JOptionPane.showMessageDialog(this, "Mã Học kỳ xóa không hợp lệ!!" );
 			}
-
-
 	}
 	
 	public HocKy getDangChon() {
@@ -366,8 +437,4 @@ public class ViewHocKy extends JFrame {
 		tf_namKetThuc.setText(hk.getNamKetThuc()+"");
 		
 	}
-	
-	
-	
-	
 }

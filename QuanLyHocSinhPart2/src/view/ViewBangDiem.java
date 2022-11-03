@@ -8,12 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
-
 import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JFileChooser;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -22,36 +17,22 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import org.apache.poi.xssf.usermodel.XSSFFont;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import DAO.DiemMonDAO;
 import DAO.HocKyDAO;
 import DAO.HocSinhDAO;
-import DAO.LopDAO;
 import DAO.MonHocDAO;
 import model.DiemMon;
 import model.HocKy;
 import model.HocSinh;
-import model.Lop;
 import model.MonHoc;
-import model.TaiKhoan;
 import model.XuatFileExcel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
+
 import javax.swing.SwingConstants;
 
 public class ViewBangDiem extends JPanel {
@@ -424,15 +405,22 @@ public class ViewBangDiem extends JPanel {
 
 	
 	public DiemMon getDiemMonInJTextField() {
-		String maMon = comboBox_maMon.getSelectedItem().toString();
-		String maHS = comboBox_MaHS.getSelectedItem().toString();
-		String maHK =comboBox_MaHK.getSelectedItem().toString();
-		float diemMieng = Float.valueOf(tf_diemMieng.getText());
-		float diem15p = Float.valueOf(tf_d15p.getText());
-		float diem1tiet = Float.valueOf(tf_1tiet.getText());
-		float diemthi = Float.valueOf(tf_Dthi.getText());
+		try {
+			String maMon = comboBox_maMon.getSelectedItem().toString();
+			String maHS = comboBox_MaHS.getSelectedItem().toString();
+			String maHK =comboBox_MaHK.getSelectedItem().toString();
+			float diemMieng = Float.valueOf(tf_diemMieng.getText());
+			float diem15p = Float.valueOf(tf_d15p.getText());
+			float diem1tiet = Float.valueOf(tf_1tiet.getText());
+			float diemthi = Float.valueOf(tf_Dthi.getText());
+			
+			return new DiemMon(maMon, maHS, maHK, diemMieng, diem15p, diem1tiet, diemthi);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
 		
-		return new DiemMon(maMon, maHS, maHK, diemMieng, diem15p, diem1tiet, diemthi);
+		
 		
 	}
 	
@@ -462,27 +450,28 @@ public class ViewBangDiem extends JPanel {
 		DiemMon kt = DiemMonDAO.getDiemMonDAO().selectById(diemMon);
 		if(kt==null) {
 			
-			System.out.println( "Thông tin không tồn tại trong csdl!!");
+	
 			return false;
 		}else {
-			System.out.println("Thông tin đã tồn tại");
+			
 			return true;
 		}
 	}
 	
 	
 	public boolean kiemTraRong() {
-		DiemMon diemMon = new DiemMon();
 		
-		diemMon.setMonHoc(comboBox_maMon.getSelectedItem().toString());
-		diemMon.setHocKy(comboBox_MaHK.getSelectedItem().toString());
-		diemMon.setHocSinh(comboBox_MaHS.getSelectedItem().toString());
 		
-		boolean ktRong = (diemMon.getMonHoc().equals("") ||  
-				diemMon.getHocSinh().equals("") || diemMon.getHocKy().equals(""));
+		String maMonStr = comboBox_maMon.getSelectedItem().toString();
+		String maHKStr = comboBox_MaHK.getSelectedItem().toString();
+		String maHSStr = comboBox_MaHS.getSelectedItem().toString();
+		
+		
+		boolean ktRong = (maMonStr.equals("") ||  maHKStr.equals("") || maHSStr.equals("")) || tf_diemMieng.getText().equals("") || tf_d15p.getText().equals("") || 
+				tf_1tiet.getText().equals("") || tf_Dthi.getText().equals("");
 		
 		if( ktRong) {
-			JOptionPane.showMessageDialog(this, "Thông tin đang rỗng!!");
+			
 			return true;
 		}else {
 			return false;
@@ -492,20 +481,31 @@ public class ViewBangDiem extends JPanel {
 	
 	public void buttonLuu() {
 		try {
-
+			
 			DiemMon diemMon = getDiemMonInJTextField();
 			
-			if(kiemTraRong() == true) {
-				JOptionPane.showMessageDialog(this, "Thông tin đang rỗng!!");
+			boolean kt = kiemTraRong();
+			
+			if( diemMon==null ) {
+				kt = false;
 			}else {
+				kt = true;
+			}
+			
+			if(kt){
+								
 				if(kiemTraMon_HocSinh_HocKy() == true ) {
 					if(kiemTraTonTai(diemMon) != true ) {
 						
-						DiemMonDAO.getDiemMonDAO().insert(diemMon);
-
-						JOptionPane.showMessageDialog(this, "Đã lưu!!");
-						hienThiAll();
+						int luachon = JOptionPane.showConfirmDialog(this, "Xác nhận lưu?");
 						
+						if(luachon == JOptionPane.YES_NO_OPTION) {
+							DiemMonDAO.getDiemMonDAO().insert(diemMon);
+
+							JOptionPane.showMessageDialog(this, "Đã lưu!!");
+							hienThiAll();
+						}
+
 					}else {
 						int luachon =  JOptionPane.showConfirmDialog(this, "Thông tin điểm đã tồn tại,\nbạn muốn cập nhật không?");
 						if(luachon == JOptionPane.YES_NO_OPTION) {
@@ -513,10 +513,11 @@ public class ViewBangDiem extends JPanel {
 							hienThiAll();
 						}
 					}
-				}else {
-					JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ!!");
 				}
-			}	
+			}else {
+				JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ!!");
+			}
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			JOptionPane.showMessageDialog(this, "Lỗi lưu: " + e );
@@ -533,10 +534,15 @@ public class ViewBangDiem extends JPanel {
 			
 			if(kiemTraRong() != true) {
 				if(kiemTraTonTai(diemMon) == true) {
-					DiemMonDAO.getDiemMonDAO().delete(diemMon);
-					JOptionPane.showMessageDialog(this, "Đã xóa!!" );
-					hienThiAll();
+					int luachon =  JOptionPane.showConfirmDialog(this, "Xác nhận Xóa?");
+					if(luachon == JOptionPane.YES_NO_OPTION) {
+						DiemMonDAO.getDiemMonDAO().delete(diemMon);
+						JOptionPane.showMessageDialog(this, "Xóa thành công!!" );
+						hienThiAll();
+					}
 				}
+			}{
+				JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ!!");
 			}
 			
 		} catch (Exception e) {

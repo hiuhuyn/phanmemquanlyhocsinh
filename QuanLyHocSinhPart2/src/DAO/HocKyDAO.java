@@ -127,7 +127,6 @@ public class HocKyDAO implements DAOInterface<HocKy> {
 			PreparedStatement st = con.prepareStatement(sql);
 			
 			// Bước 3: thực thi câu lệnh SQL
-			System.out.println(sql);
 			ResultSet rs = st.executeQuery();
 			
 			// Bước 4:

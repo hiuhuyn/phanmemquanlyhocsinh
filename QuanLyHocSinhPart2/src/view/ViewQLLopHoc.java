@@ -2,15 +2,10 @@ package view;
 
 import javax.swing.JPanel;
 import java.awt.Color;
-import javax.swing.UIManager;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.BevelBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.border.EtchedBorder;
@@ -25,7 +20,6 @@ import model.DiemMon;
 import model.HocSinh;
 
 import model.Lop;
-import model.TaiKhoan;
 import model.XuatFileExcel;
 
 import javax.swing.ImageIcon;
@@ -35,7 +29,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
-import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
 
 public class ViewQLLopHoc extends JPanel {
 	private JTable table;
@@ -86,7 +80,10 @@ public class ViewQLLopHoc extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				buttonTaoAndCapNhatLop();
+				if(kiemTraGioiHan()) {
+					buttonLuu();
+				}
+				
 			}
 		});
 
@@ -116,7 +113,7 @@ public class ViewQLLopHoc extends JPanel {
 		tf_TenLopTao = new JTextField();
 		tf_TenLopTao.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_TenLopTao.setForeground(new Color(30, 144, 255));
-		tf_TenLopTao.setBounds(68, 52, 254, 30);
+		tf_TenLopTao.setBounds(68, 52, 200, 30);
 		panel_1.add(tf_TenLopTao);
 		tf_TenLopTao.setColumns(10);
 		
@@ -124,7 +121,7 @@ public class ViewQLLopHoc extends JPanel {
 		tf_SiSo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_SiSo.setForeground(new Color(30, 144, 255));
 		tf_SiSo.setColumns(10);
-		tf_SiSo.setBounds(68, 93, 254, 30);
+		tf_SiSo.setBounds(68, 93, 200, 30);
 		panel_1.add(tf_SiSo);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Mã lớp");
@@ -137,7 +134,7 @@ public class ViewQLLopHoc extends JPanel {
 		tf_maLop.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_maLop.setForeground(new Color(30, 144, 255));
 		tf_maLop.setColumns(10);
-		tf_maLop.setBounds(68, 11, 254, 30);
+		tf_maLop.setBounds(68, 11, 200, 30);
 		panel_1.add(tf_maLop);
 		
 		JButton btn_timLop = new JButton("");
@@ -163,6 +160,27 @@ public class ViewQLLopHoc extends JPanel {
 		panel_1.add(btnXuatExcel);
 		btnXuatExcel.setIcon(new ImageIcon(ViewQLLopHoc.class.getResource("/view/image/Folder-Open-icon.png")));
 		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		JLabel lblNewLabel_2 = new JLabel("(10)");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(278, 12, 35, 30);
+		panel_1.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("(10)");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(278, 52, 35, 30);
+		panel_1.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("(int)");
+		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_2.setForeground(Color.WHITE);
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_2.setBounds(278, 93, 35, 30);
+		panel_1.add(lblNewLabel_2_2);
 		btnXuatExcel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				XuatFileExcel.exportExcel(table);
@@ -173,6 +191,35 @@ public class ViewQLLopHoc extends JPanel {
 		
 		hienThiAllLop();
 		
+	}
+	
+	
+	public boolean kiemTraGioiHan() {
+		try {
+			int szMaLop = tf_maLop.getText().length();
+			int szTenLop = tf_TenLopTao.getText().length();
+			
+			int siSo = Integer.valueOf(tf_SiSo.getText()) ;
+			
+			if(szMaLop<=10 && szTenLop<=10) {
+				return true;
+			}else {
+				if(szMaLop > 10) {
+					JOptionPane.showMessageDialog(this, "Mã lớp không được vượt quá 10 ký tự");
+				}
+				if(szTenLop > 10) {
+					JOptionPane.showMessageDialog(this, "Tên lớp không được vượt quá 10 ký tự");
+				}
+				
+				return false;
+			}
+				
+			
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(this, "Sai định dạng!");
+			return false;
+		}
 	}
 
 	public void taoJcrollPaneRong() {
@@ -295,23 +342,9 @@ public class ViewQLLopHoc extends JPanel {
 		return true;
 	}
 	
-	public boolean kiemTraMa() {
 		
-		String maLop = tf_maLop.getText();
-		Lop lop = new Lop();
-		lop.setMaLop(maLop);
-		
-		Lop lopKT = LopDAO.getLopDAO().selectById(lop);
-		
-		if( lopKT == null ) {
-			return false;
-		}
-		return true;
-		
-	}
 	
-	
-	public void buttonTaoAndCapNhatLop() {
+	public void buttonLuu() {
 		try {
 			
 			Lop lop = this.getDuLieuJTextField();
@@ -324,10 +357,10 @@ public class ViewQLLopHoc extends JPanel {
 					hienThiAllLop();
 				}
 			}else {
-				int luachon = JOptionPane.showConfirmDialog(this, "Bạn có muốn lưu thông tin "
-						+ "lớp này không?");
+				int luachon = JOptionPane.showConfirmDialog(this, "Xác nhận lưu?");
 				if(luachon ==JOptionPane.YES_NO_OPTION) {
 					LopDAO.getLopDAO().insert(lop);
+					JOptionPane.showMessageDialog(this, "Đã lưu!!");
 					hienThiAllLop();
 					
 				}
@@ -346,10 +379,9 @@ public class ViewQLLopHoc extends JPanel {
 			Lop lop = new Lop();
 			lop.setMaLop(tf_maLop.getText());
 
-			if(kiemTraMa()) {
+			if(kiemTraTonTai(lop)) {
 				
-				int luachon = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa lớp có mã " +lop.getMaLop()+ " không?\n"
-						+ "Nếu sẽ xóa thì học sinh của lớp này sẽ mất lớp!!");
+				int luachon = JOptionPane.showConfirmDialog(this, "Xác nhận Xóa?");
 				if(luachon ==JOptionPane.YES_NO_OPTION) {
 
 					ArrayList<HocSinh> hocSinh_Lops = HocSinhDAO.getHocSinhDAO().selectByCondition("MaLop = '" + lop.getMaLop() +"'" );
@@ -362,7 +394,7 @@ public class ViewQLLopHoc extends JPanel {
 						
 					}
 					LopDAO.getLopDAO().delete(lop);
-					
+					JOptionPane.showMessageDialog(this, "Đã xóa!!");
 					hienThiAllLop();
 				}
 			}else {
@@ -372,11 +404,11 @@ public class ViewQLLopHoc extends JPanel {
 		} catch (Exception e) {
 			// TODO: handle exception
 			
-			JOptionPane.showMessageDialog(this, "Lớp muốn xóa không hợp lệ");
+			JOptionPane.showMessageDialog(this, "Lỗi: " + e);
 		}
 	}
 	
-	public void themLopVaoFormNhap(Lop lop) {
+	public void themVaoFormNhap(Lop lop) {
 		tf_maLop.setText(lop.getMaLop().trim());
 		tf_TenLopTao.setText(lop.getTenLop().trim());
 		tf_SiSo.setText( lop.getSiSo() + "".trim());
@@ -385,13 +417,19 @@ public class ViewQLLopHoc extends JPanel {
 	public void buttonTimKiem() {
 		try {
 			String maLop = tf_maLop.getText();
+			
+			if(maLop.equals("")) {
+				int a =1/0;
+			}
+			
 			Lop lop = new Lop();
 			lop.setMaLop(maLop);
 			Lop lop2 = LopDAO.getLopDAO().selectById(lop);
-			themLopVaoFormNhap(lop2);
+			themVaoFormNhap(lop2);
+			
 		} catch (Exception e) {
 			// TODO: handle exception
-			JOptionPane.showMessageDialog(this, "Hãy nhập mã lớp");	
+			JOptionPane.showMessageDialog(this, "Mã lớp không hợp lệ");	
 		}
 	}
 	
@@ -409,7 +447,7 @@ public class ViewQLLopHoc extends JPanel {
 	
 	
 	public void hienThiDaChon() {
-		themLopVaoFormNhap(this.getDangChon());
+		themVaoFormNhap(this.getDangChon());
 
 	}
 	

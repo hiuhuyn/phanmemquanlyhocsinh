@@ -10,12 +10,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
 import model.TaiKhoan;
-import javax.swing.border.TitledBorder;
+
 
 import DAO.TaiKhoanDAO;
-
-import javax.swing.border.BevelBorder;
-
 
 
 
@@ -331,6 +328,7 @@ public class ViewTrangChu extends JFrame {
 		if( taiKhoan.getQuyenTruyCap().trim().equals("Admin") || taiKhoan.getQuyenTruyCap().trim().equals("admin")) {
 			return true;
 		}
+		
 		return false;
 	}
 	

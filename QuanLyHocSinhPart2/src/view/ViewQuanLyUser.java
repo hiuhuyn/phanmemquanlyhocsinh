@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -26,10 +26,10 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class ViewQuanLyUser extends JFrame {
 
@@ -109,7 +109,7 @@ public class ViewQuanLyUser extends JFrame {
 		tf_user = new JTextField();
 		tf_user.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_user.setForeground(new Color(30, 144, 255));
-		tf_user.setBounds(98, 151, 186, 39);
+		tf_user.setBounds(98, 151, 150, 39);
 		panel.add(tf_user);
 		tf_user.setColumns(10);
 		
@@ -117,41 +117,44 @@ public class ViewQuanLyUser extends JFrame {
 		tf_pass.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_pass.setForeground(new Color(30, 144, 255));
 		tf_pass.setColumns(10);
-		tf_pass.setBounds(98, 201, 186, 39);
+		tf_pass.setBounds(98, 201, 150, 39);
 		panel.add(tf_pass);
 		
 		tf_hoten = new JTextField();
 		tf_hoten.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_hoten.setForeground(new Color(30, 144, 255));
 		tf_hoten.setColumns(10);
-		tf_hoten.setBounds(98, 251, 186, 39);
+		tf_hoten.setBounds(98, 251, 150, 39);
 		panel.add(tf_hoten);
 		
 		tf_sdt = new JTextField();
 		tf_sdt.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_sdt.setForeground(new Color(30, 144, 255));
 		tf_sdt.setColumns(10);
-		tf_sdt.setBounds(98, 301, 186, 39);
+		tf_sdt.setBounds(98, 301, 150, 39);
 		panel.add(tf_sdt);
 		
 		tf_email = new JTextField();
 		tf_email.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tf_email.setForeground(new Color(30, 144, 255));
 		tf_email.setColumns(10);
-		tf_email.setBounds(98, 351, 186, 39);
+		tf_email.setBounds(100, 351, 150, 39);
 		panel.add(tf_email);
 		
 		comboBox_quyen = new JComboBox();
 		comboBox_quyen.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		comboBox_quyen.setForeground(new Color(30, 144, 255));
-		comboBox_quyen.setModel(new DefaultComboBoxModel(new String[] {"", "Admin", "Member"}));
-		comboBox_quyen.setBounds(98, 403, 186, 39);
+		comboBox_quyen.setModel(new DefaultComboBoxModel(new String[] {"Member", "Admin"}));
+		comboBox_quyen.setBounds(98, 403, 150, 39);
 		panel.add(comboBox_quyen);
 		
 		JButton btnLuu = new JButton("Lưu");
 		btnLuu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonLuu();
+				if(kiemTraGioiHan()) {
+					buttonLuu();
+				}
+				
 			}
 		});
 		btnLuu.setIcon(new ImageIcon(ViewQuanLyUser.class.getResource("/view/image/success-icon.png")));
@@ -173,6 +176,41 @@ public class ViewQuanLyUser extends JFrame {
 		});
 		
 		panel.add(btnXoa);
+		
+		JLabel lblNewLabel_2 = new JLabel("(20)");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(258, 151, 35, 39);
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("(10)");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(258, 201, 35, 39);
+		panel.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("(20)");
+		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_2.setForeground(Color.WHITE);
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_2.setBounds(258, 251, 35, 39);
+		panel.add(lblNewLabel_2_2);
+		
+		JLabel lblNewLabel_2_3 = new JLabel("(11)");
+		lblNewLabel_2_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_3.setForeground(Color.WHITE);
+		lblNewLabel_2_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_3.setBounds(258, 301, 35, 39);
+		panel.add(lblNewLabel_2_3);
+		
+		JLabel lblNewLabel_2_4 = new JLabel("(30)");
+		lblNewLabel_2_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_4.setForeground(Color.WHITE);
+		lblNewLabel_2_4.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_4.setBounds(258, 351, 35, 39);
+		panel.add(lblNewLabel_2_4);
 		
 		JLabel lblNewLabel = new JLabel("Danh sách các tài khoản");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
@@ -221,7 +259,47 @@ public class ViewQuanLyUser extends JFrame {
 		
 	}
 	
-	
+	public boolean kiemTraGioiHan() {
+		try {
+			int szUser = tf_user.getText().length();
+			int szPass = tf_pass.getText().length();
+			int szHoten = tf_pass.getText().length();
+			int szSdt = tf_pass.getText().length();
+			int szEmail = tf_pass.getText().length();
+			
+			
+			if(szUser<=20 && szPass<=10  && szHoten <=20  &&  szSdt <=11 &&  szEmail<=30) {
+				if(szUser == 0 || szPass == 0  || szHoten == 0  ||  szSdt == 0 ||  szEmail == 0) {
+					szEmail = 1/0;
+				}
+				return true;
+			}else {
+				if(szUser > 20) {
+					JOptionPane.showMessageDialog(this, "Tên tài khoản không được vượt quá 20 ký tự");
+				}
+				if(szPass > 10) {
+					JOptionPane.showMessageDialog(this, "Mật khẩu không được vượt quá 10 ký tự");
+				}
+				if(szHoten > 20) {
+					JOptionPane.showMessageDialog(this, "Họ và tên không được vượt quá 20 ký tự");
+				}
+				if(szSdt > 11) {
+					JOptionPane.showMessageDialog(this, "SDT không được vượt quá 11 ký tự");
+				}
+				if(szEmail > 30) {
+					JOptionPane.showMessageDialog(this, "Email không được vượt quá 30 ký tự");
+				}
+				
+				return false;
+			}
+				
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ!");
+			return false;
+		}
+	}
 	
 	
 	
@@ -333,13 +411,13 @@ public class ViewQuanLyUser extends JFrame {
 		TaiKhoan kttk = TaiKhoanDAO.getTaiKhoanDAO().selectById(taiKhoan);
 		
 		if(kttk == null) {
-			int luaChon =  JOptionPane.showConfirmDialog(this, "Xác nhận tạo tài khoản!!");
+			int luaChon =  JOptionPane.showConfirmDialog(this, "Xác nhận tạo tài khoản?");
 			if(luaChon == JOptionPane.YES_NO_OPTION) {
 				TaiKhoanDAO.getTaiKhoanDAO().insert(taiKhoan);
 				hienThiAll();
 			}
 		}else {
-			int luaChon =  JOptionPane.showConfirmDialog(this, "Xác nhận cập nhật tài khoản!!");
+			int luaChon =  JOptionPane.showConfirmDialog(this, "Xác nhận cập nhật tài khoản?");
 			if(luaChon == JOptionPane.YES_NO_OPTION) {
 				TaiKhoanDAO.getTaiKhoanDAO().update(taiKhoan);
 				hienThiAll();
@@ -347,20 +425,29 @@ public class ViewQuanLyUser extends JFrame {
 		}
 	}
 	
+	
+	
 	public void buttonXoa() {
 		String user = tf_user.getText();
 		String pasString = tf_pass.getText();
-		TaiKhoan taiKhoan = new TaiKhoan(user, pasString);
-		
-		int luachon =  JOptionPane.showConfirmDialog(this, "Xác nhận xóa User: " + user);
-		
-		if (luachon == JOptionPane.YES_NO_OPTION) {
-			TaiKhoanDAO.getTaiKhoanDAO().delete(taiKhoan);
-			hienThiAll();
-			JOptionPane.showMessageDialog(this, "Đã xóa tài khoản" );
+		TaiKhoan taiKhoan = TaiKhoanDAO.getTaiKhoanDAO().selectById(new TaiKhoan(user, pasString));
+	
+		if(user.equals("") || pasString.equals("")) {
 			
+			JOptionPane.showMessageDialog(this, "Hãy nhập tên tài khoản và mật khẩu!!");
+			
+		}else if(taiKhoan!=null){
+			int luachon =  JOptionPane.showConfirmDialog(this, "Xác nhận xóa User: " + user);
+			
+			if (luachon == JOptionPane.YES_NO_OPTION) {
+				TaiKhoanDAO.getTaiKhoanDAO().delete(taiKhoan);
+				hienThiAll();
+				JOptionPane.showMessageDialog(this, "Đã xóa tài khoản" );
+				
+			}
+		}else if(taiKhoan == null) {
+			JOptionPane.showMessageDialog(this, "Không tồn tại tài khoản này!!");
 		}
-
 	}
 	
 	public void buttonTim() {

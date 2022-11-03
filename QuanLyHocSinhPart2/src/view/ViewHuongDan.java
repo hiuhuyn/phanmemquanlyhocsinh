@@ -10,7 +10,6 @@ import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.JTextPane;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
 
 public class ViewHuongDan extends JFrame {

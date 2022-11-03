@@ -10,13 +10,10 @@ import DAO.TaiKhoanDAO;
 import model.TaiKhoan;
 
 import java.awt.Color;
-import java.awt.Component;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.JTextField;
@@ -72,7 +69,11 @@ public class ViewDoiPass extends JFrame {
 		btnDoiPass.setIcon(new ImageIcon(ViewDoiPass.class.getResource("/view/image/success-icon.png")));
 		btnDoiPass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				doiPass();
+				if(kiemTraGioiHan()) {
+					doiPass();
+				}
+				
+				
 			}
 		});
 		btnDoiPass.setBackground(new Color(211, 211, 211));
@@ -114,7 +115,34 @@ public class ViewDoiPass extends JFrame {
 		label_user.setBounds(209, 66, 151, 31);
 		contentPane.add(label_user);
 		
+		JLabel lblNewLabel_2 = new JLabel("(10)");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setForeground(Color.GRAY);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(359, 108, 35, 30);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("(10)");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setForeground(Color.GRAY);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(359, 147, 35, 30);
+		contentPane.add(lblNewLabel_2_1);
+		
 		setVisible(false);
+		
+	}
+	
+	
+	public boolean kiemTraGioiHan() {
+		
+		int sizePass = tf_newPass.getText().length();
+		if(sizePass>10) {
+			JOptionPane.showMessageDialog(null, "Mật khẩu không được vượt quá 10 ký tự!");
+			return false;
+		}else {
+			return true;
+		}
 		
 	}
 	
@@ -133,13 +161,10 @@ public class ViewDoiPass extends JFrame {
 			
 			taiKhoan.setPass(passNew);
 			
-			
 			TaiKhoanDAO.getTaiKhoanDAO().update(taiKhoan);
 			
 			JOptionPane.showMessageDialog(this, "Đổi mật khẩu thành công!");
-			
-		}
-		else {
+		}else {
 			JOptionPane.showMessageDialog(this, "Mật khẩu hoặc tài khoản không đúng");
 		}
 		

@@ -37,7 +37,6 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Loi insert Taikhoan");
 			
 		}
 		
@@ -68,7 +67,7 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Lỗi update tai khoan");
+			
 		}
 		
 		
@@ -128,7 +127,7 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Loi taikhoanDao phuong thuc selectAll");
+			
 		}
 		
 		
@@ -198,7 +197,7 @@ public class TaiKhoanDAO implements DAOInterface<TaiKhoan>{
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Loi taikhoanDao phuong thuc selectBy");
+			
 		}
 		
 		

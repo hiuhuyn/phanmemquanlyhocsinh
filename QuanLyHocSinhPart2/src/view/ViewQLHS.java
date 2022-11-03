@@ -5,32 +5,32 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import java.awt.Image;
+
 
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
-import java.awt.FlowLayout;
+
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.SystemColor;
-import java.awt.Toolkit;
-import java.util.ArrayList;
-import java.util.Date;
 
-import javax.swing.border.LineBorder;
+import java.util.ArrayList;
+
+
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import DAO.DiemMonDAO;
 import DAO.HocSinhDAO;
 import DAO.LopDAO;
+import model.DiemMon;
 import model.HocSinh;
 import model.Lop;
-import model.TaiKhoan;
 import model.XuatFileExcel;
 
 import java.awt.event.ActionEvent;
@@ -38,7 +38,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.border.EtchedBorder;
+import javax.swing.SwingConstants;
 
 
 public class ViewQLHS extends JPanel {
@@ -217,13 +217,16 @@ public class ViewQLHS extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				buttonLuu();
+				if(kiemTraGioiHan()) {
+					buttonLuu();
+				}
+				
 			}
 		});
 		btn_Luu.setForeground(new Color(0, 0, 0));
 		btn_Luu.setBackground(new Color(245, 245, 245));
 		btn_Luu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btn_Luu.setBounds(658, 215, 150, 50);
+		btn_Luu.setBounds(632, 214, 150, 50);
 		panel_thongTinHs.add(btn_Luu);
 		
 		JButton btn_xoa = new JButton("Xóa");
@@ -239,7 +242,7 @@ public class ViewQLHS extends JPanel {
 		btn_xoa.setForeground(new Color(0, 0, 0));
 		btn_xoa.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btn_xoa.setBackground(new Color(245, 245, 245));
-		btn_xoa.setBounds(831, 215, 150, 50);
+		btn_xoa.setBounds(805, 214, 150, 50);
 		panel_thongTinHs.add(btn_xoa);
 		
 		tf_diaChi = new JTextField();
@@ -285,7 +288,7 @@ public class ViewQLHS extends JPanel {
 		comboBox_lops = new JComboBox();
 		comboBox_lops.setForeground(new Color(30, 144, 255));
 		comboBox_lops.setFont(new Font("Tahoma", Font.BOLD, 14));
-		comboBox_lops.setModel(new DefaultComboBoxModel(new String[] {""}));
+		comboBox_lops.setModel(new DefaultComboBoxModel(new String[] {}));
 		
 		
 		
@@ -301,7 +304,7 @@ public class ViewQLHS extends JPanel {
 		comboBox_gioiTinh = new JComboBox();
 		comboBox_gioiTinh.setForeground(new Color(30, 144, 255));
 		comboBox_gioiTinh.setFont(new Font("Tahoma", Font.BOLD, 14));
-		comboBox_gioiTinh.setModel(new DefaultComboBoxModel(new String[] {"", "Nam", "Nữ"}));
+		comboBox_gioiTinh.setModel(new DefaultComboBoxModel(new String[] {"Nam", "Nữ"}));
 		comboBox_gioiTinh.setBounds(943, 86, 188, 30);
 		panel_thongTinHs.add(comboBox_gioiTinh);
 		
@@ -315,8 +318,71 @@ public class ViewQLHS extends JPanel {
 		btnXuatExcel.setForeground(Color.BLACK);
 		btnXuatExcel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnXuatExcel.setBackground(new Color(245, 245, 245));
-		btnXuatExcel.setBounds(1005, 215, 150, 50);
+		btnXuatExcel.setBounds(979, 214, 150, 50);
 		panel_thongTinHs.add(btnXuatExcel);
+		
+		JLabel lblNewLabel_2 = new JLabel("(15)");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(388, 11, 35, 30);
+		panel_thongTinHs.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("(40)");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(388, 52, 35, 30);
+		panel_thongTinHs.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("(40)");
+		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_2.setForeground(Color.WHITE);
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_2.setBounds(388, 91, 35, 30);
+		panel_thongTinHs.add(lblNewLabel_2_2);
+		
+		JLabel lblNewLabel_2_3 = new JLabel("(20)");
+		lblNewLabel_2_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_3.setForeground(Color.WHITE);
+		lblNewLabel_2_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_3.setBounds(388, 132, 35, 30);
+		panel_thongTinHs.add(lblNewLabel_2_3);
+		
+		JLabel lblNewLabel_2_4 = new JLabel("(20)");
+		lblNewLabel_2_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_4.setForeground(Color.WHITE);
+		lblNewLabel_2_4.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_4.setBounds(772, 11, 35, 30);
+		panel_thongTinHs.add(lblNewLabel_2_4);
+		
+		JLabel lblNewLabel_2_5 = new JLabel("(15)");
+		lblNewLabel_2_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_5.setForeground(Color.WHITE);
+		lblNewLabel_2_5.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_5.setBounds(772, 52, 35, 30);
+		panel_thongTinHs.add(lblNewLabel_2_5);
+		
+		JLabel lblNewLabel_2_6 = new JLabel("(11)");
+		lblNewLabel_2_6.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_6.setForeground(Color.WHITE);
+		lblNewLabel_2_6.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_6.setBounds(772, 91, 35, 30);
+		panel_thongTinHs.add(lblNewLabel_2_6);
+		
+		JLabel lblNewLabel_2_7 = new JLabel("(20)");
+		lblNewLabel_2_7.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_7.setForeground(Color.WHITE);
+		lblNewLabel_2_7.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_7.setBounds(772, 132, 35, 30);
+		panel_thongTinHs.add(lblNewLabel_2_7);
+		
+		JLabel lblNewLabel_2_8 = new JLabel("(30)");
+		lblNewLabel_2_8.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_8.setForeground(Color.WHITE);
+		lblNewLabel_2_8.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_8.setBounds(772, 173, 35, 30);
+		panel_thongTinHs.add(lblNewLabel_2_8);
 		
 		JLabel lblDanhSchHc = new JLabel("Danh sách học sinh");
 		lblDanhSchHc.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -396,7 +462,60 @@ public class ViewQLHS extends JPanel {
 		hienThiAll();
 	}
 	
-
+	public boolean kiemTraGioiHan() {
+		try {
+			int szMaHS = tf_mahs.getText().length();
+			int szHoten = tf_hoten.getText().length();
+			int szSdtLL = tf_sdt_lienlac.getText().length();
+			int szDanToc = tf_dantoc.getText().length();
+			int szNoiSinh = tf_noisinh.getText().length();
+			int szDiaChi = tf_diaChi.getText().length();
+			int szTenPhuHuynh = tf_phuHuynh.getText().length();
+			int szNgheNghiep = tf_ngheNghiep.getText().length();
+			int szTieuHoc = tf_TruongTieuHoc.getText().length();
+			
+			if(szMaHS<=15 && szSdtLL<=11  && szHoten <=20  &&  szDanToc <=15 &&  szNoiSinh<=40  && szDiaChi <=40 &&  szTenPhuHuynh<=20 && szNgheNghiep<=20  && szTieuHoc <=30) {
+				return true;
+			}else {
+				if(szMaHS > 15) {
+					JOptionPane.showMessageDialog(this, "Mã học sinh không được vượt quá 15 ký tự");
+				}
+				if(szSdtLL > 11) {
+					JOptionPane.showMessageDialog(this, "SDT liên lạc không được vượt quá 11 ký tự");
+				}
+				if(szHoten > 20) {
+					JOptionPane.showMessageDialog(this, "Tên Họ và tên không được vượt quá 20 ký tự");
+				}
+				if(szDanToc > 15) {
+					JOptionPane.showMessageDialog(this, "Tên Dân tộc không được vượt quá 15 ký tự");
+				}
+				if(szNoiSinh > 40) {
+					JOptionPane.showMessageDialog(this, "Tên Nơi sinh không được vượt quá 40 ký tự");
+				}
+				if(szDiaChi > 40) {
+					JOptionPane.showMessageDialog(this, "Tên Địa chỉ không được vượt quá 40 ký tự");
+				}
+				if(szTenPhuHuynh > 20) {
+					JOptionPane.showMessageDialog(this, "Tên phụ huynh không được vượt quá 20 ký tự");
+				}
+				if(szNgheNghiep > 20) {
+					JOptionPane.showMessageDialog(this, "Tên nghề nghiệp không được vượt quá 32 ký tự");
+				}
+				if(szTieuHoc > 30) {
+					JOptionPane.showMessageDialog(this, "Tên trường tiểu học không được vượt quá 30 ký tự");
+				}
+				
+				
+				return false;
+			}
+				
+			
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(this, "Sai định dạng!");
+			return false;
+		}
+}
 	
 	
 	
@@ -508,27 +627,6 @@ public class ViewQLHS extends JPanel {
 		
 	}
 	
-	
-	
-	public void resetForm() {
-		tf_mahs.setText("");
-		tf_hoten.setText("");
-		tf_day.setText("");
-		tf_month.setText("");
-		tf_Year.setText("");
-		comboBox_lops.setSelectedIndex(0);
-		comboBox_gioiTinh.setSelectedIndex(0);
-		tf_dantoc.setText("");
-		tf_diaChi.setText("");
-		tf_ngheNghiep.setText("");
-		tf_noisinh.setText("");
-		tf_phuHuynh.setText("");
-		tf_sdt_lienlac.setText("");
-		tf_TruongTieuHoc.setText("");
-		tf_MaTim.setText("");
-	}
-	
-	
 	// 
 
 	// ổn
@@ -598,7 +696,7 @@ public class ViewQLHS extends JPanel {
 				}
 
 			}else {
-				int luachon = JOptionPane.showConfirmDialog(this, "Bạn có muốn lưu thông tin học sinh này không?");
+				int luachon = JOptionPane.showConfirmDialog(this, "Xác nhận lưu?");
 				if(luachon ==JOptionPane.YES_NO_OPTION) {
 
 					HocSinhDAO.getHocSinhDAO().insert(hocSinh);
@@ -606,12 +704,9 @@ public class ViewQLHS extends JPanel {
 					hienThiAll();		
 				}
 			}
-			
-			resetForm();
 		} catch (Exception e) {
 			// TODO: handle exception
-			JOptionPane.showMessageDialog(this, "Nhập lỗi!!");
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ!!");
 		}
 	}
 	
@@ -627,7 +722,6 @@ public class ViewQLHS extends JPanel {
 		//
 		java.sql.Date date = hocSinh.getNgaySinh();
 		
-		System.out.println(date);
 		
 		this.tf_day.setText(date.getDate() + "" );
 		this.tf_month.setText((date.getMonth()+1) + "" );
@@ -650,23 +744,31 @@ public class ViewQLHS extends JPanel {
 	// tim hs
 	
 	public void buttonTim() {
-		String tuKhoa = this.tf_MaTim.getText();
-		timKiem(tuKhoa);
-
-		String lop = comboBox_lops.getSelectedItem().toString();
-		System.out.println("Combobox: " + lop);
+		try {
+			String tuKhoa = this.tf_MaTim.getText();
+			
+			HocSinh hsT = new HocSinh();
+			hsT.setMaHS(tuKhoa);
+			// tìm trong sql
+			HocSinh hocSinh = HocSinhDAO.getHocSinhDAO().selectById(hsT);
+			if(hocSinh==null) {
+				JOptionPane.showMessageDialog(this, "Không tồn tại!!");
+			}else {
+				this.themHSVao_FormTT(hocSinh);
+			}
+			
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(this, "Hãy nhập mã lớp!!");
+		}
+		
 
 	}
 	
 	// phương thức tìm kiếm
-	public void timKiem(String maHS) {
-		HocSinh hsT = new HocSinh();
-		hsT.setMaHS(maHS);
-		// tìm trong sql
-		HocSinh hocSinh = HocSinhDAO.getHocSinhDAO().selectById(hsT);
-		this.themHSVao_FormTT(hocSinh);
-		
-	}
 
 	
 	// button xoa
@@ -687,15 +789,20 @@ public class ViewQLHS extends JPanel {
 			JOptionPane.showMessageDialog(this, "Mã sinh viên muốn xóa không hợp lệ!!");
 		}
 		else {
-			int luachon = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa học sinh có mã " +maHS+ " không?");
+			int luachon = JOptionPane.showConfirmDialog(this, "Xác nhận xóa?");
 			if(luachon ==JOptionPane.YES_NO_OPTION) {
 				
+				ArrayList<DiemMon> diemMons = DiemMonDAO.getDiemMonDAO().selectByCondition("MaHS = '"+ maHS + "'");
+				for (DiemMon diemMon : diemMons) {
+					DiemMonDAO.getDiemMonDAO().delete(diemMon);
+				}
+				
+								
 				HocSinhDAO.getHocSinhDAO().delete(hocSinh);
+				JOptionPane.showMessageDialog(this, "Xóa thành công!!");
 				hienThiAll();		
 			}
 		}
-		System.out.println(kiemTra);
-		resetForm();
 		
 	}
 	

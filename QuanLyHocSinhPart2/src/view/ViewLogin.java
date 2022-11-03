@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,9 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
