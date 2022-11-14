@@ -414,6 +414,16 @@ public class ViewBangDiem extends JPanel {
 			float diem1tiet = Float.valueOf(tf_1tiet.getText());
 			float diemthi = Float.valueOf(tf_Dthi.getText());
 			
+			if((diemMieng<0 || diemMieng>10) || (diem15p<0 || diem15p >10) || (diem1tiet<0||diem1tiet>10) || (diemthi < 0 || diemthi > 10)) {
+				return null;
+			}
+			
+//			float[] diems =  {diemMieng,diem15p,diem1tiet,diemthi};
+//			for(float i : diems) {
+//				if(i<0 || i>10) {
+//					return null;
+//				}
+//			}
 			return new DiemMon(maMon, maHS, maHK, diemMieng, diem15p, diem1tiet, diemthi);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -445,39 +455,32 @@ public class ViewBangDiem extends JPanel {
 	
 	
 	public boolean kiemTraTonTai(DiemMon diemMon) {
-		
-		
+
 		DiemMon kt = DiemMonDAO.getDiemMonDAO().selectById(diemMon);
 		if(kt==null) {
-			
-	
 			return false;
 		}else {
-			
 			return true;
 		}
 	}
-	
-	
+
 	public boolean kiemTraRong() {
-		
-		
 		String maMonStr = comboBox_maMon.getSelectedItem().toString();
 		String maHKStr = comboBox_MaHK.getSelectedItem().toString();
 		String maHSStr = comboBox_MaHS.getSelectedItem().toString();
-		
-		
 		boolean ktRong = (maMonStr.equals("") ||  maHKStr.equals("") || maHSStr.equals("")) || tf_diemMieng.getText().equals("") || tf_d15p.getText().equals("") || 
 				tf_1tiet.getText().equals("") || tf_Dthi.getText().equals("");
-		
 		if( ktRong) {
-			
 			return true;
 		}else {
 			return false;
 		}
 	}
 	
+	public boolean kiemTraDiemNhap() {
+		
+		return true;
+	}
 	
 	public void buttonLuu() {
 		try {
