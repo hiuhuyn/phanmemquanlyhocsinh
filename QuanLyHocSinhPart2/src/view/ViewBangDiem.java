@@ -417,13 +417,7 @@ public class ViewBangDiem extends JPanel {
 			if((diemMieng<0 || diemMieng>10) || (diem15p<0 || diem15p >10) || (diem1tiet<0||diem1tiet>10) || (diemthi < 0 || diemthi > 10)) {
 				return null;
 			}
-			
-//			float[] diems =  {diemMieng,diem15p,diem1tiet,diemthi};
-//			for(float i : diems) {
-//				if(i<0 || i>10) {
-//					return null;
-//				}
-//			}
+
 			return new DiemMon(maMon, maHS, maHK, diemMieng, diem15p, diem1tiet, diemthi);
 		} catch (Exception e) {
 			// TODO: handle exception
