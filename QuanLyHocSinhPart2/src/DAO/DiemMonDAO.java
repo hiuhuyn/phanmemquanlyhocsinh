@@ -134,13 +134,10 @@ public class DiemMonDAO implements DAOInterface<DiemMon>{
 				float diem15p = rSet.getFloat("Diem15p");
 				float diem1tiet = rSet.getFloat("Diem1tiet");
 				float diemthi = rSet.getFloat("DiemThi");
-				float diemTB = rSet.getFloat("DiemTBmon");
-				
 				
 				
 				DiemMon diemMon = new DiemMon(maMon, maHS, maHK,
 						mieng, diem15p, diem1tiet, diemthi);
-				diemMon.setDiemTBmon(diemTB);
 				
 				
 				list.add(diemMon);
@@ -184,11 +181,9 @@ public class DiemMonDAO implements DAOInterface<DiemMon>{
 				float diem15p = rSet.getFloat("Diem15p");
 				float diem1tiet = rSet.getFloat("Diem1tiet");
 				float diemthi = rSet.getFloat("DiemThi");
-				float diemTB = rSet.getFloat("DiemTBmon");
 
 				diemMon = new DiemMon(maMon, maHS, maHK,
 						mieng, diem15p, diem1tiet, diemthi);
-				diemMon.setDiemTBmon(diemTB);
 
 			}
 			
@@ -221,12 +216,10 @@ public class DiemMonDAO implements DAOInterface<DiemMon>{
 				float diem15p = rSet.getFloat("Diem15p");
 				float diem1tiet = rSet.getFloat("Diem1tiet");
 				float diemthi = rSet.getFloat("DiemThi");
-				float diemTB = rSet.getFloat("DiemTBmon");
 				
 
 				DiemMon diemMon = new DiemMon(maMon, maHS, maHK, 
 						mieng, diem15p, diem1tiet, diemthi);
-				diemMon.setDiemTBmon(diemTB);
 				list.add(diemMon);
 				
 			}

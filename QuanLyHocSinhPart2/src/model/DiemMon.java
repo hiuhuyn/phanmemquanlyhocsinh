@@ -5,24 +5,8 @@ public class DiemMon {
 	private String maHS= "";
 	private String maHK = "";
 	private float diemMieng = 0, diem15p= 0, diem1Tiet= 0, diemThi= 0;
-	private float diemTBmon= 0;
 	
-	public void setDiemTBmon(float diemTB) {
-		this.diemTBmon = diemTB;
-	}
 
-
-	/**
-	 * @param monHoc
-	 * @param hocSinh
-	 * @param hocKy
-	 * @param diemMieng
-	 * @param diem15p
-	 * @param diem1Tiet
-	 * @param diemThi
-
-	 */
-	
 	public DiemMon(String monHoc, String hocSinh, String hocKy, float diemMieng, float diem15p, float diem1Tiet,
 			float diemThi) {
 		
@@ -33,8 +17,6 @@ public class DiemMon {
 		this.diem15p = diem15p;
 		this.diem1Tiet = diem1Tiet;
 		this.diemThi = diemThi;
-		
-		
 	}
 	
 	
@@ -100,9 +82,8 @@ public class DiemMon {
 	}
 	public float getDiemTBmon() {
 		
-		diemTBmon =  (float) (this.diemMieng + this.diem15p + 2*this.diem1Tiet + 3*this.diemThi )/7;
 //		diemTBmon = (float) 8.8;
-		return diemTBmon;
+		return (float) (this.diemMieng + this.diem15p + 2*this.diem1Tiet + 3*this.diemThi )/7;
 	}
 	@Override
 	public String toString() {
