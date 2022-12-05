@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,6 +29,7 @@ import model.HocSinh;
 
 import model.Lop;
 import model.MonHoc;
+import model.TongKet;
 import model.XuatFileExcel;
 
 
@@ -131,7 +134,7 @@ public class ViewThongKe extends JPanel {
 		
 		taoJSc();
 		hienThiAll();
-
+		sapXep();
 		
 	}
 
@@ -159,6 +162,65 @@ public class ViewThongKe extends JPanel {
 	}
 	
 	
+	public void sapXep() {
+		ArrayList<HocSinh> hocSinhs = 
+				HocSinhDAO.getHocSinhDAO().selectAll();
+		ArrayList<DiemMon> diemMons;
+		
+		ArrayList<HocKy> hocKies = HocKyDAO.getHocKyDAO().selectAll();
+		
+		ArrayList<TongKet> tongKets = new ArrayList<TongKet>();
+		
+		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+		int irow = tableModel.getRowCount();
+		
+		
+		for (HocKy hocKy : hocKies) {
+			for (HocSinh hocSinh : hocSinhs) {
+				double diemTK = 0;
+				diemMons = DiemMonDAO.getDiemMonDAO().selectByCondition("MaHS = '" + hocSinh.getMaHS() + "' and MaHK = '" + hocKy.getMaHK() +"'");
+
+				
+				for (DiemMon diemMon : diemMons) {
+					diemTK += diemMon.getDiemTBmon();
+				}
+				
+				diemTK /= diemMons.size();
+				
+				TongKet tongKet = new TongKet(hocSinh.getMaLop(), hocSinh.getMaHS(), hocSinh.getHoTen(), hocKy.getMaHK(), diemMons.size(), diemTK);
+				tongKets.add(tongKet);
+
+			}
+		}
+		
+		for (int i=0; i< tongKets.size(); i++) {
+			for (int j=1; j < tongKets.size(); j++) {
+				if( tongKets.get(j).getDiemTk() > tongKets.get(i).getDiemTk() ) {
+					TongKet t = tongKets.get(i);
+					tongKets.set(i, tongKets.get(j));
+					tongKets.set(j, t);
+				}
+			}
+		}
+		
+		for (TongKet tongKet : tongKets) {
+			tableModel.addRow(new Object[] {
+				irow,
+				tongKet.getMalop(),
+				tongKet.getMaHS(),
+				tongKet.getHoTenHS(),
+				tongKet.getMaHK(),
+				tongKet.getSoMon(),
+				String.format("%,.2f", tongKet.getDiemTk())
+			});
+			irow++;
+		}
+		
+		
+		
+	}
+	
+	
 	public void hienThiAll() {
 		this.remove(scrollPane);
 		taoJSc();
@@ -183,6 +245,8 @@ public class ViewThongKe extends JPanel {
 		
 		ArrayList<HocKy> hocKies = HocKyDAO.getHocKyDAO().selectAll();
 		
+		ArrayList<TongKet> tongKets = new ArrayList<TongKet>();
+		
 		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
 		int irow = tableModel.getRowCount();
 		
@@ -199,18 +263,24 @@ public class ViewThongKe extends JPanel {
 				
 				diemTK /= diemMons.size();
 				
-				tableModel.addRow(new Object[] {
-						irow,
-						hocSinh.getMaLop(),
-						hocSinh.getMaHS(),
-						hocSinh.getHoTen(),
-						hocKy.getMaHK(),
-						diemMons.size(),
-						String.format("%,.2f", diemTK)
-				});
-				irow++;
+				TongKet tongKet = new TongKet(hocSinh.getMaLop(), hocSinh.getMaHS(), hocSinh.getHoTen(), hocKy.getMaHK(), diemMons.size(), diemTK);
+				tongKets.add(tongKet);
 			}
 		}
+		
+		for (TongKet tongKet : tongKets) {
+			tableModel.addRow(new Object[] {
+				irow,
+				tongKet.getMalop(),
+				tongKet.getMaHS(),
+				tongKet.getHoTenHS(),
+				tongKet.getMaHK(),
+				tongKet.getSoMon(),
+				String.format("%,.2f", tongKet.getDiemTk())
+			});
+			irow++;
+		}
+		
 		
 	}
 	
@@ -221,6 +291,8 @@ public class ViewThongKe extends JPanel {
 		
 		ArrayList<HocKy> hocKies = HocKyDAO.getHocKyDAO().selectAll();
 		
+		ArrayList<TongKet> tongKets = new ArrayList<TongKet>();
+		
 		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
 		int irow = tableModel.getRowCount();
 		
@@ -236,19 +308,23 @@ public class ViewThongKe extends JPanel {
 				
 				diemTK /= diemMons.size();
 				
-				tableModel.addRow(new Object[] {
-						irow,
-						hocSinh.getMaLop(),
-						hocSinh.getMaHS(),
-						hocSinh.getHoTen(),
-						hocKy.getMaHK(),
-						diemMons.size(),
-						String.format("%,.2f", diemTK)
-				});
-				irow++;
+				TongKet tongKet = new TongKet(hocSinh.getMaLop(), hocSinh.getMaHS(), hocSinh.getHoTen(), hocKy.getMaHK(), diemMons.size(), diemTK);
+				tongKets.add(tongKet);
 			}
 		}
 		
+		for (TongKet tongKet : tongKets) {
+			tableModel.addRow(new Object[] {
+				irow,
+				tongKet.getMalop(),
+				tongKet.getMaHS(),
+				tongKet.getHoTenHS(),
+				tongKet.getMaHK(),
+				tongKet.getSoMon(),
+				String.format("%,.2f", tongKet.getDiemTk())
+			});
+			irow++;
+		}
 	}
 	
 	public void themVaoTablevsHocKy(String maHK ) {
@@ -256,6 +332,7 @@ public class ViewThongKe extends JPanel {
 				HocSinhDAO.getHocSinhDAO().selectAll();
 		ArrayList<DiemMon> diemMons;
 		
+		ArrayList<TongKet> tongKets = new ArrayList<TongKet>();
 		
 		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
 		int irow = tableModel.getRowCount();
@@ -270,20 +347,22 @@ public class ViewThongKe extends JPanel {
 			}
 			
 			diemTK /= diemMons.size();
-			
+			TongKet tongKet = new TongKet(hocSinh.getMaLop(), hocSinh.getMaHS(), hocSinh.getHoTen(), maHK, diemMons.size(), diemTK);
+			tongKets.add(tongKet);
+		}
+	
+		for (TongKet tongKet : tongKets) {
 			tableModel.addRow(new Object[] {
-					irow,
-					hocSinh.getMaLop(),
-					hocSinh.getMaHS(),
-					hocSinh.getHoTen(),
-					maHK,
-					diemMons.size(),
-//					diemTK
-					String.format("%,.2f", diemTK)
+				irow,
+				tongKet.getMalop(),
+				tongKet.getMaHS(),
+				tongKet.getHoTenHS(),
+				tongKet.getMaHK(),
+				tongKet.getSoMon(),
+				String.format("%,.2f", tongKet.getDiemTk())
 			});
 			irow++;
 		}
-		
 	}
 	
 	public void themVaoTable(String maLop, String maHK ) {
@@ -291,6 +370,7 @@ public class ViewThongKe extends JPanel {
 				HocSinhDAO.getHocSinhDAO().selectByCondition("MaLop= '" +maLop+ "'");
 		ArrayList<DiemMon> diemMons;
 		
+		ArrayList<TongKet> tongKets = new ArrayList<TongKet>();
 		
 		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
 		int irow = tableModel.getRowCount();
@@ -306,15 +386,19 @@ public class ViewThongKe extends JPanel {
 			
 			diemTK /= diemMons.size();
 			
+			TongKet tongKet = new TongKet(hocSinh.getMaLop(), hocSinh.getMaHS(), hocSinh.getHoTen(), maHK, diemMons.size(), diemTK);
+			tongKets.add(tongKet);
+		}
+	
+		for (TongKet tongKet : tongKets) {
 			tableModel.addRow(new Object[] {
-					irow,
-					maLop,
-					hocSinh.getMaHS(),
-					hocSinh.getHoTen(),
-					maHK,
-					diemMons.size(),
-//					diemTK
-					String.format("%,.2f", diemTK)
+				irow,
+				tongKet.getMalop(),
+				tongKet.getMaHS(),
+				tongKet.getHoTenHS(),
+				tongKet.getMaHK(),
+				tongKet.getSoMon(),
+				String.format("%,.2f", tongKet.getDiemTk())
 			});
 			irow++;
 		}

@@ -24,8 +24,8 @@ public class DiemMonDAO implements DAOInterface<DiemMon>{
 			connection = JDBCUtil.getConnection();
 			
 			String sql = "insert into DiemMon(MaMon, MaHS, MaHK, "
-					+ "DiemMieng, Diem15p, Diem1tiet, DiemThi, DiemTBmon) "
-					+ " values(?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "DiemMieng, Diem15p, Diem1tiet, DiemThi) "
+					+ " values(?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement psm = connection.prepareStatement(sql);
 			psm.setString(1, t.getMonHoc());
 			psm.setString(2, t.getHocSinh());
@@ -35,7 +35,6 @@ public class DiemMonDAO implements DAOInterface<DiemMon>{
 			psm.setFloat(5, t.getDiem15p());
 			psm.setFloat(6, t.getDiem1Tiet());
 			psm.setFloat(7, t.getDiemThi());
-			psm.setFloat(8, t.getDiemTBmon());
 			
 			
 			
@@ -60,7 +59,7 @@ public class DiemMonDAO implements DAOInterface<DiemMon>{
 			
 			String sql = "update DiemMon"
 					+ " set DiemMieng= ?, Diem15p= ?, Diem1tiet= ?, "
-					+ "DiemThi= ?, DiemTBmon= ?"
+					+ "DiemThi= ?"
 					+ " where MaMon = ? AND MaHS = ? AND MaHK = ?";
 			PreparedStatement psm = connection.prepareStatement(sql);
 			
@@ -69,11 +68,10 @@ public class DiemMonDAO implements DAOInterface<DiemMon>{
 			psm.setFloat(2, t.getDiem15p());
 			psm.setFloat(3, t.getDiem1Tiet());
 			psm.setFloat(4, t.getDiemThi());
-			psm.setFloat(5, t.getDiemTBmon());
 			
-			psm.setString(6, t.getMonHoc());
-			psm.setString(7, t.getHocSinh());
-			psm.setNString(8, t.getHocKy());
+			psm.setString(5, t.getMonHoc());
+			psm.setString(6, t.getHocSinh());
+			psm.setNString(7, t.getHocKy());
 			
 			
 			int kq = psm.executeUpdate();
